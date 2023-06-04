@@ -5,4 +5,6 @@ class PostsController < ApplicationController
       @posts = @posts.where(title: params[:query])
     end
   end
+  def create
+  end
 end

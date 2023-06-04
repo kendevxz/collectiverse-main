@@ -1,33 +1,101 @@
 .navigation__bar {
-  align-items: center;
-  background-color: #D9D9D9;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #D9D9D9;
+  position: sticky;
   height: 85px;
-  left: 0;
   min-width: 100%;
-  padding: 11px 18px;
-  position: absolute;
   top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .forum__logo__image {
-  height: 50px;
-  margin-bottom: 1px;
+  height: 65px;
+  width: 65px;
   object-fit: cover;
-  width: 50px;
+  margin-left: 12px;
 }
 
 .forum__logo__text{
   align-self: flex-end;
-  color: var(--black);
+  color: black;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 48px;
   font-weight: 400;
-  height: 58px;
+  height: 65px;
   letter-spacing: 7.2px;
-  line-height: normal;
-  margin-left: 20px;
-  width: 313px;
+  margin-left: 12px;
+  width: 320px;
 }
 
-//
+.navigation__bar__left__side{
+  display: flex;
+  align-items: center;
+  left: 0;
+}
+
+.navigation__bar__right__side{
+  display: flex;
+  align-items: center;
+  right: 0;
+}
+
+.navigation__bar__form{
+  width: 400px;
+  margin-right: 22px;
+}
+
+.navigation__bar__form__control{
+  width: 400px;
+  height: 48px;
+}
+
+.search__icon{
+  position: relative;
+  float: right;
+  top: 28px;
+  right: 14px;
+  color: #CCC;
+}
+
+// .nav-link{
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 84px;
+//   height: 42px;
+//   margin: 0;
+//   padding: 0 !important;
+//   font-size: 18px;
+//   font-weight: 600;
+//   color: black;
+//   font-family: 'Geologica', sans-serif;
+//   transition-duration: 2s;
+// }
+
+.nav__item{
+  align-items: center;
+}
+
+.nav__menu{
+  width: 162px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar{
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.button__new__post{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  height: 48px;
+  text-align: center;
+  padding: 0;
+}
