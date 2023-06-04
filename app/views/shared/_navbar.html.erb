@@ -1,0 +1,42 @@
+<div class="navbar navigation__bar navbar-expand-sm navbar-light navbar-main">
+  <div class="container-fluid">
+    <%= link_to "/", class: "navbar-brand navigation__bar__left__side" do %>
+      <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navigation__bar__right__side">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <%= form_tag search_categories_path, method: :get, class: "navigation__bar__form" do %>
+                <p> <i class="fa-solid fa-magnifying-glass search__icon"></i>
+                <%= text_field_tag :search, params[:search], class: "navigation__bar__form__control" %> </p>
+          <% end %>
+          <% if user_signed_in? %>
+            <div class="nav__menu">
+            <% end %>
+              <% if user_signed_in? %>
+              <li class="nav__item">
+                <%= link_to "Notification", new_toy_path, class: "btn button__notification" %>
+                <%# dropdown notification %>
+              </li>
+              <li class="nav__item">
+                <%= image_tag "https://riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg", class: "avatar dropdown-toggle nav__item", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Profile", "/sales", class: "dropdown-item" %>
+                  <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
+                  <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+                </div>
+              </li>
+                <% else %>
+              <li class="nav__item">
+                <%= link_to "Login", new_user_session_path, class: "btn button__login" %>
+              </li>
+              <% end %>
+        </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
