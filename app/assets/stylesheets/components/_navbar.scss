@@ -1,12 +1,31 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navigation__bar {
+  align-items: center;
+  background-color: var(--alto);
+  display: flex;
+  height: 85px;
+  left: 0;
+  min-width: 100%;
+  padding: 11px 18px;
+  position: absolute;
+  top: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.forum__logo__image {
+  height: 50px;
+  margin-bottom: 1px;
+  object-fit: cover;
+  width: 50px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.forum__logo__text{
+  align-self: flex-end;
+  color: var(--black);
+  font-family: var(--font-family-bebas_neue);
+  font-size: var(--font-size-xxxl);
+  font-weight: 400;
+  height: 58px;
+  letter-spacing: 7.2px;
+  line-height: normal;
+  margin-left: 20px;
+  width: 313px;
 }
