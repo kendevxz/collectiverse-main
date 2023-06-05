@@ -1,7 +1,5 @@
 <div class="footer">
-  <p class="footer-text">© Collectiverse 2023. All rights reserved.</p>
-  <div class="footer-links">
-    <%= link_to "About", pages_about_path, class:"btn btn-sm btn-outline-secondary button-footer-link py-2 px-4" %>
-    <%= link_to "Contact", pages_contact_path, class:"btn btn-sm btn-outline-secondary button-footer-link py-2 px-4" %>
-  </div>
+  <%= link_to "/", class: "navigation__bar__left__side" do %>
+    <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
+  <% end %>
 </div>
