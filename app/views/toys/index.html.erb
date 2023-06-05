@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="cards">
+    <% @toys.each do |toy| %>
+      <div class="card mb-3 mx-auto card-min-height" style="width: 18rem;">
+        <%= link_to toy_path(toy) do  %>
+          <div class="card-image">
+            <p> <%= cl_image_tag toy.photo.key, height: "300px", class: "card-img-top" %> </p>
+          </div>
+          <div class="card-content m-3">
+            <h3 class="toy-name"><%= toy.name %></h3>
+            <p class="toy-price"><%= toy.release_date %></p>
+            <p class="toy-seller"><i class="fa-solid fa-shop"></i><span><%= toy.user.username %></span></p>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+</div>

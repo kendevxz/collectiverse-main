@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-  has_many :subforums, dependent: :destroy
   has_many :posts, dependent: :destroy
   validates :name, length: { in: 3..32 }, presence: true,
                    uniqueness: { case_sensitive: false }
