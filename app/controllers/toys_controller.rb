@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class ToysController < ApplicationController
   before_action :set_params, only: %i[show destroy]
 
   def index
