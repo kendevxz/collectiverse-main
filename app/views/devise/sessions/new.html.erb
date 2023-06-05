@@ -1,41 +1,31 @@
-<section class="vh-100" style="height: 100px;>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 text-black">
-        <div class="d-flex h-100 align-items-center justify-content-center ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-          <form style="width: 23rem;">
-
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
-
-
-            <div class="div-content">
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <%= f.error_notification %>
-                  <div class="form-inputs">
-                    <%= f.input :email,
-                                required: false,
-                                autofocus: true,
-                                input_html: { autocomplete: "email" } %>
-                    <%= f.input :password,
-                                required: false,
-                                input_html: { autocomplete: "current-password" } %>
-                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-                  </div>
-
-                  <div class="form-actions d-inline">
-                    <%= f.button :submit, "Sign in", class: "btn button-primary" %>
-                  </div>
-                  <%= link_to "Sign up", new_registration_path(resource_name), class: "button-secondary btn m-2" %><br />
-                  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-
-              <% end %>
+<div class="d-flex" id="set-margin">
+  <div class="registration__content__left">
+    <div class="registration__box">
+        <h2 class="registration__box__text">Sign-in</h2>
+        <h5 class="registration__box__text">Start selling and buying toys</h5>
+      <div class="div-content">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: false,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { autocomplete: "current-password" } %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             </div>
-          </form>
+        <div class="form-actions d-inline">
+          <%= f.button :submit, "Sign in", class: "btn button-primary" %>
         </div>
       </div>
-      <div class="col-sm-6 px-0 d-none d-sm-block">
-          <%= image_tag "login_picture", class: "w-100 vh-100", style: "object-fit: cover; object-position: right;"%>
-      </div>
+      <%= link_to "Sign up", new_registration_path(resource_name), class: "button-secondary btn m-2" %><br />
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      <% end %>
     </div>
   </div>
-</section>
+  <div class="registration__content__right">
+    <%= image_tag "login_picture", class: "session__image" %>
+  </div>
+</div>
