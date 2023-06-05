@@ -1,0 +1,18 @@
+<div class="d-flex mt-5 mb-5 rounded full-page" id="set-margin">
+  <div class="main-div m-0 p-0" style="background-color: #f0f3f7;" >
+    <div class="banner">
+      <h2>Create new toy</h2>
+      <h5>Start selling toys</h5>
+      <hr class="solid">
+    </div>
+
+    <div class="div-content">
+      <%= simple_form_for @toy do |f| %>
+        <%= f.input :name %>
+        <%= f.input :release_date, as: :date %>
+        <%= f.input :photo %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
