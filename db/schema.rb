@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_04_161053) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_054450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,6 +71,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_161053) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "subcomments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_subcomments_on_comment_id"
+  end
+
+  create_table "toys", force: :cascade do |t|
+    t.string "name"
+    t.date "release_date"
+    t.string "where_to_buy"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_toys_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_161053) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.integer "admin_level"
+    t.integer "creditscore"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -92,4 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_161053) do
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "subcomments", "comments"
+  add_foreign_key "toys", "categories"
 end
