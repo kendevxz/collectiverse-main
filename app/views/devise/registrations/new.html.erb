@@ -1,44 +1,36 @@
-<section class="vh-100" style="height: 100px;>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 text-black">
-        <div class="d-flex h-100 align-items-center justify-content-center ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-          <form style="width: 23rem;">
-
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up</h3>
-            <div class="div-content">
-              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= f.error_notification %>
-
-                <div class="form-inputs">
-                  <%= f.input :username,
-                              required: true,
-                              input_html: { autocomplete: "email" }%>
-                  <%= f.input :email,
-                              required: true,
-                              autofocus: true,
-                              input_html: { autocomplete: "email" }%>
-                  <%= f.input :password,
-                              required: true,
-                              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                              input_html: { autocomplete: "new-password" } %>
-                  <%= f.input :password_confirmation,
-                              required: true,
-                              input_html: { autocomplete: "new-password" } %>
-                </div>
-
-                <div class="form-actions d-inline">
-                  <%= f.button :submit, "Sign up", class: "button-primary" %>
-                </div>
-                <%= link_to "Log in", new_session_path(resource_name), class: "button-secondary btn m-2" %>
-              <% end %>
-            </div>
-          </form>
+<div class="d-flex" id="set-margin">
+  <div class="registration__content__left">
+    <div class="registration__box">
+        <h2 class="registration__box__text">Sign-up</h2>
+        <h5 class="registration__box__text">Start selling and buying toys</h5>
+      <div class="div-content">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+            <div class="form-inputs">
+            <%= f.input :username,
+                        required: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
         </div>
+        <div class="form-actions d-inline">
+          <%= f.button :submit, "Sign up", class: "button-primary" %>
+        </div>
+          <%= link_to "Log in", new_session_path(resource_name), class: "button-secondary btn m-2" %>
+        <% end %>
       </div>
-        <div class="col-sm-6 px-0 d-none d-sm-block">
-            <%= image_tag "login_picture", class: "w-100 vh-100", style: "object-fit: cover; object-position: right;"%>
-        </div>
     </div>
   </div>
-</section>
+  <div class="registration__content__right">
+    <%= image_tag "login_picture", class: "session__image" %>
+  </div>
+</div>
