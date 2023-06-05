@@ -3,4 +3,5 @@ class Category < ApplicationRecord
   validates :name, length: { in: 3..32 }, presence: true,
                    uniqueness: { case_sensitive: false }
   before_save { name.downcase! }
+  searchkick
 end
