@@ -38,6 +38,11 @@
               </form>
             </div>
         </div>
+        <div class="form-actions d-inline">
+          <%= f.button :submit, "Sign up", class: "button-primary" %>
+        </div>
+          <%= link_to "Log in", new_session_path(resource_name), class: "button-secondary btn m-2" %>
+        <% end %>
       </div>
 
         <div class="col-sm-6 px-0 d-none d-sm-block">
@@ -47,4 +52,7 @@
     </div>
     </div>
   </div>
-</section>
+  <div class="registration__content__right">
+    <%= image_tag "login_picture", class: "session__image" %>
+  </div>
+</div>
