@@ -14,12 +14,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
-      redirect_to root_path # adjust later
+      redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity
     end
   end
+
 
   def destroy
     @post.destroy
@@ -27,11 +29,12 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
-   params.require(:post).permit(:title, :content)
-  end
 
   def set_params
     @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :content, :category_id, photos: [])
   end
 end

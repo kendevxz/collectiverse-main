@@ -123,3 +123,11 @@
   display: flex;
   justify-content: center;
 }
+
+.collapse__bar{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  right: 14px;
+  justify-content: flex-end;
+}
