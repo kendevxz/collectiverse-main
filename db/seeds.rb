@@ -1,4 +1,3 @@
-require "open-uri"
 require 'faker'
 
 puts "Clearing all toys"
