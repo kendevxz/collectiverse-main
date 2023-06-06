@@ -7,9 +7,11 @@
     </button>
     <div class="navigation__bar__collapse">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="search__bar__placeholder">
         <%= form_tag categories_path, method: :get, class: "navbar-form navigation__bar__form" do %>
           <p> <i class="fa-solid fa-magnifying-glass search__icon"></i>
           <%= text_field_tag :search, params[:search], class: "form-control navigation__bar__form__control" %> </p>
+          </div>
         <% end %>
         <div class="navigation__bar__right__side">
         <% if user_signed_in? %>

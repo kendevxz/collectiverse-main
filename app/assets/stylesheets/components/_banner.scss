@@ -1,9 +1,91 @@
-.banner__main__container {
-  background-image: url();
-  background-size: 100% 100%;
-  height: 401px;
-  left: 0;
-  position: absolute;
-  top: 83px;
-  width: 100%;
+.index__banner {
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+}
+
+.banner__text{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 34px;
+}
+
+.banner__logo__text{
+  color: white;
+  font-size: 72px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 20px;
+  margin-top: 185px;
+}
+
+.banner__sub__text{
+  color: white;
+  font-size: 36px;
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 9.5px;
+  margin-top: -25px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .banner__logo__text{
+    font-size: 48px;
+    letter-spacing: 8px;
+    margin-top: 225px;
+  }
+  .banner__sub__text{
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-top: -10px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .banner__logo__text{
+    font-size: 72px;
+    letter-spacing: 20px;
+  }
+  .banner__sub__text{
+    font-size: 66px;
+    letter-spacing: 20px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .banner__logo__text{
+    font-size: 88px;
+    letter-spacing: 20px;
+  }
+  .banner__sub__text{
+    font-size: 66px;
+    letter-spacing: 20px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .banner__logo__text{
+    font-size: 104px;
+    letter-spacing: 20px;
+  }
+  .banner__sub__text{
+    font-size: 66px;
+    letter-spacing: 20px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .banner__logo__text{
+    font-size: 120px;
+    letter-spacing: 20px;
+  }
+  .banner__sub__text{
+    font-size: 66px;
+    letter-spacing: 20px;
+  }
 }
