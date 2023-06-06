@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :toys, only: :index
+
   # get 'pages/about'
   # get 'pages/contact'
 end
