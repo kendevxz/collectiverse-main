@@ -8,8 +8,10 @@
 .banner__text{
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   color: white;
   margin-left: 34px;
+  margin-bottom: 34px;
 }
 
 .banner__logo__text{
@@ -17,7 +19,7 @@
   font-size: 72px;
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 20px;
-  margin-top: 185px;
+  margin-bottom: -25px;
 }
 
 .banner__sub__text{
@@ -25,67 +27,67 @@
   font-size: 36px;
   font-family: 'Dosis', sans-serif;
   letter-spacing: 9.5px;
-  margin-top: -25px;
 }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .banner__logo__text{
-    font-size: 48px;
+    font-size: 44px;
     letter-spacing: 8px;
-    margin-top: 225px;
+    margin-bottom: -10px;
   }
   .banner__sub__text{
-    font-size: 24px;
-    letter-spacing: 4px;
-    margin-top: -10px;
+    font-size: 20px;
+    letter-spacing: 4.5px;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .banner__logo__text{
-    font-size: 72px;
-    letter-spacing: 20px;
+    font-size: 48px;
+    letter-spacing: 10px;
+    margin-bottom: -10px;
   }
   .banner__sub__text{
-    font-size: 66px;
-    letter-spacing: 20px;
+    font-size: 21px;
+    letter-spacing: 6px;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .banner__logo__text{
-    font-size: 88px;
-    letter-spacing: 20px;
+    font-size: 54px;
+    letter-spacing: 12px;
+    margin-bottom: -10px;
   }
   .banner__sub__text{
-    font-size: 66px;
-    letter-spacing: 20px;
+    font-size: 26.5px;
+    letter-spacing: 6px;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .banner__logo__text{
-    font-size: 104px;
-    letter-spacing: 20px;
+    font-size: 64px;
+    letter-spacing: 14px;
   }
   .banner__sub__text{
-    font-size: 66px;
-    letter-spacing: 20px;
+    font-size: 29px;
+    letter-spacing: 8px;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .banner__logo__text{
-    font-size: 120px;
+    font-size: 72px;
     letter-spacing: 20px;
   }
   .banner__sub__text{
-    font-size: 66px;
-    letter-spacing: 20px;
+    font-size: 36px;
+    letter-spacing: 9.5px;
   }
 }
