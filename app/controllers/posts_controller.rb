@@ -15,10 +15,14 @@ class PostsController < ApplicationController
   def create
     raise
     @post = Post.new(params[:post])
-    @post.save
-
-    redirect_to post_path(@post)
+      if @post.save
+        redirect_to post_path(@post)
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
+
+# @post.author_id = params[:author_id]
 
   def destroy
     @post.destroy
