@@ -3,17 +3,11 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :categories do
-    collection do
-      get 'search'
-    end
-    resources :posts, only: %i[new create show edit] do
-      collection do
-        get 'search'
-      end
-      resources :comments, only: %i[new create] do
-        resources :subcomments, only: %i[new create]
-      end
+  resources :categories
+
+  resources :posts do
+    resources :comments, only: :create, shallow: true do
+      resources :subcomments, only: :create
     end
   end
 

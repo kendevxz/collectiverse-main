@@ -80,3 +80,4 @@ gem "devise"
 gem "cloudinary"
 gem "searchkick"
 gem "opensearch-ruby"
+gem 'faker'
