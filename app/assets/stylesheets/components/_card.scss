@@ -2,7 +2,18 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 17px;
-  min-height: 1350px;
-  width: 873px;
+  width: 875px;
+}
+
+.card {
+  align-items: flex-start;
+  height: 105px;
+  width: 875px;
+}
+
+.card__content {
+  height: 105px;
+  width: 875px;
+  padding: 25px;
+  text-decoration: none;
 }

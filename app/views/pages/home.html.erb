@@ -4,3 +4,35 @@
     <span class="banner__sub__text">A Universe for Collectors!</span>
   </div>
 </div>
+<div class="site__content">
+
+  <div class="site__content__left">
+    <div class="categories__list">
+    </div>
+    <div class="information__board">
+    </div>
+  </div>
+
+  <div class="site__content__center">
+    <div class="cards">
+      <% Post.all.each do |post| %>
+      <%= link_to post_path(post) do  %>
+        <div class="card">
+            <div class="card__content">
+              <span class="post__title"><%= post.title %></span>
+              <span class="post__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
+              <span class="post__date"><%= post.created_at %></span>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="site__content__right">
+    <div class="profile__box">
+    </div>
+    <div class="information__board">
+    </div>
+  </div>
+</div>
