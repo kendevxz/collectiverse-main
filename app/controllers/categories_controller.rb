@@ -8,10 +8,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def new
+    @category = Category.new
+  end
+
   def create
     @category = Category.new(category_params)
+    @category.user_id = current_user.id
     if @category.save
-      redirect_to root_path # adjust later
+      redirect_to category_path(@category)
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,10 +29,10 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:title, :content)
+    params.require(:category).permit(:name, :photo)
   end
 
   def set_params
-    @category = category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 end
