@@ -12,9 +12,9 @@
             <%= f.association :category %>
             <%= f.input :photos, as: :file, input_html: { multiple: true }%>
           </div>
-          <div class="form-actions d-inline">
+          <div class="form-actions d-flex align-items-center"">
           <button onclick="history.back()" class="button__cancel">Cancel</button>
-          <%= f.button :submit, class: "button-primary" %>
+          <%= f.button :submit, class: "button_primary" %>
           </div>
         <% end %>
       </div>
