@@ -1,18 +1,23 @@
-<div class="d-flex mt-5 mb-5 rounded full-page" id="set-margin">
-  <div class="main-div m-0 p-0" style="background-color: #f0f3f7;" >
-    <div class="banner">
-      <h2> Create a new Post</h2>
+<div class="d-flex" id="set-margin">
+  <div class="create__post__content__middle" >
+    <div class="create__post__box">
+      <h2 class="registration__box__text">Create your a post</h2>
       <hr class="solid">
-    </div>
 
-    <div class="div-content">
-      <%= simple_form_for @post do |f| %>
-        <%= f.input :title %>
-        <%= f.input :content %>
-        <%= f.association :category %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
+      <div class="div-content">
+        <%= simple_form_for @post do |f| %>
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :content %>
+            <%= f.association :category %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+          </div>
+          <div class="form-actions d-inline">
+          <button onclick="history.back()" class="button__cancel">Cancel</button>
+          <%= f.button :submit, class: "button-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
