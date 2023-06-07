@@ -1,7 +1,27 @@
 <%= @post.title %>
+<%= @post.content %>
 
 <% if @post.photos.attached? %>
   <%= cl_image_tag @post.photos.first.key, height: "300px", class: "card-img-top" %>
 <% else %>
-  <%= image_tag "logo.png" %>
+  <%= image_tag "logo.png", height: "150px" %>
 <% end %>
+
+
+<div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+  <div data-insert-in-list-target="items">
+    <h2><%= pluralize @post.comments.size, "comment" %></h2>
+    <div>
+      <% if @post.comments.blank? %>
+        Be the first to leave a comment for <%= @post.name %>
+      <% else %>
+        <% @post.comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "comments/form", post: @post, comment: @comment %>
+</div>
+
+<%= link_to "Back to all posts", posts_path %>
