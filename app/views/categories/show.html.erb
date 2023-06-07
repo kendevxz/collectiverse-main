@@ -1,4 +1,63 @@
-<%= @category.name %>
-<p> <%= cl_image_tag @category.photo.key, height: "100px", class: "card-img-top" %> </p>
+<div class="site__content">
 
-#category show username instead of id
+  <div class="site__content__left">
+
+    <div class="categories__list">
+      <span class="categories__list__main__text"><%= @category.name %></span>
+      <div class="categories__list__sub">
+        <div class="sub__container">
+          <span class="sub__main__text"> 1.2k </span>
+          <span class="sub__title__text"> Members </span>
+        </div>
+        <div class="sub__container">
+          <span class="sub__main__text"> 3.6k </span>
+          <span class="sub__title__text"> Posts </span>
+        </div>
+        <div class="sub__container">
+          <span class="sub__main__text"> 901 </span>
+          <span class="sub__title__text"> Trades </span>
+        </div>
+      </div>
+      <div class="categories__image" style="background-image: url(https://fixthephoto.com/images/content/toy-photography-tips-3.jpg);">
+      </div>
+      </div>
+    <div class="information__board">
+    </div>
+    <div class="categories__list">
+      <span class="categories__list__main__text">Top Posts</span>
+        <div class="content__sub">
+          <% Post.all.first(10).each do |post| %>
+          <%# logic might need to be changed %>
+            <%= link_to post_path(post) do  %>
+            <span class="content__sub__text"><%= post.title %></span>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+
+  <div class="site__content__center">
+    <div class="cards">
+      <% Post.all.each do |post| %>
+      <%= link_to post_path(post) do  %>
+        <div class="card">
+            <div class="card__content">
+              <span class="post__title"><%= post.title %></span>
+              <div class="card__description">
+                <span class="post__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
+                <span class="post__date"><%= post.created_at %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="site__content__right">
+    <div class="profile__box">
+    </div>
+    <div class="information__board">
+    </div>
+  </div>
+</div>

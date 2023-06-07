@@ -20,8 +20,10 @@
         <div class="card">
             <div class="card__content">
               <span class="post__title"><%= post.title %></span>
-              <span class="post__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
-              <span class="post__date"><%= post.created_at %></span>
+              <div class="card__description">
+                <span class="post__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
+                <span class="post__date"><%= post.created_at %></span>
+              </div>
             </div>
           <% end %>
         </div>
