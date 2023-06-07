@@ -16,4 +16,32 @@
   width: 875px;
   padding: 25px;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__description{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+}
+
+.post__title{
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+  width: 550px;
+}
+
+.post__user__and__category{
+  text-align: right;
+  font-family: 'Outfit', sans-serif;
+}
+
+.post__date{
+  text-align: right;
+  font-family: 'Outfit', sans-serif;
 }
