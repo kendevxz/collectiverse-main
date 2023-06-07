@@ -8,8 +8,62 @@
 
   <div class="site__content__left">
     <div class="categories__list">
+    <% if user_signed_in? %>
+      <span class="categories__list__main__text">Welcome Back!</span>
+      <span class="content__profile__username"><%= current_user.username %></span>
+    <% else %>
+      <span class="categories__list__main__text">Home Page</span>
+      <span class="content__profile__username"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
+    <% end %>
+      <div class="categories__list__sub">
+          <div class="sub__container">
+            <span class="sub__main__text"> 1.2k </span>
+            <span class="sub__title__text"> Members </span>
+          </div>
+          <div class="sub__container">
+            <span class="sub__main__text"> 3.6k </span>
+            <span class="sub__title__text"> Posts </span>
+          </div>
+          <div class="sub__container">
+            <span class="sub__main__text"> 901 </span>
+            <span class="sub__title__text"> Trades </span>
+          </div>
+      </div>
+      <div class="categories__image" style="background-image: url(https://fixthephoto.com/images/content/toy-photography-tips-3.jpg);">
+      </div>
     </div>
-    <div class="information__board">
+    <div class="categories__list">
+      <span class="categories__list__main__text">Top Categories</span>
+      <div class="content__sub">
+        <% Category.all.first(10).each do |category| %>
+        <%# logic might need to be changed %>
+          <%= link_to category_path(category) do  %>
+          <span class="content__top__category"><%= category.name %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="categories__list">
+      <span class="categories__list__main__text">Top Users</span>
+      <div class="content__sub">
+        <% User.all.first(10).each do |user| %>
+        <%# logic might need to be changed %>
+          <%# <%= link_to user_path(user) do  %>
+          <span class="content__sub__text"><%= user.username %> - 2.3k Karma</span>
+          <%# <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="categories__list">
+      <span class="categories__list__main__text">Top Traders</span>
+      <div class="content__sub">
+        <% User.all.first(10).each do |user| %>
+        <%# logic might need to be changed %>
+          <%# <%= link_to user_path(user) do  %>
+          <span class="content__sub__text"><%= user.username %> - 5k Trades</span>
+          <%# <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 

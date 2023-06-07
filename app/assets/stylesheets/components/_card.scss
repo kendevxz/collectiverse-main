@@ -97,6 +97,8 @@
 }
 
 .content__sub__text{
+  display: flex;
+  justify-content: flex-start;
   width: 250px;
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
@@ -107,5 +109,37 @@
 }
 
 .content__sub__text:hover{
+  color: rgb(155, 155, 155);
+}
+
+.content__top__category{
+  display: flex;
+  justify-content: flex-start;
+  width: 250px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.content__top__category:hover{
+  color: rgb(155, 155, 155);
+}
+
+.content__profile__username{
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.content__profile__username:hover{
   color: rgb(155, 155, 155);
 }
