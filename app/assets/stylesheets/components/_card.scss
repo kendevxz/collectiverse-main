@@ -45,3 +45,67 @@
   text-align: right;
   font-family: 'Outfit', sans-serif;
 }
+
+.categories__list{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px #CBCBCB solid;
+  border-radius: 10px;
+  margin-bottom: 34px;
+}
+
+.categories__list__main__text{
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.categories__list__sub{
+  width: 250px;
+  height: 60px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70px;
+}
+
+.categories__image{
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 0 0 10px 10px;
+}
+
+.content__sub{
+  padding: 5px 10px 15px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__sub__text{
+  width: 250px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.content__sub__text:hover{
+  color: rgb(155, 155, 155);
+}
