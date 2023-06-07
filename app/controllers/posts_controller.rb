@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_params, only: %i[show destroy]
 
+  def show
+    @comment = Comment.new  # To be able to create comment on post show page
+  end
+
   def index
     @posts = Post.all
     if params[:query].present?
