@@ -2,17 +2,45 @@
   <div class="cards">
     <% @toys.each do |toy| %>
       <div class="card mb-3 mx-auto card-min-height" style="width: 18rem;">
-        <%= link_to toy_path(toy) do  %>
-          <div class="card-image">
-            <p> <%= cl_image_tag toy.photo.key, height: "300px", class: "card-img-top" %> </p>
-          </div>
           <div class="card-content m-3">
             <h3 class="toy-name"><%= toy.name %></h3>
             <p class="toy-price"><%= toy.release_date %></p>
-            <p class="toy-seller"><i class="fa-solid fa-shop"></i><span><%= toy.user.username %></span></p>
           </div>
-        <% end %>
       </div>
   <% end %>
   </div>
 </div>
+
+
+<div class="container_upcoming_events">
+			<div class="sc_events sc_events_default is_block">
+        <h3 class="sc_item_title sc_events_title sc_item_title_style_default sc_item_title_tag">
+          <span class="sc_item_title_text">Top Events</span></h3>
+            <div class="sc_events_content sc_item_content">
+              <div class="sc_events_item sc_item_container post_container is_block">
+	<div class="post_featured with_thumb hover_none sc_events_item_thumb"><img src="https://alliance.themerex.net/wp-content/plugins/trx_addons/components/lazy-load/images/placeholder.png" data-trx-lazyload-height="" style="height: 0px; padding-top: 56.3158%;" width="760" height="428" data-trx-lazyload-src="https://alliance.themerex.net/wp-content/uploads/2020/04/event-image6-760x428.jpg" class="attachment-alliance-thumb-big size-alliance-thumb-big wp-post-image" alt="" decoding="async" loading="lazy">
+
+    <div class="mask"></div>
+						<a href="https://alliance.themerex.net/event/designthinkers-conference/" class="item_date">
+              <span class="sc_events_item_date_day">02</span><span class="sc_events_item_date_month">May</span></a>
+                <a href="https://alliance.themerex.net/event/designthinkers-conference/" aria-hidden="true" class="icons"></a>
+			<div class="sc_events_item_info">
+		<div class="sc_events_item_header">
+			<div class="sc_events_item_meta">
+				<span class="sc_events_item_meta_item sc_events_item_meta_date"><span class="sc_events_item_meta_date_start">May 2, 2023 08:00</span><span class="sc_events_item_meta_date_separator">-</span><span class="sc_events_item_meta_date_end">June 25, 2023 17:00</span></span>
+			</div>
+			<h4 class="sc_events_item_title"><a href="https://alliance.themerex.net/event/designthinkers-conference/">DesignThinkers Conference</a></h4>
+							<div class="sc_events_item_text">Sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. Lorem ipsum dolor sit amet, consetetur elitr.  Ernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </div>
+					</div>
+		<div class="sc_events_item_price">$95</div>
+	</div>
+			<div class="sc_events_item_button sc_item_button">
+			<a href="https://alliance.themerex.net/event/designthinkers-conference/" class="sc_button">
+				More info			</a>
+		</div>
+	</div>
+<div class="sc_item_button sc_button_wrap sc_item_button sc_item_button_simple sc_events_button"><a href="https://alliance.themerex.net/events/list/" class="sc_button sc_button_simple sc_button_size_normal sc_button_icon_left"><span class="sc_button_text"><span class="sc_button_title">View All</span></span></a></div></div>		</div>
+
+<a href="https://alliance.themerex.net/event/designthinkers-conference/" class="item_date">
+              <span class="sc_events_item_date_day">02</span><span class="sc_events_item_date_month">May</span></a>
+                <a href="https://alliance.themerex.net/event/designthinkers-conference/" aria-hidden="true" class="icons"></a>
