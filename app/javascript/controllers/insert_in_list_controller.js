@@ -9,7 +9,13 @@ export default class extends Controller {
   static targets = ["items", "form"]
   static values = { position: String }
 
+  connect() {
+    console.log(this.itemsTarget);
+    console.log(this.formTarget.action);
+  }
+
   send(event) {
+    console.log("submit");
     event.preventDefault()
 
     fetch(this.formTarget.action, {
@@ -19,6 +25,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
+      console.log(data);
       if (data.inserted_item) {
         this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
       }

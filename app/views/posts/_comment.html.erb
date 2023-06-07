@@ -1,1 +1,11 @@
-<p><%= comment.content %></p>
+<div class="card">
+  <div class="card-body">
+    <%= comment.content %>
+    <%= link_to 'reply', comment_subcomments_path(@post, @comment.id), remote: true, class: 'd-block' %>
+    <% if comment.subcomments.any? %>
+      <% comment.subcomments.each do |reply| %>
+        <%# <%= render partial: 'comments/subcomments', locals: { subcomment: @subcomment } %>
+      <% end %>
+   <% end %>
+  </div>
+</div>

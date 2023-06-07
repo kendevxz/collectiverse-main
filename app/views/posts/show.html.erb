@@ -17,6 +17,9 @@
       <% else %>
         <% @post.comments.each do |comment| %>
           <%= render 'comment', comment: comment %>
+          <% comment.subcomments.each do |subcomment| %>
+            <%= render 'subcomment', subcomment: subcomment %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
