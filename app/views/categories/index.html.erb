@@ -1,18 +1,11 @@
-<h1>Category index</h1>
-<div class="container mt-5">
-  <div class="cards">
-    <% @categories.each do |category| %>
-      <div class="card mb-3 mx-auto card-min-height" style="width: 18rem;">
-        <%= link_to category_path(category) do  %>
-          <div class="card-image">
-            <h3 class="category-name"><%= category.name %></h3>
-          </div>
-        <% end %>
-      </div>
-  <% end %>
-  </div>
-</div>
-
-<button type="button" class="button_primary">Click Me!</button>
-<button type="button" class="button_secondary">Click Me!</button>
-<button type="button" class="button_tertiary">Click Me!</button>
+<div class="cards">
+      <% Category.all.each do |category| %>
+      <%= link_to category_path(category) do  %>
+        <div class="card">
+            <div class="card__content">
+              <span class="category__title"><%= category.name %></span>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+    </div>
