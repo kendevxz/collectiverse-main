@@ -11,10 +11,6 @@
     <% if user_signed_in? %>
       <span class="categories__list__main__text">Welcome Back!</span>
       <span class="content__profile__username"><%= current_user.username %></span>
-    <% else %>
-      <span class="categories__list__main__text">Home Page</span>
-      <span class="content__profile__username"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
-    <% end %>
       <div class="categories__list__sub">
           <div class="sub__container">
             <span class="sub__main__text"> 1.2k </span>
@@ -29,8 +25,12 @@
             <span class="sub__title__text"> Trades </span>
           </div>
       </div>
-      <div class="categories__image" style="background-image: url(https://fixthephoto.com/images/content/toy-photography-tips-3.jpg);">
+      <div class="categories__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
       </div>
+    <% else %>
+      <span class="categories__list__main__text">Home Page</span>
+      <span class="content__profile__username"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
+    <% end %>
     </div>
     <div class="categories__list">
       <span class="categories__list__main__text">Top Categories</span>
@@ -41,6 +41,7 @@
           <span class="content__top__category"><%= category.name %></span>
           <% end %>
         <% end %>
+        <%= link_to 'All Categories', categories_path, class: "board__additional__button" %>
       </div>
     </div>
     <div class="categories__list">
