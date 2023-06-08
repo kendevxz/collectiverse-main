@@ -1,5 +1,8 @@
-<div class="card ml-5">
-  <div class="card-body">
-    <%= subcomment.content %>
+<div class="comment__card">
+  <div class="comment__card__body">
+    <span><%= subcomment.user.username %> at <%= subcomment.created_at %></span>
+    <span><%= subcomment.content %></span>
+    <span><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>Reply</a></span>
+    <%# apply subcomment in subs again%>
   </div>
 </div>

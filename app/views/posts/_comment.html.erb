@@ -1,7 +1,8 @@
-<div class="card">
-  <div class="card-body">
-    <%= comment.content %>
-      <a class="d-block btn button_primary" data-action= "click->reply-subcomment#revealContent">Reply</a>
+<div class="comment__card">
+  <div class="comment__card__body">
+    <span class="comment__username"><%= comment.user.username %> at <%= comment.created_at %></span>
+    <span class="comment__content"><%= comment.content %></span>
+    <span class="comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>Reply</a></span>
     <% if comment.subcomments.any? %>
       <% comment.subcomments.each do |reply| %>
         <%# <%= render partial: 'comments/subcomments', locals: { subcomment: @subcomment } %>

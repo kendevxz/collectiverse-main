@@ -4,37 +4,46 @@
       <span class="post__title"><%= @post.title %></span>
       <span class="post__desc"><%= @post.user.username %> in <%= @post.category.name %> at <%= @post.created_at %></span>
       <span class="post__show__content"><%= @post.content %></span>
-
-      <div class="line__border"></div>
-
-      <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-        <div class="card-body" data-insert-in-list-target="items" data-comments-counter-controller="comments">
-          <% if @post.comments.blank? %>
-            Be the first to leave a comment for <%= @post.title %>
-          <% else %>
-            <span data-action="comments#updateCount" data-comments-counter-target="count"> <%# Does not update yet.... %>
-              <%= pluralize @post.comments.size, "comment" %>
-            </span>
+      <div class="comments__container">
+        <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+          <div data-insert-in-list-target="items" data-comments-counter-controller="comments">
+            <%= render "comments/form", post: @post, comment: @comment %>
+          </div>
+        </div>
+        <div class="line__border"></div>
+        <% if @post.comments.blank? %>
+          Be the first to leave a comment!
+        <% else %>
+        <div class="comments__box">
+          <span data-action="comments#updateCount" data-comments-counter-target="count"> <%# Does not update yet.... %>
+            <%= pluralize @post.comments.size, "comments" %>
+          </span>
+        </div>
+        <div class="comments__big__box">
+          <div class="comments_box">
             <% @post.comments.each do |comment| %>
               <div data-controller="reply-subcomment">
                 <div data-controller="insert-subcomment-in-list" data-insert-subcomment-in-list-position-value="beforeend">
                   <%= render 'posts/comment', comment: comment %>
-                  <div data-insert-subcomment-in-list-target="subcomments">
-                    <% comment.subcomments.each do |subcomment| %>
-                      <%= render 'posts/subcomment', subcomment: subcomment %>
-                    <% end %>
+                  <div class="comments__big__box">
+                    <div class="comments_box">
+                    <div data-insert-subcomment-in-list-target="subcomments">
+                      <% comment.subcomments.each do |subcomment| %>
+                        <%= render 'posts/subcomment', subcomment: subcomment %>
+                      <% end %>
+                      </div>
+                    </div>
                   </div>
                   <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
-                </div>
               </div>
+            </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-        <%= render "comments/form", post: @post, comment: @comment %>
       </div>
     </div>
   </div>
-
 
   <div class="site__content__right">
     <div class="board">
