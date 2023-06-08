@@ -81,3 +81,4 @@ gem "cloudinary"
 gem "searchkick"
 gem "opensearch-ruby"
 gem 'faker'
+gem "simple_calendar", "~> 2.4"

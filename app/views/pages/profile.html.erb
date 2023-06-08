@@ -1,3 +1,9 @@
+<% start_date = Date.today %>
+<% end_date = start_date + 6 %>
+
+
+
+
 <section style="background-color:$collectiv-light-blue;">
   <div class="container py-5">
     <div class="row">
@@ -22,8 +28,23 @@
             <button onclick="">How to get better <b>Karma</b></button>
           </div>
         </div>
-        <div class="card card__calender">
-          <div class="card-body body__calender">
+        <div class="card__calender">
+          <div class="simple-calendar">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                <%= month_calendar(events: @toys, attribute: :release_date) do |date, toys| %>
+                  <%= date.day %>
+                  <% toys.each do |toy| %>
+                    <div>
+                      <%= toy.name %>
+                    </div>
+                  <% end %>
+                <% end %>
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
     </div>
