@@ -1,9 +1,11 @@
   <%= simple_form_for([post, comment],
     data: {
-    insert_in_list_target: "form",
+      insert_in_list_target: "form",
     action: "submit->insert-in-list#send"
   }) do |f|
   %>
-    <%= f.input :content %>
-    <%= f.button :submit, class: "button_primary" %>
+  <%= f.input :content, label: "Comment as #{current_user.username}" , placeholder: "Write down your comment here!" %>
+  <div class="comment__button__placeholder">
+  <%= f.submit 'Comment', class: "comment__button" %>
+  </div>
   <% end %>

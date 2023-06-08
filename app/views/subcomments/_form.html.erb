@@ -1,13 +1,15 @@
-<div class="card ml-5 d-none" data-reply-subcomment-target = "form">
-  <div class="card-body">
+<div class="comment__card d-none" data-reply-subcomment-target = "form">
+  <div class="comment__card__body">
     <%= simple_form_for([comment, subcomment],
     data: {
     insert_subcomment_in_list_target: "form",
     action: "submit->insert-subcomment-in-list#send"
     }) do |f|
     %>
-    <%= f.input :content %>
-    <%= f.button :submit, class: "button_primary" %>
+    <%= f.input :content, label: "Comment as #{current_user.username}" , placeholder: "Write down your comment here!" %>
+ <div class="comment__button__placeholder">
+  <%= f.submit 'Comment', class: "comment__button" %>
+  </div>
     <% end %>
   </div>
 </div>
