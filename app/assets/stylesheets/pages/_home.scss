@@ -1,15 +1,42 @@
 // Specific CSS for your home-page
-.site__content{
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
+.site__content {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: 34px;
   padding: 34px;
 }
 
-.site__content__left{
-  width: 300px;
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .site__content {
+    grid-template-columns: 1fr;
+  }
 }
 
-.site__content__right{
-  width: 300px;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .site__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .site__content {
+    grid-template-columns:  1fr 2fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .site__content {
+    grid-template-columns:  1fr 3fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .site__content {
+    grid-template-columns:  1fr 3fr 1fr;
+  }
 }

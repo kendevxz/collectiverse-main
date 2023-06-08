@@ -1,0 +1,140 @@
+.posts__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  border: 1px #CBCBCB solid;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.post__container {
+  height: 180px;
+  width: 100%;
+}
+
+.posts__border {
+  height: 1px;
+  background-color: #CBCBCB;
+  margin: auto;
+  width: 95%;
+}
+
+.post__content {
+  height: 180px;
+  width: 100%;
+  padding: 25px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post__title{
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+}
+
+.post__description{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+}
+
+.post__user__and__category{
+  text-align: right;
+  font-family: 'Outfit', sans-serif;
+}
+
+.post__date{
+  text-align: right;
+  font-family: 'Outfit', sans-serif;
+}
+
+.board{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px #CBCBCB solid;
+  border-radius: 10px;
+  margin-bottom: 34px;
+  background-color: white;
+}
+
+.board__main__text{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.board__sub{
+  height: 60px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.board__sub__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.board__profile__image{
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+
+.board__content{
+  padding: 5px 10px 15px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.board__content__text{
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.content__sub__text:hover{
+  color: rgb(155, 155, 155);
+}
+
+.content__top__category{
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.content__top__category:hover{
+  color: rgb(155, 155, 155);
+}
+
+.board__additional__button{
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
