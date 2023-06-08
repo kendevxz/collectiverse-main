@@ -9,10 +9,11 @@
 
   <div class="site__content__left">
     <div class="board">
-
-    <% if user_signed_in? %>
-      <span class="board__main__text">Ahoy, <%= current_user.username %>!</span>
-      <div class="board__sub">
+      <% if user_signed_in? %>
+      <div class="board__container">
+        <span class="board__main__text">Ahoy, <%= current_user.username %>!</span>
+        <div class="line__border"></div>
+        <div class="board__sub">
           <div class="board__sub__container">
             <span class="sub__main__text"> 1.2k </span>
             <span class="sub__title__text"> Karma </span>
@@ -25,46 +26,58 @@
             <span class="sub__main__text"> 901 </span>
             <span class="sub__title__text"> Trades </span>
           </div>
+        </div>
       </div>
       <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
       </div>
-    <% else %>
-      <span class="board__main__text">Home Page</span>
-      <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
-    <% end %>
+      <% else %>
+      <div class="board__container">
+        <span class="board__main__text">Home Page</span>
+        <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
+      </div>
+      <% end %>
     </div>
     <div class="board">
-      <span class="board__main__text">Top Categories</span>
-      <div class="board__content">
-        <% Category.all.first(10).each do |category| %>
-        <%# logic might need to be changed %>
-          <%= link_to category_path(category) do  %>
-          <span class="content__top__category"><%= category.name %></span>
+      <div class="board__container">
+        <span class="board__main__text">Top Categories</span>
+        <div class="line__border"></div>
+        <div class="board__content">
+          <% Category.all.first(10).each do |category| %>
+          <%# logic might need to be changed %>
+            <%= link_to category_path(category) do  %>
+            <span class="board__content__text"><%= category.name %></span>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= link_to 'All Categories', categories_path, class: "board__additional__button" %>
+          <%= link_to 'All Categories', categories_path, class: "board__additional__button" %>
+        </div>
       </div>
     </div>
     <div class="board">
-      <span class="board__main__text">Top Users</span>
-      <div class="board__content">
-        <% User.all.first(10).each do |user| %>
-        <%# logic might need to be changed %>
-          <%# <%= link_to user_path(user) do  %>
-          <span class="board__content__text"><%= user.username %> - 2.3k Karma</span>
-          <%# <% end %>
-        <% end %>
+      <div class="board__container">
+        <span class="board__main__text">Top Users</span>
+        <div class="line__border"></div>
+        <div class="board__content">
+          <% User.all.first(10).each do |user| %>
+          <%# logic might need to be changed %>
+            <%# <%= link_to user_path(user) do  %>
+            <span class="board__content__text"><%= user.username %> - 2.3k Karma</span>
+            <%# <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="board">
-      <span class="board__main__text">Top Traders</span>
-      <div class="board__content">
-        <% User.all.first(10).each do |user| %>
-        <%# logic might need to be changed %>
-          <%# <%= link_to user_path(user) do  %>
-          <span class="board__content__text"><%= user.username %> - 5k Trades</span>
-          <%# <% end %>
-        <% end %>
+      <div class="board__container">
+        <span class="board__main__text">Top Traders</span>
+        <div class="line__border"></div>
+        <div class="board__content">
+          <% User.all.first(10).each do |user| %>
+          <%# logic might need to be changed %>
+            <%# <%= link_to user_path(user) do  %>
+            <span class="board__content__text"><%= user.username %> - 5k Trades</span>
+            <%# <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -75,13 +88,13 @@
       <%= link_to post_path(post) do  %>
         <div class="post__container">
           <div class="post__content">
-            <span class="post__title"><%= post.title %></span>
-            <div class="post__description">
-              <span class="post__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
-              <span class="post__date"><%= post.created_at %></span>
+            <span class="content__title"><%= post.title %></span>
+            <div class="content__description">
+              <span class="content__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
+              <span class="content__date"><%= post.created_at %></span>
             </div>
           </div>
-        <div class="posts__border"></div>
+        <div class="line__border"></div>
           <% end %>
         </div>
     <% end %>
