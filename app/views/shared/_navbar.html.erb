@@ -1,44 +1,35 @@
 <div class="navigation__bar navbar-expand-sm">
-    <%= link_to "/", class: "navigation__bar__left__side" do %>
-      <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
+  <%= link_to "/", class:"navigation__bar__left" do %>
+    <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
+  <% end %>
+  <div class="search__bar__placeholder">
+    <%= form_tag categories_path, method: :get, class: "navbar-form" do %>
+    <%= text_field_tag :search, params[:search], class: "form-control" %>
+    <i class="fa-solid fa-magnifying-glass search__icon"></i>
     <% end %>
-    <div class="collapse__bar">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars navbar__collapse__icon"></i>
-    </button>
-    </div>
-    <div class="navigation__bar__collapse">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="search__bar__placeholder">
-        <%= form_tag categories_path, method: :get, class: "navbar-form navigation__bar__form" do %>
-          <p> <i class="fa-solid fa-magnifying-glass search__icon"></i>
-          <%= text_field_tag :search, params[:search], class: "form-control navigation__bar__form__control" %> </p>
-          </div>
-        <% end %>
-        <div class="navigation__bar__right__side">
-        <% if user_signed_in? %>
-          <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, categories_path,  class:"nav__item nav__icon" %>
-          <%= link_to "#", class: "nav__item nav__icon", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-            <i class="fa-solid fa-bell"></i>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Notification", "/sales", class: "dropdown-item" %>
-            <%= link_to "Message", "/purchases", class: "dropdown-item" %>
-          </div>
-        <%= link_to "#", class: "profile__button", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-        <%= image_tag "https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024", class: "profile__avatar" %>
-        <span class="profile__text"><%= current_user.username %></span>
-        <i class="fa-solid fa-circle profile__online__status"></i>
-        <% end %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", "/sales", class: "dropdown-item" %>
-            <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
-            <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
-          </div>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %>
-        <% end %>
+  </div>
+  <div class="navigation__bar__right">
+    <% if user_signed_in? %>
+      <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, new_post_path,  class:"nav__item nav__icon" %>
+      <%= link_to "#", class: "nav__item nav__icon", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+        <i class="fa-solid fa-bell"></i>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "Notification", "/sales", class: "dropdown-item" %>
+        <%= link_to "Message", "/purchases", class: "dropdown-item" %>
       </div>
-    </div>
+    <%= link_to "#", class: "profile__button", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+    <%= image_tag "https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024", class: "profile__avatar" %>
+    <span class="profile__text"><%= current_user.username %></span>
+    <i class="fa-solid fa-circle profile__online__status"></i>
+    <% end %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "Profile", "/profile", class: "dropdown-item" %>
+        <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
+        <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+      </div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %>
+    <% end %>
   </div>
 </div>
