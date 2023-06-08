@@ -17,7 +17,7 @@
         <% end %>
         <div class="navigation__bar__right__side">
         <% if user_signed_in? %>
-          <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, categories_path,  class:"nav__item nav__icon" %>
+          <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, new_post_path,  class:"nav__item nav__icon" %>
           <%= link_to "#", class: "nav__item nav__icon", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
             <i class="fa-solid fa-bell"></i>
           <% end %>
@@ -31,7 +31,7 @@
         <i class="fa-solid fa-circle profile__online__status"></i>
         <% end %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", "/sales", class: "dropdown-item" %>
+            <%= link_to "Profile", "/profile", class: "dropdown-item" %>
             <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
             <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
           </div>
