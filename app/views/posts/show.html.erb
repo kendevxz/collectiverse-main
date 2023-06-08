@@ -13,7 +13,7 @@
     <h2><%= pluralize @post.comments.size, "comment" %></h2>
     <div>
       <% if @post.comments.blank? %>
-        Be the first to leave a comment for <%= @post.name %>
+        Be the first to leave a comment for <%= @post.title %>
       <% else %>
         <% @post.comments.each do |comment| %>
           <%= render 'comment', comment: comment %>
