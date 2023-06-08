@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CommentsCounterController from "./comments_counter_controller"
+application.register("comments-counter", CommentsCounterController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -12,3 +15,6 @@ application.register("insert-in-list", InsertInListController)
 
 import InsertSubcommentInListController from "./insert_subcomment_in_list_controller"
 application.register("insert-subcomment-in-list", InsertSubcommentInListController)
+
+import ReplySubcommentController from "./reply_subcomment_controller"
+application.register("reply-subcomment", ReplySubcommentController)

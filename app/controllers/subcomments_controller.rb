@@ -1,9 +1,13 @@
-class CommentsController < ApplicationController
+class SubcommentsController < ApplicationController
 
   def create
     @comment = Comment.find(params[:comment_id])
     @subcomment = Subcomment.new(subcomment_params)
+    @subcomment.comment = @comment
     @subcomment.user = current_user
+
+    @post = @comment.post # fetch post of the commment we're replying to
+    # @comment = Comment.new # new comment instance, needed for rendering the form to create a new comment
 
     respond_to do |format|
       if @subcomment.save

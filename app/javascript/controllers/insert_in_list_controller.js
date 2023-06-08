@@ -1,18 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
-  // connect() {
-  //   console.log(this.element)
-  //   console.log(this.itemsTarget)
-  //   console.log(this.formTarget)
-  // }
 
 export default class extends Controller {
   static targets = ["items", "form"]
   static values = { position: String }
-
-  connect() {
-    console.log(this.itemsTarget);
-    console.log(this.formTarget.action);
-  }
 
   send(event) {
     console.log("submit");
@@ -30,6 +20,11 @@ export default class extends Controller {
         this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
       }
       this.formTarget.outerHTML = data.form
+
+      // Trigger the update in Stimulus
+      const commentCount = data.comment_count;
+      const event = new CustomEvent("updateCount", { detail: { count: commentCount } })
+      document.querySelector("[data-controller='comments']").dispatchEvent(event)
     })
   }
 }
