@@ -1,8 +1,8 @@
-<div class="card ml-5">
+<div class="card ml-5 d-none" data-reply-subcomment-target = "form">
   <div class="card-body">
     <%= simple_form_for([comment, subcomment],
     data: {
-    insert_subcomment_in_list_target: "form-subcomment",
+    insert_subcomment_in_list_target: "form",
     action: "submit->insert-subcomment-in-list#send"
     }) do |f|
     %>

@@ -1,51 +1,40 @@
-<div class="container full-page">
-  <div class="post_stack d-flex mt-5 mb-5 rounded col-12" id="set-margin">
-    <div class="post_stack__aside m-0 p-0" >
-      <div class="post_stack__header">
-        <h2><%= @post.title %></h2>
-        <hr class="solid">
-      </div>
+<div class="card mt-5">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
 
-      <div class="post_stack__content">
-        <%= @post.content %>
-      </div>
+    <h1 class="text-center"><%= @post.title %></h2>
+
+    <hr >
+
+    <div class="my-4">
+      <%= simple_format(@post.content) %>
     </div>
 
-    <div class="post_stack d-flex mt-5 mb-5 rounded col-12">
-    <div class="post_stack__aside m-0 p-0" >
-      <div class="post_stack__header">
-        <h2>Images</h2>
-        <hr class="solid">
-      </div>
-
-      <div class="post_stack__content">
-        <% if @post.photos.attached? %>
-          <%= cl_image_tag @post.photos.first.key, height: "300px", class: "card-img-top" %>
-        <% else %>
-          <%= image_tag "logo.png", height: "150px" %>
-        <% end %>
-        <%# change into a loop over the images, because post can have many images %>
-      </div>
-    </div>
-
-  <div data-controller="insert-in-list"  data-controller="insert-subcomments-in-list"  data-insert-in-list-position-value="beforeend">
-    <div data-insert-in-list-target="items" data-insert-subcomments-in-list-target="items-subcomment">
-      <h2><%= pluralize @post.comments.size, "comment" %></h2>
-      <div>
-        <% if @post.comments.blank? %>
-          Be the first to leave a comment for <%= @post.title %>
-        <% else %>
-          <% @post.comments.each do |comment| %>
-            <%= render 'comment', comment: comment %>
-            <% comment.subcomments.each do |subcomment| %>
-              <%= render 'subcomment', subcomment: subcomment %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <%= render "comments/form", post: @post, comment: @comment %>
+    <%= link_to 'Back', categories_path, class: 'btn btn-light' %>
   </div>
-
-  <%= link_to "Back to all posts", posts_path %>
+</div>
+<div class="card my-1" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+  <div class="card-body" data-insert-in-list-target="items" data-comments-counter-controller="comments">
+  <h2 data-action="comments#updateCount" data-comments-counter-target="count"> <%# Does not update yet.... %>
+    <%= pluralize @post.comments.size, "comment" %>
+  </h2>
+    <% if @post.comments.blank? %>
+      Be the first to leave a comment for <%= @post.title %>
+    <% else %>
+      <% @post.comments.each do |comment| %>
+        <div data-controller="reply-subcomment">
+          <div data-controller="insert-subcomment-in-list" data-insert-subcomment-in-list-position-value="beforeend">
+            <%= render 'posts/comment', comment: comment %>
+            <div data-insert-subcomment-in-list-target="subcomments">
+              <% comment.subcomments.each do |subcomment| %>
+                <%= render 'posts/subcomment', subcomment: subcomment %>
+              <% end %>
+            </div>
+            <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render "comments/form", post: @post, comment: @comment %>
 </div>

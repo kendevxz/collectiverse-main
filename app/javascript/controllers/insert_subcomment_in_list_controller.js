@@ -1,17 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
-  // connect() {
-  //   console.log(this.element)
-  //   console.log(this.itemsTarget)
-  //   console.log(this.formTarget)
-  // }
 
 export default class extends Controller {
-  static targets = ["items-subcomment", "form-subcomment"]
+  static targets = ["subcomments", "form"]
   static values = { position: String }
 
   connect() {
-    console.log(this.itemsTarget);
-    console.log(this.formTarget.action);
+    // console.log("zxcvbnm");
+    // console.log(this.subcommentsTarget);
+    // console.log(this.formTarget.action);
   }
 
   send(event) {
@@ -26,8 +22,8 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      if (data.inserted_subcomment_item) {
-        this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_subcomment_item)
+      if (data.inserted_item) {
+        this.subcommentsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
       }
       this.formTarget.outerHTML = data.form
     })
