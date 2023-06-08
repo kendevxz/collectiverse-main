@@ -3,6 +3,7 @@
   width: 280px;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .rounded-circle {
@@ -10,7 +11,19 @@
   border-radius: 50%;
 }
 
-.card__calender {
+.card__karma {
   height: 300px;
-  width: 300px
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.card__calender {
+  height: 620px;
+  width: 620px;
+  margin:40px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
