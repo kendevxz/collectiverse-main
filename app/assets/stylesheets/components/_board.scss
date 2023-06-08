@@ -98,15 +98,6 @@
   padding: 34px;
 }
 
-.posts__container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  border: 1px #CBCBCB solid;
-  border-radius: 10px;
-  background-color: white;
-}
-
 .post__container {
   height: 180px;
   width: 100%;
@@ -116,7 +107,7 @@
   height: 1px;
   background-color: #CBCBCB;
   margin: auto;
-  width: 95%;
+  width: 100%;
 }
 
 .post__content {
