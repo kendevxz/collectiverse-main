@@ -1,0 +1,7 @@
+# config/meta.yml
+
+
+meta_name: "Collectiverse Forum"
+meta_title: "Collectiverse - Where Toy Collectors Unite!"
+meta_description: "Join Collectiverse, the ultimate online forum for toy collectors. Connect, share, and learn from fellow enthusiasts worldwide. Start your toy empire today!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
