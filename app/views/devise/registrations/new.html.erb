@@ -22,10 +22,10 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
             </div>
-        <div class="form-actions d-inline">
-          <%= f.button :submit, "Sign up", class: "button-primary" %>
+        <div class="form-actions login__buttons">
+          <%= f.button :submit, "Sign up", class: "btn button__login", style: "background-color: white" %>
+          <%= link_to "Log in", new_session_path(resource_name), class: "btn button__login", style: "background-color: #81BA06; color:white" %>
         </div>
-          <%= link_to "Log in", new_session_path(resource_name), class: "button-secondary btn m-2" %>
         <% end %>
       </div>
     </div>

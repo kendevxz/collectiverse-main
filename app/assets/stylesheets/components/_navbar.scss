@@ -110,3 +110,38 @@
   justify-content: center;
   align-items: center;
 }
+
+.button__login{
+  width: 100px;
+  display: flex;
+  align-items: center;
+  border: 2px #CBCBCB solid;
+  border-radius: 25px;
+  margin: 0 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.button__login:hover{
+  width: 100px;
+  display: flex;
+  align-items: center;
+  border: 2px #CBCBCB solid;
+  border-radius: 25px;
+  margin: 0 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.login__buttons{
+  display: flex;
+  align-items: center;
+}
