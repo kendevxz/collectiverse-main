@@ -44,7 +44,29 @@
       </div>
     </div>
   </div>
-
+THIS IS back_end_add_comment_js_to_post_show_page
+</div>
+<div class="card my-1" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+  <div class="card-body" data-insert-in-list-target="items">
+  <h2 data-insert-in-list-target="count"> <%# Does not update yet.... %>
+    <%= pluralize @post.comments.size, "comment" %>
+  </h2>
+    <% if @post.comments.blank? %>
+      Be the first to leave a comment for <%= @post.title %>
+    <% else %>
+      <% @post.comments.each do |comment| %>
+        <div data-controller="reply-subcomment">
+          <div data-controller="insert-subcomment-in-list" data-insert-subcomment-in-list-position-value="beforeend">
+            <%= render 'posts/comment', comment: comment %>
+            <div data-insert-subcomment-in-list-target="subcomments">
+              <% comment.subcomments.each do |subcomment| %>
+                <%= render 'posts/subcomment', subcomment: subcomment %>
+              <% end %>
+            </div>
+            <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
+END
+            
+THIS IS MASTER 
   <div class="site__content__right">
     <div class="board">
       <% if user_signed_in? %>
@@ -63,6 +85,7 @@
           <div class="board__sub__container">
             <span class="sub__main__text"> 901 </span>
             <span class="sub__title__text"> Trades </span>
+MASTER
           </div>
         </div>
       </div>
