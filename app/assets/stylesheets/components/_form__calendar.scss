@@ -81,10 +81,25 @@
     justify-content: center;
     align-items: center;
     height: 80px;
+    position: relative;
   }
 
   .today {
-     color: $collectiv-green;
-     font-size: 25px;
+    color: black;
+    font-size: 25px;
+
+    .calendar-day {
+      border-radius: 50%;
+      border: 1px solid black;
+    }
+  }
+
+  .circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $collectiv-green;
+    position: absolute;
+    bottom: 15%
   }
 }
