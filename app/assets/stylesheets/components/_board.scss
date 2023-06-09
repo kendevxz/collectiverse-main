@@ -16,7 +16,6 @@
 }
 
 .board__main__text{
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,20 +46,9 @@
 }
 
 .board__content{
-  margin-top: 12.5px;
+  margin: 12.5px 0;
   display: flex;
   flex-direction: column;
-}
-
-.board__content__text{
-  display: flex;
-  justify-content: flex-start;
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  color: black;
-  overflow: hidden;
-  text-decoration: none;
-  margin-bottom: 2px;
 }
 
 .content__sub__text:hover{
@@ -71,21 +59,15 @@
   display: flex;
   justify-content: flex-start;
   font-family: 'Outfit', sans-serif;
-  font-size: 24px;
-  color: black;
+  font-size: 20px;
   overflow: hidden;
   text-decoration: none;
   margin-bottom: 2px;
 }
 
-.board__content__text:hover{
-  color: rgb(155, 155, 155);
-}
-
 .board__additional__button{
   text-decoration: none;
   font-size: 24px;
-  color: black;
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -122,7 +104,6 @@
 .content__title{
   font-family: 'Outfit', sans-serif;
   font-size: 20px;
-  color: black;
   display: flex;
   align-items: flex-start;
 }
@@ -131,7 +112,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: black;
 }
 
 .content__user__and__category{
@@ -147,7 +127,12 @@
 .category__title{
   font-family: 'Outfit', sans-serif;
   font-size: 48px;
-  color: black;
   display: flex;
   align-items: center;
+}
+
+.sticky__board{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 84px;
 }
