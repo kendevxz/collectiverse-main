@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import CommentsCounterController from "./comments_counter_controller"
-application.register("comments-counter", CommentsCounterController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
