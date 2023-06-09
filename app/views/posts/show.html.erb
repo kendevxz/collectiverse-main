@@ -14,8 +14,8 @@
   </div>
 </div>
 <div class="card my-1" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-  <div class="card-body" data-insert-in-list-target="items" data-comments-counter-controller="comments">
-  <h2 data-action="comments#updateCount" data-comments-counter-target="count"> <%# Does not update yet.... %>
+  <div class="card-body" data-insert-in-list-target="items">
+  <h2 data-insert-in-list-target="count"> <%# Does not update yet.... %>
     <%= pluralize @post.comments.size, "comment" %>
   </h2>
     <% if @post.comments.blank? %>
