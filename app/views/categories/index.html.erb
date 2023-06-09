@@ -1,23 +1,24 @@
 <div class="site__content">
 
   <div class="site__content__left">
-    <div class="board">
+    <div class="board sticky__board">
       <% if user_signed_in? %>
       <div class="board__container">
-        <span class="board__main__text">Ahoy, <%= current_user.username %>!</span>
+        <span class="board__main__text"><%= link_to current_user.username, '/profile', class:"text__black" %></span>
         <div class="line__border"></div>
         <div class="board__sub">
           <div class="board__sub__container">
-            <span class="sub__main__text"> 1.2k </span>
+            <span class="sub__main__text"></span>
             <span class="sub__title__text"> Karma </span>
           </div>
           <div class="board__sub__container">
-            <span class="sub__main__text"> 3.6k </span>
+          <% @post = Post.all %>
+            <span class="sub__main__text"><%= current_user.posts.count %></span>
             <span class="sub__title__text"> Posts </span>
           </div>
           <div class="board__sub__container">
-            <span class="sub__main__text"> 901 </span>
-            <span class="sub__title__text"> Trades </span>
+            <span class="sub__main__text"><%= current_user.comments.count %></span>
+            <span class="sub__title__text"> Comments </span>
           </div>
         </div>
       </div>
@@ -30,6 +31,24 @@
       </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="site__content__center">
+    <div class="posts__container">
+        <% Category.all.each do |category| %>
+        <%= link_to category_path(category) do  %>
+        <div class="post__container">
+          <div class="post__content text__black">
+            <span class="category__title"><%= category.name %></span>
+          </div>
+          <div class="line__border"></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="site__content__right">
     <div class="board">
       <div class="board__container">
         <span class="board__main__text">Top Categories</span>
@@ -38,11 +57,12 @@
           <% Category.all.first(10).each do |category| %>
           <%# logic might need to be changed %>
             <%= link_to category_path(category) do  %>
-            <span class="board__content__text"><%= category.name %></span>
+            <span , class="text__black board__content__text"><%= category.name %></span>
             <% end %>
           <% end %>
-          <%= link_to 'All Categories', categories_path, class: "board__additional__button" %>
         </div>
+        <div class="line__border"></div>
+        <%= link_to 'All Categories', categories_path, class: "text__black board__additional__button" %>
       </div>
     </div>
     <div class="board">
@@ -72,28 +92,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="site__content__center">
-    <div class="posts__container">
-        <% Category.all.each do |category| %>
-        <%= link_to category_path(category) do  %>
-        <div class="post__container">
-          <div class="post__content">
-            <span class="category__title"><%= category.name %></span>
-          </div>
-          <div class="line__border"></div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="site__content__right">
-    <div class="profile__box">
-    </div>
-    <div class="information__board">
     </div>
   </div>
 </div>

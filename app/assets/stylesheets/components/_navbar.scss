@@ -91,12 +91,13 @@
 }
 
 .profile__text{
-  margin-left: 6px;
+  margin: 0 6px;
   display: flex;
   align-items: center;
   font-size: 14px;
   color: black;
   width: 90px;
+  overflow: hidden;
 }
 
 .profile__online__status{

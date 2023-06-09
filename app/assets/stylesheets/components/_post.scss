@@ -1,4 +1,11 @@
+.full__site__content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .post__site__content {
+  width: 60%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 34px;
@@ -18,7 +25,6 @@
 .post__title{
   font-family: 'Outfit', sans-serif;
   font-size: 48px;
-  color: black;
   display: flex;
   align-items: flex-start;
 }
@@ -26,7 +32,6 @@
 .post__desc{
   font-family: 'Outfit', sans-serif;
   font-size: 20px;
-  color: black;
   display: flex;
   align-items: flex-start;
   margin-bottom: 12.5px;
@@ -35,7 +40,6 @@
 .post__show__content{
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
-  color: black;
   display: flex;
   align-items: flex-start;
   margin: 12.5px 0;
@@ -47,4 +51,17 @@
 
 .post__comment{
   margin: 12.5px 0;
+}
+
+.post__uname{
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.text__black{
+  color: black;
+}
+
+.text__black:hover{
+  color: rgb(86, 86, 86);
 }
