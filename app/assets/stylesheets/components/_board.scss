@@ -27,14 +27,15 @@
 .board__sub{
   margin-top: 12.5px;
   height: 60px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .board__sub__container{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .board__profile__image{
