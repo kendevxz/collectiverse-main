@@ -15,8 +15,8 @@
            <p class="my-3">Count Posts</p>
            <p class="my-3">Count Comments</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn-primary">Edit Profile</button>
-              <button type="button" class="btn-outline-primary ms-1">Logout</button>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: "button-secondary btn m-2" %>
+              <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "button-secondary btn m-2") %>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <h5 class="my-3">Karma</h5>
             <p class="my-3 d-inline">Your Karma level</p>
             <h2 class="my-3"><%= current_user.admin_level %></h2>
-            <button onclick="">How to get better <b>Karma</b></button>
+            <button onclick="https://www.gaiam.com/blogs/discover/how-to-attract-good-karma">How to get better <b>Karma</b></button>
           </div>
         </div>
         <div class="card__calender">
@@ -35,12 +35,12 @@
               <thead>
                 <tr>
                 <%= month_calendar(events: @toys, attribute: :release_date) do |date, toys| %>
-                  <div class="calendar-day"><%= date.day %></div>
-                  <% toys.each do |toy| %>
-                    <div>
-                      <%= toy.name %>
-                    </div>
-                  <% end %>
+                  <div class="calendar-day">
+                    <%= date.day %>
+                    <% if toys.any? %>
+                      <div class="circle"></div>
+                    <% end %>
+                  </div>
                 <% end %>
                 </tr>
               </thead>
