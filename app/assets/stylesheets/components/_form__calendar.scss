@@ -1,15 +1,16 @@
 .card__calender {
-  //height: 300px;
-  width: 500px;
+  width: 600px;
+  height: auto;
   margin:10px;
   justify-content: center;
-  align-items: center;
-  background-color: $collectiv-medium-blue;
   display: flex;
 }
 
 
 .simple-calendar {
+  width: 600px;
+  height: auto;
+
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
@@ -61,29 +62,29 @@
 
   .current-month:hover {
     color:$collectiv-medium-blue;
+    font-weight: bold;
   }
 
   td {
     padding: 6px;
     vertical-align: top;
     width: 14%;
-
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
-    border-left-style: solid;
-    border-left-width: 1px;
   }
 
   .day {
-    height: 30px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+
+  .today {
+     color: $collectiv-green;
+     font-size: 25px;
   }
 }

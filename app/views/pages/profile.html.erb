@@ -15,8 +15,8 @@
            <p class="my-3">Count Posts</p>
            <p class="my-3">Count Comments</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Edit Profil</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Logout</button>
+              <button type="button" class="btn-primary">Edit Profile</button>
+              <button type="button" class="btn-outline-primary ms-1">Logout</button>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <thead>
                 <tr>
                 <%= month_calendar(events: @toys, attribute: :release_date) do |date, toys| %>
-                  <%= date.day %>
+                  <div class="calendar-day"><%= date.day %></div>
                   <% toys.each do |toy| %>
                     <div>
                       <%= toy.name %>
