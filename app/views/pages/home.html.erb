@@ -15,10 +15,6 @@
         <div class="line__border"></div>
         <div class="board__sub">
           <div class="board__sub__container">
-            <span class="sub__main__text">20</span>
-            <span class="sub__title__text"> Karma </span>
-          </div>
-          <div class="board__sub__container">
           <% @post = Post.all %>
             <span class="sub__main__text"><%= current_user.posts.count %></span>
             <span class="sub__title__text"> Posts </span>

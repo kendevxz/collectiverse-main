@@ -54,10 +54,6 @@
           <div class="line__border"></div>
           <div class="board__sub">
             <div class="board__sub__container">
-              <span class="sub__main__text"> 1.2k </span>
-              <span class="sub__title__text"> Karma </span>
-            </div>
-            <div class="board__sub__container">
               <span class="sub__main__text"><%= @post.category.posts.count %> </span>
               <span class="sub__title__text"> Posts </span>
             </div>
@@ -67,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
+        <div class="board__profile__image" style="background-image: url(https://fixthephoto.com/images/content/toy-photography-tips-3.jpg);">
         </div>
         <% else %>
         <div class="board__container">
@@ -78,7 +74,7 @@
       </div>
       <div class="board">
         <div class="board__container">
-          <span class="board__main__text">Top Categories</span>
+          <span class="board__main__text">Categories</span>
           <div class="line__border"></div>
           <div class="board__content">
             <% Category.all.first(10).each do |category| %>
