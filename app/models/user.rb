@@ -2,8 +2,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :posts, dependent: :destroy
+  has_many :posts
   has_many :comments, dependent: :destroy
+  acts_as_voter
+
+  def increase_karma(count=1)
+    update_attribute(:karma, karma + count)
+  end
+
+  def decrease_karma(count=1)
+    update_attribute(:karma, karma - count)
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   validates :username, length: { in: 4..32 }, presence: true,
                       uniqueness: { case_sensitive: false }
@@ -15,6 +28,8 @@ class User < ApplicationRecord
   # validates :admin_level, numericality: { only_integer: true,
   #                                         less_than_or_equal_to: 3 }
   # validates_numericality_of(:admin_level, only_integer: true, less_than_or_equal_to: 3)
+
+
 
   before_save { username.downcase! }
   before_save { email.downcase! }

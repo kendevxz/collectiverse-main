@@ -74,6 +74,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    acts_as_votable (0.14.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.13.0)
@@ -96,6 +97,7 @@ GEM
     cloudinary (1.26.0)
       aws_cf_signer
       rest-client (>= 2.0.0)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -298,10 +300,12 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_votable
   autoprefixer-rails
   bootsnap
   capybara
   cloudinary
+  coffee-script-source (= 1.8.0)
   debug
   devise
   dotenv-rails
