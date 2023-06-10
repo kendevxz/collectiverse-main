@@ -2,9 +2,13 @@
   <div class="post__site__content">
     <div class="site__content__left">
       <div class="posts__container">
-        <span class="post__title"><%= @post.title %></span>
-        <span class="post__uname"><%= link_to @post.user.username, '/profile' %> · <%= link_to @post.category.name.capitalize, category_path(@post.category) %> · <%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span>
-        <span class="post__show__content"><%= @post.content %></span>
+        <div class="post__data">
+          <span class="post__item xxl__font"><strong><%= @post.title %></strong></span>
+          <span class="post__item l__font"><%= link_to @post.user.username, user_path(@post.user) %>
+          &nbsp;<strong>·</strong>&nbsp;<%= link_to @post.category.name.capitalize, category_path(@post.category) %>
+          &nbsp;<strong>·</strong>&nbsp;<%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span>
+        </div>
+        <span class="post__item m__font"><%= @post.content %></span>
         <div class="comments__container">
           <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
             <div data-insert-in-list-target="items" data-comments-counter-controller="comments">
@@ -13,19 +17,15 @@
           </div>
           <div class="line__border"></div>
           <% if @post.comments.blank? %>
-            Be the first to leave a comment!
+            <span class="m__font">Be the first to leave a comment!</span>
           <% else %>
-          <% if @post.comments.count == 1 %>
-          <div class="comments__box">
-            1 comment
-          </div>
-          <% else %>
-          <div class="comments__box">
-            <span data-insert-in-list-target="count"> <%# Does not update yet.... %>
-              <%= pluralize @post.comments.size, "comments" %>
-            </span>
-          </div>
-          <% end %>
+            <div class="comments__box">
+            <% if @post.comments.count == 1 %>
+              <span class="m__font">1 comment</span>
+            <% else %>
+              <span data-insert-in-list-target="count" class="m__font"><%= pluralize @post.comments.size, "comments" %></span>
+            <% end %>
+            </div>
           <div class="comments__big__box">
             <div class="comments_box">
               <% @post.comments.each do |comment| %>

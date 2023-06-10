@@ -1,10 +1,11 @@
 <div class="board">
   <div class="board__container">
-    <span class="board__main__text">Top Users</span>
+    <span class="board__main__text xxl__font"><strong>Top Users</strong></span>
     <div class="line__border"></div>
     <div class="board__content">
       <% User.all.first(10).each do |user| %>
-        <span class="board__content__text"><%= link_to user.username, user_path(user) %> &nbsp;· 2.3k Karma</span>
+        <span class="board__content__text"><%= link_to user.username, user_path(user) %>
+        &nbsp;· 2.3k Karma</span>
       <% end %>
     </div>
   </div>

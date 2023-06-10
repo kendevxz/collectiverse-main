@@ -22,27 +22,14 @@
   padding: 25px 45px;
 }
 
-.post__title{
-  font-family: 'Outfit', sans-serif;
-  font-size: 48px;
-  display: flex;
-  align-items: flex-start;
+.post__data{
+  margin-bottom: 10px;
 }
 
-.post__desc{
+.post__item{
   font-family: 'Outfit', sans-serif;
-  font-size: 20px;
   display: flex;
   align-items: flex-start;
-  margin-bottom: 12.5px;
-}
-
-.post__show__content{
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  display: flex;
-  align-items: flex-start;
-  margin: 12.5px 0;
 }
 
 .comments__container{
@@ -51,25 +38,4 @@
 
 .post__comment{
   margin: 12.5px 0;
-}
-
-.post__uname{
-  font-size: 20px;
-  text-decoration: none;
-}
-
-.text__black{
-  color: black;
-}
-
-.text__black:hover{
-  color: rgb(86, 86, 86);
-}
-
-.sub__main__text{
-  font-size: 24px;
-}
-
-.sub__title__text{
-  font-size: 20px;
 }
