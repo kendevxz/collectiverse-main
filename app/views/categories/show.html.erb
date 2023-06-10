@@ -27,6 +27,17 @@
     </div>
   </div>
   <div class="site__content__center">
+      <div class="form__container">
+        <h2>Create a new post</h2>
+       <%= simple_form_for @post do |f| %>
+          <div class="form__inputs">
+            <%= f.input :title, placeholder: "Title" %>
+            <%= f.input :content, as: :text, placeholder: "What is troubling you about #{@category.name}" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.button :submit, class: "btn button__login" %>
+          </div>
+        <% end %>
+      </div>
     <div class="posts__container">
       <% Post.all.each do |post| %>
         <%= link_to post_path(post) do  %>
