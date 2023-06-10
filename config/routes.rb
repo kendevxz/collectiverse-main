@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   # get 'pages/about'
   get '/profile', to: "pages#profile"
+
+  resources :users, only: [:show]
 end
