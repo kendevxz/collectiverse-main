@@ -18,8 +18,11 @@
       </div>
     </div>
   </div>
-  <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
+  <div class="board__profile__image" style="background-image: url(<%= @user.photo.attached? ? cl_image_path(@user.photo.key) : 'https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg' %>);">
   </div>
+  <% if (user_signed_in?) && (current_user == @user) %>
+          <%= link_to 'Edit', edit_registration_path(@user), class: "btn btn-link" %>
+        <% end %>
   <% else %>
   <div class="board__container">
     <span class="board__main__text xxl__font"><strong>Home Page</strong></span>

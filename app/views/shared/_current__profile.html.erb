@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
+  <div class="board__profile__image" style="background-image: url(<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : 'https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg' %>);">
   </div>
   <% else %>
   <div class="board__container">

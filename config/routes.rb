@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   resources :toys, only: :index
 
-  # get 'pages/about'
   get '/profile', to: "pages#profile"
 
-  resources :users, only: [:show]
+  resources :users
+
 end
