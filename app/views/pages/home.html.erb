@@ -11,13 +11,14 @@
   <div class="site__content__center">
     <div class="posts__container">
       <% Post.all.each do |post| %>
-        <%= link_to post_path(post) do  %>
           <div class="post__container">
             <div class="post__content text__black">
               <span class="content__title"><%= post.title %></span>
               <div class="content__description">
                 <span class="content__desc__item"><%= post.user.username %> in <%= post.category.name.capitalize %></span>
                 <span class="content__desc__item"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+                <%= button_to "upvote", like_post_path(post), method: :put %>
+                <%= button_to "downvote", dislike_post_path(post), method: :put %>
                 <span class="content__desc__item">
                   <% if post.comments.blank? %>
                   No comment yet
@@ -30,7 +31,6 @@
               </div>
             </div>
             <div class="line__border"></div>
-          <% end %>
         </div>
       <% end %>
     </div>
