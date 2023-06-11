@@ -41,9 +41,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @category = Category.find(params[:id])
-    @post.category_id = @category
-    @post.user_id = current_user
+    # @category = Category.find(params[:id])
+    # @post.category_id = @category
+    @post.user_id = current_user.id
     if @post.save
       redirect_to post_path(@post)
     else

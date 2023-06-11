@@ -20,6 +20,9 @@
   </div>
   <div class="board__profile__image" style="background-image: url(<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : 'https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg' %>);">
   </div>
+  <% if (user_signed_in?) && (current_user == @user) %>
+    <%= link_to 'Edit', edit_registration_path(@user), class: "btn btn-link" %>
+  <% end %>
   <% else %>
   <div class="board__container">
     <span class="board__main__text xxl__font"><strong>Home Page</strong></span>
