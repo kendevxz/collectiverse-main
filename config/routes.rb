@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create, shallow: true do
       resources :subcomments, only: :create
     end
-    match "like", action: :upvote, via: [:put,:delete], on: :member
-    match "dislike", action: :downvote, via: [:put,:delete], on: :member
+    put "like", action: :upvote, via: [:put,:delete], on: :member
+    put "dislike", action: :downvote, via: [:put,:delete], on: :member
   end
 end
