@@ -29,13 +29,10 @@ class User < ApplicationRecord
   #                                         less_than_or_equal_to: 3 }
   # validates_numericality_of(:admin_level, only_integer: true, less_than_or_equal_to: 3)
 
-
-
   before_save { username.downcase! }
   before_save { email.downcase! }
   before_save :default_user
   def default_user
     self.admin_level = 1
   end
-  # removed creditscore
 end
