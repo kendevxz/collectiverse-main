@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_filter :configure_permitted_parameters
+
+  def configure_permitted_parameters
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo])
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
