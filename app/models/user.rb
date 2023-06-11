@@ -36,6 +36,6 @@ class User < ApplicationRecord
   before_save :default_user
   def default_user
     self.admin_level = 1
-    self.creditscore = 0
   end
+  # removed creditscore
 end
