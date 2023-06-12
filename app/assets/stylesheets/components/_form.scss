@@ -295,7 +295,7 @@ input:-moz-placeholder { font-size: 14px; }
   text-align: center;
   justify-content: center;
   text-decoration: none;
-  background-color: $collectiv-medium-blue;
+  background-color: $cv-medium-blue;
   color: white;
   border: none;
   border-radius: 4px;
@@ -303,6 +303,6 @@ input:-moz-placeholder { font-size: 14px; }
 }
 
 .btn-calendar:hover {
-  background-color: $collectiv-dark-blue;
-  color: $collectiv-light-blue;
+  background-color: $cv-dark-blue;
+  color: $cv-light-blue;
 }
