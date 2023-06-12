@@ -11,7 +11,7 @@
             <h3 class="toy-name"><%= toy.name %></h3>
             <div class="d-flex justify-content-between">
               <p class="toy-release-date"><%= toy.release_date %></p>
-              <%= link_to "Add to Calendar", user_path(current_user), class: "btn btn-calendar" %>
+              <%= link_to "Add to Calendar", release_date_path(toy), class: "btn btn-calendar" %>
             </div>
           </div>
       </div>

@@ -5,7 +5,7 @@
 
 
 <section style="background-color:$collectiv-light-blue;">
-  <div class="container py-5">
+  <div class="container py-5" data-controller="calendar">
     <div class="row">
         <div class="card card__profile">
           <div class="card-body text-center">
@@ -35,7 +35,7 @@
               <thead>
                 <tr>
                 <%= month_calendar(events: @toys, attribute: :release_date) do |date, toys| %>
-                  <div class="calendar-day">
+                  <div class="calendar-day" data-full-date="<%= date %>" data-action="click->calendar#showToys">
                     <%= date.day %>
                     <% if toys.any? %>
                       <div class="circle"></div>
@@ -46,6 +46,8 @@
               </thead>
             </table>
           </div>
+        </div>
+        <div data-calendar-target="toysbox">
         </div>
     </div>
   </div>
