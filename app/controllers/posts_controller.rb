@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @post.upvote_by current_user
       @post.user.increase_karma
+      @post.increase_karma
       redirect_to posts_path
     end
   end
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
     else
       @post.downvote_by current_user
       @post.user.decrease_karma
+      @post.decrease_karma
       redirect_to root_path
     end
   end

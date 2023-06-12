@@ -11,4 +11,16 @@ class Post < ApplicationRecord
   def karma
     self.get_upvotes.size - self.get_downvotes.size
   end
+
+  def increase_karma(count=1)
+    update_attribute(:karma, karma + count)
+  end
+
+  def decrease_karma(count=1)
+    update_attribute(:karma, karma - count)
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
 end
