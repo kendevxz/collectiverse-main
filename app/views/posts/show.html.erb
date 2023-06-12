@@ -11,6 +11,7 @@
         <span class="post__item m__font"><%= @post.content %></span>
         <div class="comments__container">
           <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path, data: { "turbo-method": :put } %>
+          <span class="m__font"><%= @post.karma %></span>
           <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path, data: { "turbo-method": :put } %>
           <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
             <div data-insert-in-list-target="items" data-comments-counter-controller="comments">
