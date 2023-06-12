@@ -2,7 +2,7 @@ class ToysController < ApplicationController
   before_action :set_params, only: %i[show destroy]
 
   def index
-    @toys = Toy.all
+    @toys = Toy.where('release_date > ?', Date.today)
     if params[:query].present?
       @toys = @toys.where(title: params[:query])
     end
@@ -19,6 +19,11 @@ class ToysController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def release_date
+    UserToy.create(user_id: current_user.id, toy_id: params[:id])
+    redirect_to profile_path(current_user)
   end
 
   def destroy

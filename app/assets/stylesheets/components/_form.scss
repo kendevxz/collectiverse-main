@@ -53,7 +53,7 @@
     border-right: 1px solid white;
     border-top: 0px none rgb(51, 51, 51);
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
     font-size: 10px;
     background-color: white;
   }
@@ -91,24 +91,33 @@
   .day {
     height: 80px;
     width: 80px;
+    padding-top: 10px;
   }
 
   .calendar-day {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 60px;
+    width: 60px;
     position: relative;
   }
 
   .today {
     color: black;
-    font-size: 25px;
 
     .calendar-day {
       border-radius: 50%;
-      border: 1px solid black;
+      border: 1px solid #a0a0a0;
     }
+  }
+
+  .fa-chevron-left {
+    margin-left: 150px;
+  }
+
+  .fa-chevron-right {
+    margin-right: 150px;
   }
 
   .circle {
@@ -228,3 +237,72 @@
 ::-moz-placeholder { font-size: 14px; } /* firefox 19+ */
 :-ms-input-placeholder { font-size: 14px; } /* ie */
 input:-moz-placeholder { font-size: 14px; }
+
+
+// Toys index
+
+.toy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+
+}
+
+.card-height {
+  min-height: 250px;
+
+}
+
+
+.card-img-calendar {
+  object-fit: cover;
+  height: 300px;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+}
+
+.card-image {
+  border-radius: 10px 10px 10px 10px;
+}
+
+.card-content {
+  color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.toy-name {
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.toy-release-date {
+  display: flex;
+  height: 30px;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+
+.btn-calendar {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 10px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $collectiv-medium-blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-calendar:hover {
+  background-color: $collectiv-dark-blue;
+  color: $collectiv-light-blue;
+}
