@@ -3,10 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px #CBCBCB solid;
   border-radius: 10px;
   margin-bottom: 34px;
-  background-color: white;
 }
 
 .board__container{
@@ -84,7 +82,6 @@
 
 .line__border {
   height: 1px;
-  background-color: #CBCBCB;
   margin: auto;
   width: 100%;
 }

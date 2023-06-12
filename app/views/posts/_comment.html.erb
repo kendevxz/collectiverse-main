@@ -1,10 +1,10 @@
 <div class="comment__card">
   <div class="comment__card__body">
     <div class="comment__data">
-    <span><%= link_to comment.user.username, '/profile', class:"l__font" %> · <%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span>
-    <span class="m__font"><%= comment.content %></span>
+    <span><%= link_to comment.user.username, '/profile', class:"l__font" %> · <span class="static__text"><%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span></span>
+    <span class="static__text m__font"><%= comment.content %></span>
     </div>
-    <span class="s__font comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>&nbsp;Reply</a></span>
+    <span class="static__text s__font comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>&nbsp;Reply</a></span>
     <% if comment.subcomments.any? %>
       <% comment.subcomments.each do |reply| %>
       <% end %>

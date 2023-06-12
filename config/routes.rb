@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     put "like", action: :upvote, via: [:put,:delete], on: :member
     put "dislike", action: :downvote, via: [:put,:delete], on: :member
   end
+
+  get 'set_theme', to: 'theme#update'
 end

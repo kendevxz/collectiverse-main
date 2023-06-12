@@ -27,13 +27,17 @@
     <span class="profile__text"><%= current_user.username %></span>
     <i class="fa-solid fa-circle profile__online__status"></i>
     <% end %>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-        <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
-        <div class="custom-control custom-switch dropdown-item">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1">
-          <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-        </div>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <span class="dropdown__label">Your Profile</span>
+        <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list" %>
+        <%= link_to "Setting", "/purchases", class: "dropdown-item dropdown__list" %>
+        <div class="line__border"></div>
+        <span class="dropdown__label">Accessibility</span>
+          <label class="switch", class: "dropdown-item">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        <div class="line__border"></div>
         <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
       </div>
     <% else %>

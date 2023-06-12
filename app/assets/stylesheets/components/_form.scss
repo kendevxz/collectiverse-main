@@ -63,7 +63,7 @@
   }
 
   .fa-chevron-left::before, .fa-chevron-right::before {
-    color:$collectiv-dark-blue;
+    color:$cv-dark-blue;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -74,11 +74,11 @@
   }
 
   .current-month {
-    color:$collectiv-dark-blue;
+    color:$cv-dark-blue;
   }
 
   .current-month:hover {
-    color:$collectiv-medium-blue;
+    color:$cv-medium-blue;
     font-weight: bold;
   }
 
@@ -124,7 +124,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: $collectiv-green;
+    background-color: $cv-green;
     position: absolute;
     bottom: 15%
   }
