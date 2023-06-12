@@ -1,0 +1,68 @@
+// Dark Mode
+body.dark {
+  background: $cv-bg-black;
+  color: white;
+}
+
+body.dark .line__border {
+  background-color: $cv-white;
+}
+
+body.dark .static__text{
+  color: $cv-white;
+}
+
+body.dark a{
+  color: $cv-white;
+}
+
+body.dark a:hover{
+  color: $cv-green-hover;
+}
+
+// Navbar
+body.dark .navigation__bar {
+  background-color: $cv-dark-blue;
+  border-color: $cv-dark-blue;
+}
+
+body.dark .forum__logo__text {
+  color: $cv-white;
+}
+
+body.dark .nav__icon {
+  color: $cv-white;
+}
+
+body.dark .profile__button{
+  border-color: $cv-white;
+}
+
+body.dark .profile__button:hover{
+  border-color: $cv-green-hover;
+}
+
+body.dark .profile__text{
+  color: $cv-white;
+}
+
+// Board
+body.dark .board{
+  background-color: $cv-dark-blue;
+  box-shadow: 0 3px 20px #1d26260d;
+  color: $cv-white;
+}
+
+body.dark .board__container{
+  color: $cv-white;
+}
+
+// Card & Post
+body.dark .posts__container{
+  background-color: $cv-dark-blue;
+  box-shadow: 0 3px 20px #1d26260d;
+}
+
+body.dark .post__item{
+  color: $cv-white;
+}

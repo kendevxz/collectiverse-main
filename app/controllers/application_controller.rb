@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_theme
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :authenticate_user!, only: %i[home]
 
@@ -13,5 +14,15 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo])
+  end
+
+
+  def set_theme
+    if params[:theme].present?
+      theme = params[:theme].to_sym
+      # session[:theme] = theme
+      cookies[:theme] = theme
+      redirect_to(request.referrer || root_path)
+    end
   end
 end

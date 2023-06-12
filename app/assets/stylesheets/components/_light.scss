@@ -1,0 +1,68 @@
+// Light Mode
+body.light {
+  background: $cv-light-blue;
+  color: black;
+}
+
+body.light .line__border {
+  background-color: #CBCBCB;
+}
+
+body.light .static__text{
+  color: black;
+}
+
+body.light a{
+  color: $black;
+}
+
+body.light a:hover{
+  color: $cv-red-hover;
+}
+
+// Navbar
+body.light .navigation__bar {
+  background-color: white;
+  border-color: #CBCBCB;
+}
+
+body.light .forum__logo__text {
+  color: black;
+}
+
+body.light .nav__icon {
+  color: black;
+}
+
+body.light .profile__button{
+  border-color: #CBCBCB;
+}
+
+body.light .profile__button:hover{
+  border-color: $cv-red-hover;
+}
+
+body.light .profile__text{
+  color: $cv-blue;
+}
+
+// Board
+body.light .board{
+  background-color: white;
+  box-shadow: 0 3px 20px #1d26260d;
+  color: $cv-white;
+}
+
+body.dark .board__container{
+  color: black;
+}
+
+// Card & Post
+body.light .posts__container{
+  background-color: white;
+  box-shadow: 0 3px 20px #1d26260d;
+}
+
+body.light .post__item{
+  color: black;
+}
