@@ -5,12 +5,12 @@
 
 
 <section style="background-color:$collectiv-light-blue;">
-  <div class="container py-5">
+  <div class="container py-5" data-controller="calendar">
     <div class="row">
         <div class="card card__profile">
           <div class="card-body text-center">
-            <img src="https://cdn.pixabay.com/photo/2023/05/02/10/32/avatar-7964941_1280.png" alt="avatar-large"
-              class="rounded-circle img-fluid" style="width: 150px;">
+            <img src="https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024" alt="avatar-large"
+              class="rounded-circle img-fluid mt-3" style="width: 200px; height: 200px; object-fit: cover">
            <h5 class="my-3"><%= current_user.username %></h5>
            <p class="my-3">Count Posts</p>
            <p class="my-3">Count Comments</p>
@@ -35,7 +35,7 @@
               <thead>
                 <tr>
                 <%= month_calendar(events: @toys, attribute: :release_date) do |date, toys| %>
-                  <div class="calendar-day">
+                  <div class="calendar-day" data-full-date="<%= date %>" data-action="click->calendar#showToys">
                     <%= date.day %>
                     <% if toys.any? %>
                       <div class="circle"></div>
@@ -46,6 +46,8 @@
               </thead>
             </table>
           </div>
+        </div>
+        <div data-calendar-target="toysbox">
         </div>
     </div>
   </div>

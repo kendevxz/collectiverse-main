@@ -1,4 +1,4 @@
 class Toy < ApplicationRecord
   belongs_to :category
-  # searchkick
+  has_many :user_toys
 end

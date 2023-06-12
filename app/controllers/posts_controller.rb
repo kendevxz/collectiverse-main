@@ -25,6 +25,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def new
+    @post = Post.new
+  end
+
   def show
     @comment = Comment.new  # To be able to create comment on post show page
     @subcomment = Subcomment.new
@@ -36,20 +40,6 @@ class PostsController < ApplicationController
       @posts = @posts.where(title: params[:query])
     end
   end
-
-  # def create
-  #   @post = Post.new(post_params)
-  #   @post.user_id = current_user.id
-  #   category = Category.find(params[:category_id])
-  #   raise
-  #   @post.category_id = category.id
-
-  #   if @post.save
-  #     redirect_to post_path(@post)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
 
   def create
     @category = Category.find(params[:post][:category_id].to_i)

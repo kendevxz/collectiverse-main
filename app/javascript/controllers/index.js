@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CalendarController from "./calendar_controller"
+application.register("calendar", CalendarController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -15,3 +18,9 @@ application.register("insert-subcomment-in-list", InsertSubcommentInListControll
 
 import ReplySubcommentController from "./reply_subcomment_controller"
 application.register("reply-subcomment", ReplySubcommentController)
+
+import { Application } from 'stimulus'
+import CharacterCounter from 'stimulus-character-counter'
+
+const application = Application.start()
+application.register('character-counter', CharacterCounter)

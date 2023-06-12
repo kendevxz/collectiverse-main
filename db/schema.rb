@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_11_154327) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_064507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +61,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_154327) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -70,6 +80,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_154327) do
     t.integer "karma", default: 0
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "display_name"
+    t.string "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "subcomments", force: :cascade do |t|
@@ -90,7 +109,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_154327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.time "time"
+    t.string "image_url"
     t.index ["category_id"], name: "index_toys_on_category_id"
+  end
+
+  create_table "user_toys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "toy_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["toy_id"], name: "index_user_toys_on_toy_id"
+    t.index ["user_id"], name: "index_user_toys_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,7 +160,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_154327) do
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "subcomments", "comments"
   add_foreign_key "subcomments", "users"
   add_foreign_key "toys", "categories"
+  add_foreign_key "user_toys", "toys"
+  add_foreign_key "user_toys", "users"
 end

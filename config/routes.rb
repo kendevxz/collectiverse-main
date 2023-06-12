@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :users, only: [:show, :edit, :update]
   resources :toys, only: :index
+  get "toys/:id/release_date", to: "toys#release_date", as: :release_date
   resources :posts do
     resources :comments, only: :create, shallow: true do
       resources :subcomments, only: :create

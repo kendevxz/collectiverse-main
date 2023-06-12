@@ -1,12 +1,11 @@
 <div class="d-flex" id="set-margin">
   <div class="registration__content__left">
     <div class="registration__box">
-        <h2 class="registration__box__text">Sign-in</h2>
-        <h5 class="registration__box__text">Start selling and buying toys</h5>
-      <div class="div-content">
+      <div class="form__container p-5" style="width: 100%">
+        <h2>Log-in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-            <div class="form-inputs">
+            <div class="form__inputs w-100">
               <%= f.input :email,
                           required: false,
                           autofocus: true,
@@ -16,12 +15,12 @@
                           input_html: { autocomplete: "current-password" } %>
               <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             </div>
-        <div class="form-actions login__buttons">
-          <%= f.button :submit, "Sign in", class: "btn button__login", style: "background-color: #81BA06; color:white" %>
-          <%= link_to "Sign up", new_registration_path(resource_name), class: "btn button__login", style: "background-color: white" %><br />
-        </div>
+          <div class="form-actions login__buttons mb-3">
+            <%= f.button :submit, "Sign in", class: "btn button__primary"%>
+            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn button__secondary" %><br />
+          </div>
           <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
