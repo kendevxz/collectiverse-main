@@ -21,6 +21,11 @@ class ToysController < ApplicationController
     end
   end
 
+  def release_date
+    UserToy.create(user_id: current_user.id, toy_id: params[:id])
+    redirect_to profile_path(current_user)
+  end
+
   def destroy
     @toy.destroy
     redirect_to root_path, status: :see_other  # adjust later

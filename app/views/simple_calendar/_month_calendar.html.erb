@@ -1,5 +1,5 @@
 <div class="simple-calendar">
-  <div class="calendar-heading d-flex justify-content-between align-items-center">
+  <div class="calendar-heading d-flex justify-content-around align-items-center">
     <%= link_to calendar.url_for_previous_view do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
@@ -22,13 +22,17 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                  </div>
+                <% else %>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <% passed_block.call day, sorted_events.fetch(day, []) %>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
           <% end %>
         </tr>
       <% end %>
