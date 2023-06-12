@@ -10,13 +10,13 @@
             <%= f.input :title, placeholder: "Title" %>
             <%= f.input :content, as: :text, placeholder: "What is troubling you about #{@category.name}" %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.association :category, selected: @category.id %>
+            <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
             <%= f.button :submit, class: "btn button__login" %>
           </div>
         <% end %>
       </div>
     <div class="posts__container">
-      <% Post.all.each do |post| %>
+      <% Post.order('karma DESC').all.each do |post| %>
         <%= link_to post_path(post) do  %>
           <div class="post__container">
             <div class="post__content text__black">
@@ -24,6 +24,11 @@
               <div class="content__description">
                 <span class="content__desc__item"><%= post.user.username %> in <%= post.category.name.capitalize %></span>
                 <span class="content__desc__item"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+                <span class="content__desc__item">
+                  <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path(post), data: { "turbo-method": :put } %>
+                  <span class="m__font"><%= post.karma %></span>
+                  <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path(post), data: { "turbo-method": :put } %>
+                </span>
                 <span class="content__desc__item">
                   <% if post.comments.blank? %>
                   No comment yet

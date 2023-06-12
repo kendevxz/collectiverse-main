@@ -30,6 +30,10 @@
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
         <%= link_to "Setting", "/purchases", class: "dropdown-item" %>
+        <div class="custom-control custom-switch dropdown-item">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+        </div>
         <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
       </div>
     <% else %>

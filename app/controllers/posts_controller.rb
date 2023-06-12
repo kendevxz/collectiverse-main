@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_params, only: %i[index show destroy]
+  before_action :set_params, only: %i[index show]
 
   def upvote
     @post = Post.find(params[:id])
@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @post.upvote_by current_user
       @post.user.increase_karma
+      @post.increase_karma
       redirect_to posts_path
     end
   end
@@ -19,8 +20,13 @@ class PostsController < ApplicationController
     else
       @post.downvote_by current_user
       @post.user.decrease_karma
+      @post.decrease_karma
       redirect_to root_path
     end
+  end
+
+  def new
+    @post = Post.new
   end
 
   def show
@@ -35,25 +41,16 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @post = Post.new
-  end
-
   def create
+    @category = Category.find(params[:post][:category_id].to_i)
     @post = Post.new(post_params)
-    # @category = Category.find(params[:id])
-    # @post.category_id = @category
-    @post.user_id = current_user.id
+    @post.category_id = @category.id
+    @post.user = current_user
     if @post.save
       redirect_to post_path(@post)
     else
-      render :new, status: :unprocessable_entity
+      render "categories/show", status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @post.destroy
-    redirect_to root_path, status: :see_other  # adjust later
   end
 
   private
@@ -63,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :category_id, photos: [])
+    params.require(:post).permit(:title, :content, photos: [])
   end
 end
