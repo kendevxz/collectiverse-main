@@ -3,15 +3,15 @@ require 'faker'
 puts "Clearing all toys"
 Toy.destroy_all
 puts "All toys gone!"
-puts "Clearing all users"
-User.destroy_all
-puts "All users gone!"
 puts "Clearing all categories"
 Category.destroy_all
 puts "All categories gone!"
 puts "Clearing all posts"
 Post.destroy_all
 puts "All posts gone!"
+puts "Clearing all users"
+User.destroy_all
+puts "All users gone!"
 
 puts "Creating 8 categories for you!"
 user_category_1 = Category.create(name: "Transformers")
@@ -47,34 +47,34 @@ users = [user_kenny, user_jim, user_nick, user_mary]
 puts "Users are saved"
 
 puts "Creating 10 toys for you!"
-toy1 = Toy.new(name: "Funko POP! Chewbacca", where_to_buy: "www.paypal.com/donate", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_2.id)
+toy1 = Toy.new(name: "Funko POP! Chewbacca", where_to_buy: "www.paypal.com/donate", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_2.id, image_url:"https://images.unsplash.com/photo-1654574716963-45715e66e597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80")
 toy1.save!
 
-toy2 = Toy.new(name: "Studio Series Bumblebee", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id)
+toy2 = Toy.new(name: "Studio Series Bumblebee", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427331-088df3be7ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
 toy2.save!
 
-toy3 = Toy.new(name: "Hot Toys Superman", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_6.id)
+toy3 = Toy.new(name: "Hot Toys Superman", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_6.id, image_url:"https://images.unsplash.com/photo-1608889476501-ea8c0f0b8d3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
 toy3.save!
 
-toy4 = Toy.new(name: "Prime1 Optimus Prime", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id)
+toy4 = Toy.new(name: "Prime1 Optimus Prime", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427329-9d72b824e144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
 toy4.save!
 
-toy5 = Toy.new(name: "Studio Series Jetfire", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id)
+toy5 = Toy.new(name: "Studio Series Jetfire", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1616397752794-349147c0365e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
 toy5.save!
 
-toy6 = Toy.new(name: "Warhammer 40000 - Adeptus Sororitas Battle Sisters Squad", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id)
+toy6 = Toy.new(name: "Warhammer 40000 - Adeptus Sororitas Battle Sisters Squad", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1529981188441-8a2e6fe30103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
 toy6.save!
 
-toy7 = Toy.new(name: "Warhammer 40000 - Combat Patrol: Adepta Sororitas", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id)
+toy7 = Toy.new(name: "Warhammer 40000 - Combat Patrol: Adepta Sororitas", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1679765811569-1e80ada5c43c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=654&q=80")
 toy7.save!
 
-toy8 = Toy.new(name: "Warhammer Age Of Sigmar Battleforce Daughters of Khaine", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id)
+toy8 = Toy.new(name: "Warhammer Age Of Sigmar Battleforce Daughters of Khaine", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1568223880170-bb6fcceab9ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
 toy8.save!
 
-toy9 = Toy.new(name: "Warhammer 40k Paint + tools Set", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id)
+toy9 = Toy.new(name: "Warhammer 40k Paint + tools Set", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1647531452166-3584eb58e6e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
 toy9.save!
 
-toy10 = Toy.new(name: "Warhammer 40K SMH 2023 Blood Angels Collection Two", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id)
+toy10 = Toy.new(name: "Warhammer 40K SMH 2023 Blood Angels Collection Two", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1568224014743-c17edeea85bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
 toy10.save!
 
 puts "Toy's created"
