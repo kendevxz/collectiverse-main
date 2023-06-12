@@ -1,0 +1,32 @@
+<div class="board">
+  <% if user_signed_in? %>
+  <div class="board__container">
+    <span class="board__main__text xxl__font"><strong><%= link_to @user.username, user_path(@user) %></strong></span>
+    <div class="line__border"></div>
+    <div class="board__sub">
+      <div class="board__sub__container">
+        <span class="xxl__font"><%= @user.karma %></span>
+        <span class="xl__font"> Karma </span>
+      </div>
+      <div class="board__sub__container">
+        <span class="xxl__font"><%= @user.posts.count %></span>
+        <span class="xl__font"> Posts </span>
+      </div>
+      <div class="board__sub__container">
+        <span class="xxl__font"><%= @user.comments.count %></span>
+        <span class="xl__font"> Comments </span>
+      </div>
+    </div>
+  </div>
+  <div class="board__profile__image" style="background-image: url(<%= @user.photo.attached? ? cl_image_path(@user.photo.key) : 'https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg' %>);">
+  </div>
+  <% if (user_signed_in?) && (current_user == @user) %>
+    <%= link_to 'Edit', edit_registration_path(@user), class: "btn btn-link" %>
+  <% end %>
+  <% else %>
+  <div class="board__container">
+    <span class="board__main__text xxl__font"><strong>Home Page</strong></span>
+    <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
+  </div>
+  <% end %>
+</div>

@@ -1,11 +1,12 @@
 <div class="comment__card">
   <div class="comment__card__body">
-    <span class="comment__username"><%= link_to comment.user.username, '/profile', class:"text__black" %> at <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-    <span class="comment__content"><%= comment.content %></span>
-    <span class="comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>Reply</a></span>
+    <div class="comment__data">
+    <span><%= link_to comment.user.username, '/profile', class:"l__font" %> · <%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span>
+    <span class="m__font"><%= comment.content %></span>
+    </div>
+    <span class="s__font comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>&nbsp;Reply</a></span>
     <% if comment.subcomments.any? %>
       <% comment.subcomments.each do |reply| %>
-        <%# <%= render partial: 'comments/subcomments', locals: { subcomment: @subcomment } %>
       <% end %>
    <% end %>
   </div>

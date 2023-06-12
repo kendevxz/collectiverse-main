@@ -1,100 +1,49 @@
 <div class="site__content">
-
   <div class="site__content__left">
-    <div class="board sticky__board">
-      <% if user_signed_in? %>
-      <div class="board__container">
-        <span class="board__main__text"><%= @category.name %></span>
-        <div class="line__border"></div>
-        <div class="board__sub">
-          <div class="board__sub__container">
-            <span class="sub__main__text"> 1.2k </span>
-            <span class="sub__title__text"> Karma </span>
+    <%= render "shared/category" %>
+  </div>
+  <div class="site__content__center">
+      <div class="form__container">
+        <h2>Create a new post</h2>
+       <%= simple_form_for @post do |f| %>
+          <div class="form__inputs">
+            <%= f.input :title, placeholder: "Title" %>
+            <%= f.input :content, as: :text, placeholder: "What is troubling you about #{@category.name}" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.association :category, selected: @category.id %>
+            <%= f.button :submit, class: "btn button__login" %>
           </div>
-          <div class="board__sub__container">
-            <span class="sub__main__text"><%= @category.posts.count %> </span>
-            <span class="sub__title__text"> Posts </span>
-          </div>
-          <div class="board__sub__container">
-            <span class="sub__main__text"> <%= User.count %> </span>
-            <span class="sub__title__text"> Users </span>
-          </div>
+        <% end %>
+      </div>
+    <div class="posts__container">
+      <% Post.all.each do |post| %>
+        <%= link_to post_path(post) do  %>
+          <div class="post__container">
+            <div class="post__content text__black">
+              <span class="content__title"><%= post.title %></span>
+              <div class="content__description">
+                <span class="content__desc__item"><%= post.user.username %> in <%= post.category.name.capitalize %></span>
+                <span class="content__desc__item"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+                <span class="content__desc__item">
+                  <% if post.comments.blank? %>
+                  No comment yet
+                  <% elsif post.comments.count == 1 %>
+                  1 comment
+                  <% else %>
+                  <%= post.comments.count %> comments
+                  <% end %>
+                </span>
+              </div>
+            </div>
+            <div class="line__border"></div>
+          <% end %>
         </div>
-      </div>
-      <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
-      </div>
-      <% else %>
-      <div class="board__container">
-        <span class="board__main__text">Home Page</span>
-        <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
-      </div>
       <% end %>
     </div>
   </div>
-
-  <div class="site__content__center">
-    <div class="posts__container">
-      <% Post.all.each do |post| %>
-      <%= link_to post_path(post) do  %>
-        <div class="post__container">
-          <div class="post__content text__black">
-            <span class="content__title"><%= post.title %></span>
-            <div class="content__description">
-              <span class="content__user__and__category"><%= post.user.username %> in <%= post.category.name %></span>
-              <span class="content__date"><%= post.created_at %></span>
-            </div>
-          </div>
-        <div class="line__border"></div>
-          <% end %>
-        </div>
-    <% end %>
-    </div>
-  </div>
-
   <div class="site__content__right">
-    <div class="board">
-      <div class="board__container">
-        <span class="board__main__text">Top Categories</span>
-        <div class="line__border"></div>
-        <div class="board__content">
-          <% Category.all.first(10).each do |category| %>
-          <%# logic might need to be changed %>
-            <%= link_to category_path(category) do  %>
-            <span , class="text__black board__content__text"><%= category.name %></span>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="line__border"></div>
-        <%= link_to 'All Categories', categories_path, class: "text__black board__additional__button" %>
-      </div>
-    </div>
-    <div class="board">
-      <div class="board__container">
-        <span class="board__main__text">Top Users</span>
-        <div class="line__border"></div>
-        <div class="board__content">
-          <% User.all.first(10).each do |user| %>
-          <%# logic might need to be changed %>
-            <%# <%= link_to user_path(user) do  %>
-            <span class="board__content__text"><%= user.username %> - 2.3k Karma</span>
-            <%# <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="board">
-      <div class="board__container">
-        <span class="board__main__text">Top Traders</span>
-        <div class="line__border"></div>
-        <div class="board__content">
-          <% User.all.first(10).each do |user| %>
-          <%# logic might need to be changed %>
-            <%# <%= link_to user_path(user) do  %>
-            <span class="board__content__text"><%= user.username %> - 5k Trades</span>
-            <%# <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/categories" %>
+    <%= render "shared/users" %>
+    <%= render "shared/traders" %>
   </div>
 </div>

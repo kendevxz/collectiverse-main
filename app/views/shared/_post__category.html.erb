@@ -1,0 +1,29 @@
+<div class="board">
+  <% if user_signed_in? %>
+  <div class="board__container">
+    <span class="board__main__text xxl__font"><strong><%= link_to @post.category.name.capitalize, category_path(@post.category) %></strong></span>
+    <div class="line__border"></div>
+    <div class="board__sub">
+      <div class="board__sub__container">
+        <span class="xxl__font"></span>
+        <span class="xl__font"> Karma </span>
+      </div>
+      <div class="board__sub__container">
+        <span class="xxl__font"><%= @post.category.posts.count %> </span>
+        <span class="xl__font"> Posts </span>
+      </div>
+      <div class="board__sub__container">
+        <span class="xxl__font"> <%= User.count %></span>
+        <span class="xl__font"> Users </span>
+      </div>
+    </div>
+  </div>
+  <div class="board__profile__image" style="background-image: url(https://fixthephoto.com/images/content/toy-photography-tips-3.jpg);">
+  </div>
+  <% else %>
+  <div class="board__container">
+    <span class="board__main__text xxl__font"><strong>Home Page</strong></span>
+    <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
+  </div>
+  <% end %>
+</div>

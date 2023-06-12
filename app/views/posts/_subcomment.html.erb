@@ -1,8 +1,10 @@
 <div class="comment__card">
   <div class="comment__card__body">
-    <span class="comment__username"><%= link_to subcomment.user.username, '/profile' %> at <%= subcomment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-    <span class="comment__content"><%= subcomment.content %></span>
-    <span class="comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>Reply</a></span>
+    <div class="comment__data">
+      <span class="l__font"><%= link_to subcomment.user.username, '/profile' %> · <%= distance_of_time_in_words_to_now(subcomment.created_at) %> ago</span>
+      <span class="m__font"><%= subcomment.content %></span>
+    </div>
+    <span class="s__font comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>&nbsp;Reply</a></span>
     <%# apply subcomment in subs again%>
   </div>
 </div>

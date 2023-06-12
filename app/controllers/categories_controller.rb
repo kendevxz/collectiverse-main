@@ -8,6 +8,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.new  # To be able to create a new post on category show page
+  end
+
   def new
     @category = Category.new
   end

@@ -2,12 +2,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :posts, dependent: :destroy
+  has_many :posts
+  has_one_attached :photo
   has_many :comments, dependent: :destroy
+  acts_as_voter
+
+  def increase_karma(count=1)
+    update_attribute(:karma, karma + count)
+  end
+
+  def decrease_karma(count=1)
+    update_attribute(:karma, karma - count)
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   validates :username, length: { in: 4..32 }, presence: true,
                       uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 8 }
+  # validates :password, length: { minimum: 8 }
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   # validates :email, presence: true, length: { maximum: 255 },
   #                   format: { with: VALID_EMAIL_REGEX },
@@ -21,6 +35,5 @@ class User < ApplicationRecord
   before_save :default_user
   def default_user
     self.admin_level = 1
-    self.creditscore = 0
   end
 end

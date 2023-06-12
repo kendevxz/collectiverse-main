@@ -6,4 +6,9 @@ class Post < ApplicationRecord
   validates :title, length: { in: 3..64 }, presence: true
   validates :content, length: { in: 8..20_000 }, presence: true
   # searchkick
+  acts_as_votable
+
+  def karma
+    self.get_upvotes.size - self.get_downvotes.size
+  end
 end

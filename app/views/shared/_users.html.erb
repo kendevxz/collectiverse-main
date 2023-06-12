@@ -1,0 +1,13 @@
+<div class="board">
+  <div class="board__container">
+    <span class="board__main__text xxl__font"><strong>Top Users</strong></span>
+    <div class="line__border"></div>
+    <div class="board__content">
+      <% User.order('karma DESC').all.first(10).each do |user| %>
+        <span class="board__content__text"><%= link_to user.username, user_path(user) %>
+        &nbsp;· <%= user.karma %>
+        &nbsp;pts</span>
+      <% end %>
+    </div>
+  </div>
+</div>

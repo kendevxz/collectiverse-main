@@ -2,11 +2,16 @@
   <div class="post__site__content">
     <div class="site__content__left">
       <div class="posts__container">
-        <span class="post__title"><%= @post.title %></span>
-
-        <span class="post__uname"><%= link_to @post.user.username, '/profile', class:"text__black" %> in <%= link_to @post.category.name, category_path(@post.category), class:"text__black" %> at <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-        <span class="post__show__content"><%= @post.content %></span>
+        <div class="post__data">
+          <span class="post__item xxl__font"><strong><%= @post.title %></strong></span>
+          <span class="post__item l__font"><%= link_to @post.user.username, user_path(@post.user) %>
+          &nbsp;<strong>·</strong>&nbsp;<%= link_to @post.category.name.capitalize, category_path(@post.category) %>
+          &nbsp;<strong>·</strong>&nbsp;<%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span>
+        </div>
+        <span class="post__item m__font"><%= @post.content %></span>
         <div class="comments__container">
+          <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path, data: { "turbo-method": :put } %>
+          <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path, data: { "turbo-method": :put } %>
           <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
             <div data-insert-in-list-target="items" data-comments-counter-controller="comments">
               <%= render "comments/form", post: @post, comment: @comment %>
@@ -14,13 +19,15 @@
           </div>
           <div class="line__border"></div>
           <% if @post.comments.blank? %>
-            Be the first to leave a comment!
+            <span class="m__font">Be the first to leave a comment!</span>
           <% else %>
-          <div class="comments__box">
-            <span data-insert-in-list-target="count"> <%# Does not update yet.... %>
-              <%= pluralize @post.comments.size, "comments" %>
-            </span>
-          </div>
+            <div class="comments__box">
+            <% if @post.comments.count == 1 %>
+              <span class="m__font">1 comment</span>
+            <% else %>
+              <span data-insert-in-list-target="count" class="m__font"><%= pluralize @post.comments.size, "comments" %></span>
+            <% end %>
+            </div>
           <div class="comments__big__box">
             <div class="comments_box">
               <% @post.comments.each do |comment| %>
@@ -47,79 +54,10 @@
       </div>
     </div>
     <div class="site__content__right">
-      <div class="board">
-        <% if user_signed_in? %>
-        <div class="board__container">
-          <span class="board__main__text"><%= @post.category.name %></span>
-          <div class="line__border"></div>
-          <div class="board__sub">
-            <div class="board__sub__container">
-              <span class="sub__main__text"> 1.2k </span>
-              <span class="sub__title__text"> Karma </span>
-            </div>
-            <div class="board__sub__container">
-              <span class="sub__main__text"><%= @post.category.posts.count %> </span>
-              <span class="sub__title__text"> Posts </span>
-            </div>
-            <div class="board__sub__container">
-              <span class="sub__main__text"> <%= User.count %></span>
-              <span class="sub__title__text"> Users </span>
-            </div>
-          </div>
-        </div>
-        <div class="board__profile__image" style="background-image: url(https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024);">
-        </div>
-        <% else %>
-        <div class="board__container">
-          <span class="board__main__text">Home Page</span>
-          <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
-        </div>
-        <% end %>
-      </div>
-      <div class="board">
-        <div class="board__container">
-          <span class="board__main__text">Top Categories</span>
-          <div class="line__border"></div>
-          <div class="board__content">
-            <% Category.all.first(10).each do |category| %>
-            <%# logic might need to be changed %>
-              <%= link_to category_path(category) do  %>
-              <span , class="text__black board__content__text"><%= category.name %></span>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="line__border"></div>
-          <%= link_to 'All Categories', categories_path, class: "text__black board__additional__button" %>
-        </div>
-      </div>
-      <div class="board">
-        <div class="board__container">
-          <span class="board__main__text">Top Users</span>
-          <div class="line__border"></div>
-          <div class="board__content">
-            <% User.all.first(10).each do |user| %>
-            <%# logic might need to be changed %>
-              <%# <%= link_to user_path(user) do  %>
-              <span class="board__content__text"><%= user.username %> - 2.3k Karma</span>
-              <%# <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="board">
-        <div class="board__container">
-          <span class="board__main__text">Top Traders</span>
-          <div class="line__border"></div>
-          <div class="board__content">
-            <% User.all.first(10).each do |user| %>
-            <%# logic might need to be changed %>
-              <%# <%= link_to user_path(user) do  %>
-              <span class="board__content__text"><%= user.username %> - 5k Trades</span>
-              <%# <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      <%= render "shared/post__category" %>
+      <%= render "shared/categories" %>
+      <%= render "shared/users" %>
+      <%= render "shared/traders" %>
     </div>
   </div>
 </div>

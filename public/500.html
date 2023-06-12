@@ -1,66 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<title>500 Collectiverse</title>
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    #notfound {
+      position: relative;
+      height: 100vh;
+    }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    #notfound .notfound {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .notfound {
+      max-width: 710px;
+      width: 100%;
+      text-align: center;
+      padding: 0px 15px;
+      line-height: 1.4;
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    .notfound .notfound-404 {
+      height: 200px;
+      line-height: 200px;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .notfound .notfound-404 h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 168px;
+      margin: 0px;
+      text-transform: uppercase;
+    }
+
+    .notfound h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #222;
+      margin: 0;
+    }
+
+    .notfound-search {
+      position: relative;
+      display: flex;
+      max-width: 420px;
+      width: 100%;
+      margin: 30px auto 22px;
+    }
+
+    .notfound-search input {
+      font-family: 'Outfit', sans-serif;
+      width: 70%;
+      height: 40px;
+      padding: 3px 15px;
+      color: #222;
+      font-size: 18px;
+      background: #f8fafb;
+      border: 1px solid rgba(34, 34, 34, 0.2);
+      border-radius: 3px;
+    }
+
+    .notfound-search button {
+      color: white;
+      border-width: 0px;
+      border-radius: 2px;
+      padding-top: 10px;
+      padding-right: 20px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #6387ec;
+      font-family: 'Lato', sans-serif;
+      transition-duration: 0.5s
+    }
+
+    .notfound a {
+      font-family: 'Lato', sans-serif;
+      display: inline-block;
+      font-weight: 700;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #82ba08;
+    }
+
+    .notfound a>.arrow {
+      position: relative;
+      top: -2px;
+      border: solid #82ba08;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      -webkit-transform: rotate(135deg);
+          -ms-transform: rotate(135deg);
+              transform: rotate(135deg);
+    }
+
+    @media only screen and (max-width: 767px) {
+      .notfound .notfound-404 {
+        height: 122px;
+        line-height: 122px;
+      }
+      .notfound .notfound-404 h1 {
+        font-size: 122px;
+      }
+    }
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+<body>
+
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>🐒</h1>
+			</div>
+			<h2>Oops, something went wrong with fulfilling your request</h2>
+			<form class="notfound-search">
+				<input type="text" placeholder="Search...">
+				<button type="button">Search</button>
+			</form>
+			<a href="/"><span class="arrow"></span>Return To Homepage</a>
+		</div>
+	</div>
+
 </body>
+
 </html>
