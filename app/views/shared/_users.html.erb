@@ -3,9 +3,10 @@
     <span class="board__main__text xxl__font"><strong>Top Users</strong></span>
     <div class="line__border"></div>
     <div class="board__content">
-      <% User.all.first(10).each do |user| %>
+      <% User.order('karma DESC').all.first(10).each do |user| %>
         <span class="board__content__text"><%= link_to user.username, user_path(user) %>
-        &nbsp;· 2.3k Karma</span>
+        &nbsp;· <%= user.karma %>
+        &nbsp;pts</span>
       <% end %>
     </div>
   </div>

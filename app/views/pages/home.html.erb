@@ -19,6 +19,10 @@
                 <span class="content__desc__item"><%= post.user.username %> in <%= post.category.name.capitalize %></span>
                 <span class="content__desc__item"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
                 <span class="content__desc__item">
+                  <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path(post), data: { "turbo-method": :put } %>
+                  <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path(post), data: { "turbo-method": :put } %>
+                </span>
+                <span class="content__desc__item">
                   <% if post.comments.blank? %>
                   No comment yet
                   <% elsif post.comments.count == 1 %>
