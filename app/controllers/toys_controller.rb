@@ -2,7 +2,7 @@ class ToysController < ApplicationController
   before_action :set_params, only: %i[show destroy]
 
   def index
-    @toys = Toy.all
+    @toys = Toy.where('release_date > ?', Date.today)
     if params[:query].present?
       @toys = @toys.where(title: params[:query])
     end
