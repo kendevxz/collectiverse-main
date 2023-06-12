@@ -1,65 +1,64 @@
-.button_primary {
+.button__primary{
   color: $white;
   background-color: $collectiv-blue;
+  display: flex;
+  border-radius: 25px;
+  margin: 0 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  padding: 8px 25px;
+  font-size: 16px;
   border-width: 0px;
-  border-radius: 2px;
-  padding-top: 5px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  padding-left: 10px;
+  align-items: center;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: $collectiv-blue;
-  font-family: 'Lato', sans-serif;
   transition-duration: 0.5s;
-  display: inline-flex;
+  box-shadow: 0px 5px 18px 0px rgba(0, 0, 0, 0.3);}
 
+.button__primary:hover{
+  background-color: #4d69b7;
+  color: white;
 }
 
-.button_primary:hover {
-    background-color: $collectiv-dark-blue;
-    color: white;
-}
-
-.button_secondary {
+.button__secondary{
   color: $white;
   background-color: $collectiv-green;
-  border-width: 0px;
-  border-radius: 2px;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  text-decoration: none;
+  display: flex;
+  border-radius: 25px;
+  margin: 0 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  padding: 8px 25px;
   font-size: 16px;
-  font-weight: 600;
-  background-color: $collectiv-green;
-  font-family: 'Lato', sans-serif, ;
-  transition-duration: 0.5s
-}
-
-.button_secondary:hover {
-    background-color: $collectiv-dark-blue;
-    color: white;
-}
-
-.button_tertiary {
   border-width: 0px;
-  border-radius: 2px;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-  padding-left: 20px;
+  align-items: center;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: $white;
-  font-family: 'Lato', sans-serif;
-  transition-duration: 0.5s
+  transition-duration: 0.5s;
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
 }
 
-.button_tertiary:hover {
-    color: #faf8f8;
-    background-color: $collectiv-dark-blue;
+.button__secondary:hover{
+  background-color: #5f8807;
+  color: white;
+}
+
+.button__tertiary{
+  color: $black;
+  background-color: #eeebeb;
+  display: flex;
+  border-radius: 25px;
+  margin: 0 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  padding: 8px 25px;
+  font-size: 16px;
+  border-width: 0px;
+  align-items: center;
+  text-decoration: none;
+  transition-duration: 0.5s;
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
+}
+
+.button__tertiary:hover{
+  background-color: #d5d5d5;
+  color: black;
 }
