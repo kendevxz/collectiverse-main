@@ -5,8 +5,10 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :title, length: { in: 3..64 }, presence: true
   validates :content, length: { in: 8..20_000 }, presence: true
-  # searchkick
   acts_as_votable
+
+  include PgSearch::Model
+  multisearchable against: [:title, :content]
 
   def karma
     self.get_upvotes.size - self.get_downvotes.size

@@ -4,5 +4,7 @@ class Category < ApplicationRecord
                    uniqueness: { case_sensitive: false }
   before_save { name.downcase! }
   has_one_attached :photo
-  # searchkick
+
+  include PgSearch::Model
+  multisearchable against: [:name]
 end

@@ -1,23 +1,19 @@
-<div class="d-flex" id="set-margin">
-  <div class="create__post__content__middle" >
-    <div class="create__post__box">
-      <h2 class="registration__box__text">Create your a post</h2>
-      <hr class="solid">
-
-      <div class="div-content">
-        <%= simple_form_for @post do |f| %>
-          <div class="form-inputs">
-            <%= f.input :title %>
-            <%= f.input :content %>
-            <%= f.association :category  %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-          </div>
-          <div class="form-actions d-flex align-items-center">
-          <button onclick="history.back()" class="button__cancel">Cancel</button>
-          <%= f.button :submit, class: "button_primary" %>
-          </div>
-        <% end %>
-      </div>
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <div class="form__container mt-5 " style="width: 70%">
+    <h2>Create a new post</h2>
+    <hr class="solid">
+    <div data-controller="character-counter">
+      <%= simple_form_for @post do |f| %>
+        <div class="form__inputs">
+          <%= f.input :title, placeholder: "Title" %>
+          <%= f.input :content, as: :text, input_html: { data: { character_counter_target: "input" } } %>
+          <p><strong data-character-counter-target="counter"></strong>/20.000</p>
+          <%= f.association :category  %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, class: "btn button__login" %>
+        </div>
+          <%# <button onclick="history.back()" class="button__cancel">Cancel</button> %>
+      <% end %>
     </div>
   </div>
 </div>
