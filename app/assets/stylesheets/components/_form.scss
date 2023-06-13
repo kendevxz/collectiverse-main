@@ -366,3 +366,63 @@ input:-moz-placeholder { font-size: 14px; }
 .card-image-release-toy {
   float:right;
 }
+
+// Karma Page
+.karma-level-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.card-blue-light {
+  border-radius: 10px;
+  border: 2px solid $cv-light-blue;
+  background-color: transparent;
+}
+.card-title-newbie:hover {
+  color: $cv-light-blue;
+}
+
+.card-blue-blue {
+  border-radius: 10px;
+  border: 2px solid $cv-medium-blue;
+  background-color: transparent;
+}
+
+.card-title-rising:hover {
+  color: $cv-medium-blue;
+}
+.card-blue-medium {
+  border-radius: 10px;
+  border: 2px solid $cv-blue;
+  background-color: transparent;
+}
+
+.card-title-superstar:hover {
+  color: $cv-blue;
+}
+.card-blue-dark {
+  border-radius: 10px;
+  border: 2px solid $cv-dark-blue;
+  background-color: transparent;
+}
+.card-title-moderator:hover {
+  color: $cv-dark-blue;
+}
+.btn-profile {
+  margin-top: 12px;
+  margin-left: 46%;
+  margin-right: 4px;
+  margin-bottom: 12px;
+  align-items: center;
+  padding: 12px 12px;
+  font-size: 13px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $cv-medium-blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
