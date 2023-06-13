@@ -19,8 +19,5 @@ application.register("insert-subcomment-in-list", InsertSubcommentInListControll
 import ReplySubcommentController from "./reply_subcomment_controller"
 application.register("reply-subcomment", ReplySubcommentController)
 
-import { Application } from 'stimulus'
 import CharacterCounter from 'stimulus-character-counter'
-
-const application = Application.start()
 application.register('character-counter', CharacterCounter)
