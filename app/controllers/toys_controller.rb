@@ -3,9 +3,6 @@ class ToysController < ApplicationController
 
   def index
     @toys = Toy.where('release_date > ?', Date.today)
-    if params[:query].present?
-      @toys = @toys.where(title: params[:query])
-    end
   end
 
   def new

@@ -9,12 +9,12 @@
           &nbsp;<strong>·</strong>&nbsp;<span class="static__text"><%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span></span>
         </div>
         <span class="post__item static__text m__font"><%= @post.content %></span>
-        <div class="comments__container">
+        <div class="comments__container" data-controller="insert-in-list">
           <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path, data: { "turbo-method": :put } %>
           <span class="static__text m__font"><%= @post.karma %></span>
           <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path, data: { "turbo-method": :put } %>
-          <div class="post__comment" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-            <div data-insert-in-list-target="items" data-comments-counter-controller="comments">
+          <div class="post__comment"  data-insert-in-list-position-value="beforeend">
+            <div data-comments-counter-controller="comments">
               <%= render "comments/form", post: @post, comment: @comment %>
             </div>
           </div>
@@ -30,24 +30,26 @@
             <% end %>
             </div>
           <div class="comments__big__box">
-            <div class="comments_box">
+            <div class="comments_box" data-insert-in-list-target="items">
               <% @post.comments.each do |comment| %>
                 <div data-controller="reply-subcomment">
                   <div data-controller="insert-subcomment-in-list" data-insert-subcomment-in-list-position-value="beforeend">
-                    <%= render 'posts/comment', comment: comment %>
-                    <div class="comments__big__box">
-                      <div class="comments_box">
-                      <div data-insert-subcomment-in-list-target="subcomments">
-                        <% comment.subcomments.each do |subcomment| %>
-                          <%= render 'posts/subcomment', subcomment: subcomment %>
-                        <% end %>
+                    <div>
+                      <%= render 'posts/comment', comment: comment %>
+                      <div class="comments__big__box">
+                        <div class="comments_box">
+                        <div data-insert-subcomment-in-list-target="subcomments">
+                          <% comment.subcomments.each do |subcomment| %>
+                            <%= render 'posts/subcomment', subcomment: subcomment %>
+                          <% end %>
+                          </div>
                         </div>
                       </div>
+                      <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
                     </div>
-                    <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
+                  </div>
                 </div>
-              </div>
-                <% end %>
+              <% end %>
             </div>
           </div>
               <% end %>

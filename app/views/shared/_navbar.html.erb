@@ -3,8 +3,8 @@
     <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
   <% end %>
   <div class="search__bar__placeholder">
-    <%= form_tag categories_path, method: :get, class: "navbar-form" do %>
-    <%= text_field_tag :search, params[:search], class: "form-control" %>
+    <%= form_tag root_path, method: :get, class: "navbar-form" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control" %>
     <i class="fa-solid fa-magnifying-glass search__icon"></i>
     <% end %>
   </div>
