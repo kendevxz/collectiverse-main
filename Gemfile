@@ -83,3 +83,4 @@ gem "simple_calendar", "~> 2.4"
 gem 'acts_as_votable'
 gem 'coffee-script-source', '1.8.0'
 gem "pg_search"
+gem 'active_storage_drag_and_drop'
