@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/profile', to: "pages#profile"
   get '/karma', to: "pages#karma"
+  get '/about', to: "pages#about"
 
   resources :categories
   resources :users, only: [:show, :edit, :update]
