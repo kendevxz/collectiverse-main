@@ -9,6 +9,8 @@
     <div class="sticky__board"><%= render "shared/current__profile" %></div>
   </div>
   <div class="site__content__center">
+    <%= render "shared/forum_post" %>
+
     <div class="posts__container">
       <% Post.order('karma DESC').all.each do |post| %>
         <%= link_to post_path(post) do  %>

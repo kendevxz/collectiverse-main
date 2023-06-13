@@ -37,3 +37,18 @@
 .post__comment{
   margin: 12.5px 0;
 }
+
+
+.forum__post {
+  margin-bottom: 34px; // just to put distance between this post design and old post design
+  max-width: 850px;
+  box-shadow: 0 3px 20px #1d26260d;
+  border-radius: 10px;
+  padding: 25px 45px;
+  border-width: 0px;
+  background-color: white;
+}
+
+.forum__post__content {
+
+}
