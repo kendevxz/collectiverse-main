@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
 
   def show
     @post = Post.new  # To be able to create a new post on category show page
+    @posts = Post.order('karma DESC').all
   end
 
   def new
