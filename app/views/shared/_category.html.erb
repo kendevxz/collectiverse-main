@@ -1,7 +1,7 @@
 <div class="board">
   <% if user_signed_in? %>
   <div class="board__container">
-    <span class="board__main__text xxl__font"><strong><%= link_to @category.name.capitalize, category_path(@category) %></strong></span>
+    <span class="board__main__text xxl__font"><strong><%= link_to @category.name.titleize, category_path(@category) %></strong></span>
     <div class="line__border"></div>
     <div class="board__sub">
       <div class="board__sub__container">
