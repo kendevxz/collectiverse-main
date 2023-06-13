@@ -9,38 +9,40 @@
     <div class="sticky__board"><%= render "shared/current__profile" %></div>
   </div>
   <div class="site__content__center">
-    <%= render "shared/forum_post" %>
-
-    <div class="posts__container">
-      <% @posts.each do |post| %>
-        <%= link_to post_path(post) do  %>
-          <div class="post__container">
-            <div class="post__content text__black">
-              <span class="content__title"><%= post.title %></span>
-              <div class="content__description">
-                <span class="content__desc__item"><%= post.user.username %> in <%= post.category.name.capitalize %></span>
-                <span class="content__desc__item static__text"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
-                <span class="content__desc__item">
-                  <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path(post), data: { "turbo-method": :put } %>
-                  <span class="m__font static__text"><%= post.karma %></span>
-                  <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path(post), data: { "turbo-method": :put } %>
-                </span>
-                <span class="content__desc__item static__text">
-                  <% if post.comments.blank? %>
-                  No comment yet
-                  <% elsif post.comments.count == 1 %>
-                  1 comment
-                  <% else %>
-                  <%= post.comments.count %> comments
-                  <% end %>
-                </span>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do  %>
+        <div class="posts__forum__container">
+          <div class="card forum__post">
+            <div class="card-body forum__post__content">
+              <h5 class="card-title static__text"><%= post.title %></h5>
+              <p class="card-text static__text" style="width: 85%;"> <%= post.content.truncate(130) %></p>
+              <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex flex-wrap justify-content-start align-items-center">
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.category.name.capitalize %></span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.comments.size %> comments </span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"> <%= post.karma %> kudos</span></div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-end align-items-center">
+                  <div class="notification">
+                    <div class="notification-content">
+                      <p class="static__text"><strong><%= post.user.username %></strong></p>
+                      <p class="static__text"><small><%= distance_of_time_in_words_to_now(post.created_at) %></small></p>
+                    </div>
+                    <% if post.user.photo.attached? %>
+                      <%= cl_image_tag post.user.photo.key, class: "forum__post__content__avatar", alt: "avatar-large"  %>
+                    <% else %>
+                      <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "forum__post__content__avatar", alt: "avatar-large" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="line__border"></div>
-          <% end %>
+          </div>
+    <% end %>
         </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
   <div class="site__content__right">
     <%= render "shared/categories" %>
