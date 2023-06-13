@@ -34,13 +34,6 @@ class PostsController < ApplicationController
     @subcomment = Subcomment.new
   end
 
-  def index
-    @posts = Post.all
-    if params[:query].present?
-      @posts = @posts.where(title: params[:query])
-    end
-  end
-
   def create
     @category = Category.find(params[:post][:category_id].to_i)
     @post = Post.new(post_params)

@@ -8,7 +8,15 @@ class Post < ApplicationRecord
   acts_as_votable
 
   include PgSearch::Model
-  multisearchable against: [:title, :content]
+  pg_search_scope :global_search,
+    against: %i[title content],
+    associated_against: {
+      user: [:username],
+      category: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def karma
     self.get_upvotes.size - self.get_downvotes.size
