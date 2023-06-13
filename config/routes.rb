@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get '/profile', to: "pages#profile"
+  get '/karma', to: "pages#karma"
 
   resources :categories
   resources :users, only: [:show, :edit, :update]
