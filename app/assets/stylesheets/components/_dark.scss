@@ -1,7 +1,6 @@
 // Dark Mode
 body.dark {
   background: $cv-bg-black;
-  color: white;
 }
 
 body.dark .line__border {
@@ -44,6 +43,11 @@ body.dark .profile__button:hover{
 
 body.dark .profile__text{
   color: $cv-white;
+}
+
+body.dark .dropdown-menu.show{
+  background: $cv-dark-blue;
+  border-color: $cv-dark-blue;
 }
 
 // Board

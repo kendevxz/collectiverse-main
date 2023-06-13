@@ -1,7 +1,6 @@
 // Light Mode
 body.light {
   background: $cv-light-blue;
-  color: black;
 }
 
 body.light .line__border {
@@ -44,6 +43,11 @@ body.light .profile__button:hover{
 
 body.light .profile__text{
   color: $cv-blue;
+}
+
+body.light .dropdown-menu.show{
+  background: $white;
+  border-color: $white;
 }
 
 // Board

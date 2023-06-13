@@ -28,17 +28,17 @@
     <i class="fa-solid fa-circle profile__online__status"></i>
     <% end %>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <span class="dropdown__label">Your Profile</span>
-        <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list" %>
-        <%= link_to "Setting", "/purchases", class: "dropdown-item dropdown__list" %>
+        <span class="dropdown__label static__text">Your Profile</span>
+        <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list static__text" %>
+        <%= link_to "Setting", "/purchases", class: "dropdown-item dropdown__list static__text" %>
         <div class="line__border"></div>
-        <span class="dropdown__label">Accessibility</span>
+        <span class="dropdown__label static__text">Accessibility</span>
           <label class="switch", class: "dropdown-item">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
         <div class="line__border"></div>
-        <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+        <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item static__text") %>
       </div>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %>
