@@ -9,7 +9,7 @@
           <%= f.input :content, as: :text, input_html: { data: { character_counter_target: "input" } } %>
           <p><strong data-character-counter-target="counter"></strong>/20.000</p>
           <%= f.association :category  %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.input :images, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, class: "btn button__login" %>
         </div>
           <%# <button onclick="history.back()" class="button__cancel">Cancel</button> %>
