@@ -15,43 +15,47 @@
 }
 
 .banner__logo__text{
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  transition: all .2s;
   color: white;
   font-size: 72px;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   margin-bottom: -25px;
 }
 
 .banner__sub__text{
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  transition: all .2s;
   color: white;
   font-size: 36px;
-  font-family: 'Dosis', sans-serif;
-  letter-spacing: 9.5px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 8px;
 }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .banner__logo__text{
-    font-size: 44px;
-    letter-spacing: 8px;
+    font-size: 32px;
     margin-bottom: -10px;
   }
   .banner__sub__text{
     font-size: 20px;
-    letter-spacing: 4.5px;
+    letter-spacing: 1.8px;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .banner__logo__text{
-    font-size: 48px;
-    letter-spacing: 10px;
+    font-size: 40px;
     margin-bottom: -10px;
   }
   .banner__sub__text{
     font-size: 21px;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
   }
 }
 
@@ -59,12 +63,10 @@
 @media (min-width: 768px) {
   .banner__logo__text{
     font-size: 54px;
-    letter-spacing: 12px;
     margin-bottom: -10px;
   }
   .banner__sub__text{
-    font-size: 26.5px;
-    letter-spacing: 6px;
+    letter-spacing: 8.7px;
   }
 }
 
@@ -72,11 +74,10 @@
 @media (min-width: 992px) {
   .banner__logo__text{
     font-size: 64px;
-    letter-spacing: 14px;
   }
   .banner__sub__text{
     font-size: 29px;
-    letter-spacing: 8px;
+    letter-spacing: 8.5px;
   }
 }
 
@@ -84,10 +85,9 @@
 @media (min-width: 1200px) {
   .banner__logo__text{
     font-size: 72px;
-    letter-spacing: 20px;
   }
   .banner__sub__text{
     font-size: 36px;
-    letter-spacing: 9.5px;
+    letter-spacing: 8px;
   }
 }
