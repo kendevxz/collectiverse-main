@@ -22,8 +22,9 @@ class ToysController < ApplicationController
   end
 
   def release_date
-    UserToy.create(user_id: current_user.id, toy_id: params[:id])
-    redirect_to profile_path(current_user)
+    toy = Toy.find(params[:id])
+    UserToy.create(user_id: current_user.id, toy_id: toy.id)
+    redirect_to profile_path(start_date: toy.release_date)
   end
 
   def destroy
