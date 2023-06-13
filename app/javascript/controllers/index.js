@@ -19,5 +19,5 @@ application.register("insert-subcomment-in-list", InsertSubcommentInListControll
 import ReplySubcommentController from "./reply_subcomment_controller"
 application.register("reply-subcomment", ReplySubcommentController)
 
-import CharacterCounter from 'stimulus-character-counter'
-application.register('character-counter', CharacterCounter)
+import ToyimageController from "./toyimage_controller"
+application.register("toyimage", ToyimageController)

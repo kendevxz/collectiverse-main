@@ -47,13 +47,40 @@
                   <%= post.comments.count %> comments
                   <% end %>
                 </span>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do  %>
+        <div class="posts__forum__container">
+          <div class="card forum__post">
+            <div class="card-body forum__post__content">
+              <h5 class="card-title static__text"><%= post.title %></h5>
+              <p class="card-text static__text" style="width: 85%;"> <%= post.content.truncate(130) %></p>
+              <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex flex-wrap justify-content-start align-items-center">
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.category.name.capitalize %></span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.comments.size %> comments </span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
+                  <div class="px-2 pt-3 static__text"><span class="align-middle"> <%= post.karma %> kudos</span></div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-end align-items-center">
+                  <div class="notification">
+                    <div class="notification-content">
+                      <p class="static__text"><strong><%= post.user.username %></strong></p>
+                      <p class="static__text"><small><%= distance_of_time_in_words_to_now(post.created_at) %></small></p>
+                    </div>
+                    <% if post.user.photo.attached? %>
+                      <%= cl_image_tag post.user.photo.key, class: "forum__post__content__avatar", alt: "avatar-large"  %>
+                    <% else %>
+                      <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "forum__post__content__avatar", alt: "avatar-large" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="line__border"></div>
-          <% end %>
-        </div>
+          </div>
       <% end %>
-    </div>
+        </div>
+    <% end %>
   </div>
   <div class="site__content__right">
     <%= render "shared/categories" %>

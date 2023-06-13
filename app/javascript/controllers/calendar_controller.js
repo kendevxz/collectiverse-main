@@ -4,6 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["toysbox"]
 
+  connect() {
+    console.log(this.element)
+  }
+
   showToys(event) {
     const fullDate = event.currentTarget.dataset.fullDate
     const url = `/profile?date=${fullDate}`

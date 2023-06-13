@@ -3,13 +3,11 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    if params[:query].present?
-      @categories = @categories.where(name: params[:query])
-    end
   end
 
   def show
     @post = Post.new  # To be able to create a new post on category show page
+    @posts = Post.order('karma DESC').all
   end
 
   def new

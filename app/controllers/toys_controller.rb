@@ -3,9 +3,6 @@ class ToysController < ApplicationController
 
   def index
     @toys = Toy.where('release_date > ?', Date.today)
-    if params[:query].present?
-      @toys = @toys.where(title: params[:query])
-    end
   end
 
   def new
@@ -22,8 +19,9 @@ class ToysController < ApplicationController
   end
 
   def release_date
-    UserToy.create(user_id: current_user.id, toy_id: params[:id])
-    redirect_to profile_path(current_user)
+    toy = Toy.find(params[:id])
+    UserToy.create(user_id: current_user.id, toy_id: toy.id)
+    redirect_to profile_path(start_date: toy.release_date)
   end
 
   def destroy

@@ -9,12 +9,6 @@ class User < ApplicationRecord
   has_many :toys, through: :user_toys
   acts_as_voter
 
-  include PgSearch::Model
-  multisearchable against: [:username],
-  using: {
-    tsearch: { prefix: true }
-  }
-
   def increase_karma(count=1)
     update_attribute(:karma, karma + count)
   end
