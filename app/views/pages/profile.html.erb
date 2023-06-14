@@ -2,32 +2,11 @@
 <% end_date = start_date + 6 %>
 
 
-
+asd
 
 <section style="background-color:$cv-light-blue;">
   <div class="container" data-controller="calendar">
     <div class="row">
-      <div class="card card__profile">
-        <div class="card-body text-center">
-          <img src="https://cdn.medcom.id/dynamic/content/2023/04/18/1559704/jnwhtaluoy.jpg?w=1024" alt="avatar-large"
-            class="rounded-circle img-fluid mt-3" style="width: 200px; height: 200px; object-fit: cover">
-          <h5 class="my-3"><%= current_user.username %></h5>
-          <p class="my-3">Count Posts</p>
-          <p class="my-3">Count Comments</p>
-          <div class="d-flex justify-content-center mb-2">
-            <%= link_to 'Edit Profile', edit_user_registration_path, class: "button-secondary btn m-2" %>
-            <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "button-secondary btn m-2") %>
-          </div>
-        </div>
-      </div>
-      <div class="card card__karma">
-        <div class="card-body text-center">
-          <h5 class="my-3">Karma</h5>
-          <p class="my-3 d-inline">Your Karma level</p>
-          <h2 class="my-3"><%= current_user.admin_level %></h2>
-          <button onclick="https://www.gaiam.com/blogs/discover/how-to-attract-good-karma">How to get better <b>Karma</b></button>
-        </div>
-      </div>
       <div class="card__calender">
         <div class="simple-calendar">
           <table class="table table-striped">
