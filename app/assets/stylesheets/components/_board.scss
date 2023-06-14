@@ -69,18 +69,6 @@
   margin-top: 10px;
 }
 
-.site__content {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-gap: 34px;
-  padding: 34px;
-}
-
-.post__container {
-  height: 180px;
-  width: 100%;
-}
-
 .line__border {
   height: 1px;
   margin: auto;
@@ -100,6 +88,7 @@
   font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: flex-start;
+  margin-bottom: 12.5px;
 }
 
 .content__description{
@@ -109,8 +98,9 @@
 }
 
 .content__desc__item{
-  text-align: right;
-  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .category__title{
@@ -123,4 +113,16 @@
   position: -webkit-sticky;
   position: sticky;
   top: 84px;
+}
+
+.content__item{
+  margin-top: 12.5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__desc__left{
+  display: flex;
+  align-items: center;
 }

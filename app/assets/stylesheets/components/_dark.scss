@@ -62,11 +62,39 @@ body.dark .board__container{
 }
 
 // Card & Post
-body.dark .posts__container{
+body.dark .post__container{
   background-color: $cv-dark-blue;
   box-shadow: 0 3px 20px #1d26260d;
 }
 
 body.dark .post__item{
   color: $cv-white;
+}
+
+// forum container (new post / login / registration)
+body.dark .form__container{
+  background-color: $cv-dark-blue;
+  box-shadow: 0 3px 20px #1d26260d;
+}
+
+body.dark .post__item{
+  color: $cv-white;
+}
+
+body.dark .form-control{
+  background-color: #434759 !important;
+  border: 1px solid #434759;
+  color: white !important;
+  border-radius: 5px;
+}
+
+body.dark ::placeholder{
+  color: $cv-white;
+}
+
+body.dark .form-select{
+  background-color: #434759 !important;
+  border: 1px solid #434759;
+  color: white !important;
+  border-radius: 10px;
 }

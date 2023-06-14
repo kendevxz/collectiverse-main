@@ -21,3 +21,6 @@ application.register("reply-subcomment", ReplySubcommentController)
 
 import ToyimageController from "./toyimage_controller"
 application.register("toyimage", ToyimageController)
+
+import CharacterCounter from 'stimulus-character-counter'
+application.register('character-counter', CharacterCounter)

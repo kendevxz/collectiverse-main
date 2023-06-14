@@ -4,15 +4,7 @@
   justify-content: center;
 }
 
-.post__site__content {
-  width: 60%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 34px;
-  padding: 34px;
-}
-
-.posts__container {
+.post__container {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -58,51 +50,21 @@
   border-width: 0px;
 }
 
-.forum__post__content__avatar{
-  width: 56px;
-  height: 56px;
+.post__content__avatar{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
 }
 
+.post__content__user{
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
 
-.notification {
+.content__desc__right{
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  background-color: $cv-dark-blue;
-  padding: 8px 16px;
-}
-
-.notification .notification-content {
-  flex-grow: 1;
-  padding: 0 24px;
-}
-
-.notification p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.notification small {
-  color: $cv-white;
-  font-weight: bold;
-}
-.notification .notification-actions {
-  opacity: 0;
-  display: flex;
-  transition: ease .3s;
-}
-
-.notification:hover .notification-actions {
-  opacity: 1;
-}
-
-.notification .notification-actions a {
-  color: $cv-white;
-  margin-left: 16px;
-  font-size: 14px;
-}
-
-.notification .notification-actions a:hover {
-  color: #555555;
 }
