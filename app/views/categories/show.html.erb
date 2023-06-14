@@ -1,25 +1,28 @@
-
-<div class="site__content">
-  <div class="site__content__left">
-    <%= render "shared/category" %>
-  </div>
-<div class="site__content__center">
-  <div class="form__container">
-    <span class="static__text xxl__font form__main__text"><strong>CREATE A POST</strong></span>
-    <div class="line__border"></div>
-    <div data-controller="character-counter">
-      <%= simple_form_for @post do |f| %>
-      <div class="form__input__container">
-        <div class="left__input__container">
-          <%= f.input :title, placeholder: "Title", label: false %>
-          <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
-          <p class="static__text"><span data-character-counter-target="counter"></span>/20.000</p>
-          <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
+<div class="full__site__content">
+  <div class="site__content">
+    <div class="site__content__left">
+      <%= render "shared/category" %>
+    </div>
+  <div class="site__content__center">
+    <div class="form__container">
+      <span class="static__text xxl__font form__main__text"><strong>Create a post</strong></span>
+      <div class="line__border"></div>
+      <div data-controller="character-counter">
+        <%= simple_form_for @post do |f| %>
+        <div class="form__input__container">
+          <div class="left__input__container">
+            <%= f.input :title, placeholder: "Title", label: false %>
+            <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
+            <p class="static__text"><span data-character-counter-target="counter"></span>/20.000</p>
+            <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
+          </div>
+          <div class="right__input__container">
+            <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
+          </div>
         </div>
-        <div class="right__input__container">
-          <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
-
-        </div>
+        <div class="line__border"></div>
+        <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
+      <% end %>
       </div>
       <div class="line__border"></div>
       <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
