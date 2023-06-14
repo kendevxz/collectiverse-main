@@ -1,13 +1,9 @@
 class ToysController < ApplicationController
-  before_action :set_params, only: %i[show destroy]
 
   def index
     @toys = Toy.where('release_date > ?', Date.today)
   end
 
-  def new
-    @toy = Toy.new
-  end
 
   def create
     @toy = Toy.new(toy_params)
@@ -24,10 +20,10 @@ class ToysController < ApplicationController
     redirect_to profile_path(start_date: toy.release_date)
   end
 
-  def destroy
-    @toy.destroy
-    redirect_to root_path, status: :see_other  # adjust later
-  end
+  # def destroy
+  #   @toy.destroy
+  #   redirect_to root_path, status: :see_other  # adjust later
+  # end
 
   private
   def toy_params

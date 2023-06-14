@@ -270,36 +270,13 @@ input:-moz-placeholder { font-size: 14px; }
 .toy-name {
   overflow: hidden;
   margin-bottom: 0;
-  font-size: 12px;
+  width: 70%;
 }
 
 .toy-release-date {
   display: flex;
   height: 30px;
-  font-weight: 700;
-  font-size: 28px;
   margin-bottom: 12px;
-}
-
-
-.btn-calendar {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  font-size: 10px;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-  background-color: $cv-medium-blue;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-calendar:hover {
-  background-color: $cv-dark-blue;
-  color: $cv-light-blue;
 }
 
 // Dropdown Form
