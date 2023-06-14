@@ -24,6 +24,9 @@
         <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
       <% end %>
       </div>
+      <div class="line__border"></div>
+      <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
+    <% end %>
     </div>
       <% @category.posts.each do |post| %>
         <%= link_to post_path(post) do  %>
