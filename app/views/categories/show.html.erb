@@ -20,13 +20,10 @@
             <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
           </div>
         </div>
-        <div class="line__border"></div>
-        <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
-      <% end %>
-      </div>
       <div class="line__border"></div>
       <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
     <% end %>
+    </div>
     </div>
       <% @category.posts.each do |post| %>
         <%= link_to post_path(post) do  %>
