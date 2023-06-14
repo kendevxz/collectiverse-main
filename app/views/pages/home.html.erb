@@ -23,7 +23,7 @@
         <% end %>
           <div class="content__item">
             <div class="content__desc__left">
-              <span><%= link_to post.category.name.titleize, category_path(post.category) %>
+              <span class="static__text"><%= link_to post.category.name.titleize, category_path(post.category) %>
               &nbsp;·&nbsp;<%= post.comments.size %> comments
               &nbsp;·&nbsp;<%= post.karma %> kudos</span>
             </div>
