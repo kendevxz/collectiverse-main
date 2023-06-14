@@ -3,7 +3,7 @@
     <%= render "shared/current__profile" %>
   </div>
   <div class="site__content__center">
-    <div class="posts__container">
+    <div class="post__container">
         <% Category.all.each do |category| %>
         <%= link_to category_path(category) do  %>
         <div class="post__container">

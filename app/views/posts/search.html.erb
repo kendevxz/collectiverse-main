@@ -11,7 +11,7 @@
   <div class="site__content__center">
     <%= render "shared/forum_post" %>
 
-    <div class="posts__container">
+    <div class="post__container">
       <% Post.order('karma DESC').all.each do |post| %>
         <%= link_to post_path(post) do  %>
           <div class="post__container">
