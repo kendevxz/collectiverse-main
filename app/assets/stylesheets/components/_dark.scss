@@ -70,3 +70,13 @@ body.dark .posts__container{
 body.dark .post__item{
   color: $cv-white;
 }
+
+// forum container (new post / login / registration)
+body.dark .form__container{
+  background-color: $cv-dark-blue;
+  box-shadow: 0 3px 20px #1d26260d;
+}
+
+body.dark .post__item{
+  color: $cv-white;
+}
