@@ -36,9 +36,9 @@
         <div class="line__border"></div>
         <span class="dropdown__label static__text">Accessibility</span>
         <% if cookies[:theme] == "light" %>
-          <%= link_to "Dark", root_path(theme: "dark"), class:"button__secondary" %>
+          <%= link_to "Dark Mode", root_path(theme: "dark"), class:"dropdown-item dropdown__list static__text" %>
         <% else %>
-          <%= link_to "Light", root_path(theme: "light"), class:"button__secondary" %>
+          <%= link_to "Light Mode", root_path(theme: "light"), class:"dropdown-item dropdown__list static__text" %>
         <% end %>
         <div class="line__border"></div>
         <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item static__text") %>
