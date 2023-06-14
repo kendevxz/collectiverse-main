@@ -16,11 +16,11 @@
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
       </div>
     <%= link_to "#", class: "profile__button", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "profile__avatar" %>
-    <% else %>
+    <%# if current_user.photo.attached? %>
+      <%# cl_image_tag current_user.photo.key, class: "profile__avatar" %>
+    <%# else %>
       <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "profile__avatar" %>
-    <% end %>
+    <%# end %>
     <span class="profile__text"><%= current_user.username %></span>
     <i class="fa-solid fa-circle profile__online__status"></i>
     <% end %>
