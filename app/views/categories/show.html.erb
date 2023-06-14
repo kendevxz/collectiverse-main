@@ -1,67 +1,65 @@
-<div class="site__content">
-  <div class="site__content__left">
-    <%= render "shared/category" %>
-  </div>
-<div class="site__content__center">
-  <div class="form__container">
-    <span class="static__text xxl__font form__main__text"><strong>Create a post</strong></span>
-    <div class="line__border"></div>
-    <div data-controller="character-counter">
-      <%= simple_form_for @post do |f| %>
-      <div class="form__input__container">
-        <div class="left__input__container">
-          <%= f.input :title, placeholder: "Title", label: false %>
-          <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
-          <p><span data-character-counter-target="counter"></span>/20.000</p>
-          <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
-        </div>
-        <div class="right__input__container">
-          <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
-        </div>
-      </div>
-      <div class="line__border"></div>
-      <%= f.button :submit, class: "btn button__primary", style:"margin-top: 12.5px"%>
-    <% end %>
+<div class="full__site__content">
+  <div class="site__content">
+    <div class="site__content__left">
+      <%= render "shared/category" %>
     </div>
-  </div>
-    <% @posts.each do |post| %>
-      <%= link_to post_path(post) do  %>
-        <div class="posts__forum__container">
-          <div class="card forum__post">
-            <div class="card-body forum__post__content">
-              <h5 class="card-title static__text"><%= post.title %></h5>
-              <p class="card-text static__text" style="width: 85%;"> <%= post.content.truncate(130) %></p>
-              <div class="d-flex justify-content-between flex-wrap">
-                <div class="d-flex flex-wrap justify-content-start align-items-center">
-                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.category.name.capitalize %></span></div>
-                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
-                  <div class="px-2 pt-3 static__text"><span class="align-middle"><%= post.comments.size %> comments </span></div>
-                  <div class="px-2 pt-3 static__text"><span class="align-middle">·</span></div>
-                  <div class="px-2 pt-3 static__text"><span class="align-middle"> <%= post.karma %> kudos</span></div>
-                </div>
-                <div class="d-flex flex-wrap justify-content-end align-items-center">
-                  <div class="notification">
-                    <div class="notification-content">
-                      <p class="static__text"><strong><%= post.user.username %></strong></p>
-                      <p class="static__text"><small><%= distance_of_time_in_words_to_now(post.created_at) %></small></p>
-                    </div>
-                    <% if post.user.photo.attached? %>
-                      <%= cl_image_tag post.user.photo.key, class: "forum__post__content__avatar", alt: "avatar-large"  %>
-                    <% else %>
-                      <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "forum__post__content__avatar", alt: "avatar-large" %>
-                    <% end %>
-                  </div>
-                </div>
+  <div class="site__content__center">
+    <div class="form__container">
+      <span class="static__text xxl__font form__main__text"><strong>Create a post</strong></span>
+      <div class="line__border"></div>
+      <div data-controller="character-counter">
+        <%= simple_form_for @post do |f| %>
+        <div class="form__input__container">
+          <div class="left__input__container">
+            <%= f.input :title, placeholder: "Title", label: false %>
+            <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
+            <p><span data-character-counter-target="counter"></span>/20.000</p>
+            <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
+          </div>
+          <div class="right__input__container">
+            <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
+          </div>
+        </div>
+        <div class="line__border"></div>
+        <%= f.button :submit, class: "btn button__primary", style:"margin-top: 12.5px"%>
+      <% end %>
+      </div>
+    </div>
+      <% @category.posts.each do |post| %>
+        <%= link_to post_path(post) do  %>
+        <div class="post__container">
+          <div class="post__desc">
+          <span class="xxl__font static__text content__title"><strong><%= post.title %></strong></span>
+            <div class="content__fill">
+              <span class="m__font static__text"><%= post.content.truncate(130) %></span>
+            </div>
+          </div>
+        <% end %>
+          <div class="content__item">
+            <div class="content__desc__left">
+              <span class="static__text"><%= link_to post.category.name.titleize, category_path(post.category) %>
+              &nbsp;·&nbsp;<%= post.comments.size %> comments
+              &nbsp;·&nbsp;<%= post.karma %> kudos</span>
+            </div>
+            <div class="content__desc__right">
+              <% if post.user.photo.attached? %>
+                <%= cl_image_tag post.user.photo.key, class: "post__content__avatar" %>
+              <% else %>
+                <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "post__content__avatar" %>
+              <% end %>
+              <div class="post__content__user">
+                <span class="static__text"><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
+                <span class="static__text"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
               </div>
             </div>
           </div>
-      <% end %>
         </div>
-    <% end %>
-  </div>
-  <div class="site__content__right">
-    <%= render "shared/categories" %>
-    <%= render "shared/users" %>
-    <%= render "shared/traders" %>
+      <% end %>
+    </div>
+    <div class="site__content__right">
+      <%= render "shared/categories" %>
+      <%= render "shared/users" %>
+      <%= render "shared/traders" %>
+    </div>
   </div>
 </div>
