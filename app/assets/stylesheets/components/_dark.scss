@@ -80,3 +80,21 @@ body.dark .form__container{
 body.dark .post__item{
   color: $cv-white;
 }
+
+body.dark .form-control{
+  background-color: #434759 !important;
+  border: 1px solid #434759;
+  color: white !important;
+  border-radius: 5px;
+}
+
+body.dark ::placeholder{
+  color: $cv-white;
+}
+
+body.dark .form-select{
+  background-color: #434759 !important;
+  border: 1px solid #434759;
+  color: white !important;
+  border-radius: 10px;
+}
