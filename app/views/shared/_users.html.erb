@@ -4,7 +4,7 @@
     <div class="line__border"></div>
     <div class="board__content">
       <% User.order('karma DESC').all.first(10).each do |user| %>
-        <span class="board__content__text"><%= link_to user.username, user_path(user) %>
+        <span class="board__content__text"><%= link_to user.username.truncate(12), user_path(user) %>
         &nbsp;<span class="static__text">· <%= user.karma %>
         &nbsp;pts</span></span>
       <% end %>
