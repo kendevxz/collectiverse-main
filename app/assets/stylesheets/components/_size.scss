@@ -28,6 +28,9 @@
     width: 100%;
     grid-template-columns: 1fr;
   }
+  .search__bar__placeholder {
+    display: none;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -36,12 +39,18 @@
     width: 100%;
     grid-template-columns: 1fr;
   }
+  .search__bar__placeholder {
+    display: none;
+  }
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .site__content {
     width: 100%;
     grid-template-columns: 1fr 2fr;
+  }
+  .search__bar__placeholder {
+    display: none;
   }
 }
 
@@ -51,6 +60,9 @@
     width: 80%;
     grid-template-columns: 1fr 3fr;
   }
+  .search__bar__placeholder {
+    display: flex;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -58,5 +70,8 @@
   .site__content {
     width: 80%;
     grid-template-columns: 1fr 3fr 1fr;
+  }
+  .search__bar__placeholder {
+    display: flex;
   }
 }
