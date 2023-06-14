@@ -2,10 +2,10 @@
   <div class="registration__content__left">
     <div class="registration__box">
       <div class="form__container p-5" style="width: 100%">
-        <h2>Log-in</h2>
+        <h2 class="static__text">Log-in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-            <div class="form__inputs w-100">
+            <div class="form__inputs w-100 static__text">
               <%= f.input :email,
                           required: false,
                           autofocus: true,
