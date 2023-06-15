@@ -11,13 +11,36 @@
     </div>
 
     <div class="site__content__center">
+        <div class="form__container">
+          <span class="static__text xxl__font form__main__text"><strong>Create a post</strong></span>
+          <div class="line__border"></div>
+          <div data-controller="character-counter">
+            <%= simple_form_for Post.new do |f| %>
+            <div class="form__input__container">
+              <div class="left__input__container">
+                <%= f.input :title, placeholder: "Title", label: false %>
+                <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
+                <p class="static__text"><span data-character-counter-target="counter"></span>/20.000</p>
+                <%= f.association :category, selected: "transformers",   label: false  %>
+              </div>
+              <div class="right__input__container">
+                <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
+              </div>
+            </div>
+            <div class="line__border"></div>
+              <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
+            <% end %>
+          </div>
+        </div>
+
+
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do  %>
         <div class="post__container">
           <div class="post__desc">
           <span class="xxl__font static__text content__title"><strong><%= post.title %></strong></span>
-          <div style="margin-bottom: 10px;">
-            <span class="static__text"><%= link_to post.category.name.titleize, category_path(post.category), style: " background: #434859; padding: 5px; border-radius: 5px; font-weight: bold;" %></span>
+          <div style="margin-bottom: 12.5px">
+            <span><%= link_to post.category.name.titleize, category_path(post.category), class:"post__category" %></span>
           </div>
             <div class="content__fill">
               <span class="m__font static__text"><%= post.content.truncate(130) %></span>
@@ -47,7 +70,6 @@
     <div class="site__content__right">
       <%= render "shared/categories" %>
       <%= render "shared/users" %>
-      <%= render "shared/traders" %>
       <%= render "shared/toys" %>
     </div>
   </div>
