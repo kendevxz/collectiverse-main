@@ -3,11 +3,7 @@
   <div class="board__container">
     <span class="board__main__text xxl__font"><strong><%= link_to @post.category.name.upcase, category_path(@post.category) %></strong></span>
     <div class="line__border"></div>
-    <div class="board__sub">
-      <div class="board__sub__container">
-        <span class="static__text xxl__font"></span>
-        <span class="static__text xl__font"> Karma </span>
-      </div>
+    <div class="board__sub d-flex justify-content-between px-4"> <%# quick fix for pitch 14-06, maafkan saya for the ugly code %>
       <div class="board__sub__container">
         <span class="static__text xxl__font"><%= @post.category.posts.count %> </span>
         <span class="static__text xl__font"> Posts </span>
