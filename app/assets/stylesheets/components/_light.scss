@@ -42,7 +42,7 @@ body.light .profile__button:hover{
 }
 
 body.light .profile__text{
-  color: $cv-blue;
+  color: black;
 }
 
 body.light .dropdown-menu.show{
@@ -69,4 +69,8 @@ body.light .post__container{
 
 body.light .post__item{
   color: black;
+}
+
+body.light .post__category{
+  background-color: $cv-white;
 }

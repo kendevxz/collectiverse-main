@@ -11,12 +11,6 @@
   border-bottom: 1px solid;
 }
 
-.forum__logo__image {
-  height: 46px;
-  object-fit: cover;
-  margin-left: 12px;
-}
-
 .forum__logo__text{
   display: flex;
   align-items: center;
@@ -25,7 +19,7 @@
   height: 50px;
   letter-spacing: 1px;
   font-weight: 600;
-  margin-left: 6px;
+  margin-left: 12px;
 }
 
 .navigation__bar__left{
