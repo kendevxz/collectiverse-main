@@ -732,7 +732,7 @@ ssr-window@^4.0.0, ssr-window@^4.0.2:
 
 stimulus-carousel@^5.0.1:
   version "5.0.1"
-  resolved "https://registry.npmjs.org/stimulus-carousel/-/stimulus-carousel-5.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/stimulus-carousel/-/stimulus-carousel-5.0.1.tgz#87306f7619ea64a8c36258f6f90f2989089c848d"
   integrity sha512-j37fjoUc/4hkroxuEK6OuhYMd7d9sZN/5pKB5Y+PJzM9Wy5KvAfsURW4c7zMo58BQAlVrrz45XJrHc/XleEU3Q==
   dependencies:
     swiper "^8.4.5"
