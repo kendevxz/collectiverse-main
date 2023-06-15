@@ -128,6 +128,14 @@ body.dark .simple-calendar .calendar-day{
   color: $cv-white;
 }
 
+body.dark .simple-calendar .prev-month .calendar-day {
+  color: transparent !important;
+}
+
+body.dark .simple-calendar .next-month .calendar-day {
+  color: transparent !important;
+}
+
 body.dark .table-striped > tbody > tr:nth-of-type(odd) > * {
   background-color: #434859;
 }
