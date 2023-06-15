@@ -16,6 +16,9 @@
         <div class="post__container">
           <div class="post__desc">
           <span class="xxl__font static__text content__title"><strong><%= post.title %></strong></span>
+          <div style="margin-bottom: 10px;">
+            <span class="static__text"><%= link_to post.category.name.titleize, category_path(post.category), style: " background: #434859; padding: 5px; border-radius: 5px; font-weight: bold;" %></span>
+          </div>
             <div class="content__fill">
               <span class="m__font static__text"><%= post.content.truncate(130) %></span>
             </div>
@@ -23,9 +26,7 @@
         <% end %>
           <div class="content__item">
             <div class="content__desc__left">
-              <span class="static__text m__font"><%= link_to post.category.name.titleize, category_path(post.category) %>
-              &nbsp;·&nbsp;<%= post.karma %> kudos
-              &nbsp;·&nbsp;<%= post.comments.size %> comments</span>
+              <span class="static__text m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
             </div>
             <div class="content__desc__right">
               <% if post.user.photo.attached? %>

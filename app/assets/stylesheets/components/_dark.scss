@@ -84,7 +84,7 @@ body.dark .post__item{
 body.dark .form-control{
   background-color: #434759 !important;
   border: 1px solid #434759;
-  color: white !important;
+  color:  $cv-white !important;
   border-radius: 5px;
 }
 
@@ -95,7 +95,7 @@ body.dark ::placeholder{
 body.dark .form-select{
   background-color: #434759 !important;
   border: 1px solid #434759;
-  color: white !important;
+  color:  $cv-white !important;
   border-radius: 10px;
 }
 
@@ -107,4 +107,47 @@ body.dark .toys__content {
 
 body.dark .asdndzone {
   color: $cv-white;
+}
+
+
+body.dark .simple-calendar table {
+  background-color: #242834;
+  border: 1px solid white;
+}
+
+body.dark .simple-calendar th {
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-top: 0px none #242834;
+  background-color: #242834;
+  color:  white !important;
+}
+
+
+body.dark .table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #434859;
+}
+
+body.dark .table > :not(caption) > * > * {
+  background-color: #242834;
+}
+
+body.dark .simple-calendar .current-month {
+  color:  white !important;
+}
+
+body.dark .simple-calendar .fa-chevron-left::before, .simple-calendar .fa-chevron-right::before {
+  color:  white !important;
+}
+
+body.dark .simple-calendar .green-day {
+    background: #82ba08;
+    color: white !important;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+body.dark .card-release-toy {
+  background-color: #434859;
 }
