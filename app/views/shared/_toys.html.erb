@@ -4,7 +4,7 @@
   <div class="line__border"></div>
     <div class="board__content">
       <% Toy.all.each do |toy| %>
-        <span , class="board__content__text"><%= toy.name.titleize.truncate(25) %></span>
+        <span , class="board__content__text"><%= toy.name.titleize.truncate(20) %></span>
       <% end %>
     </div>
     <div class="line__border"></div>
