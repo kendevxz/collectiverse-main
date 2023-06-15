@@ -89,7 +89,7 @@ toy1.save!
 toy2 = Toy.new(name: "Studio Series Bumblebee", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427331-088df3be7ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
 toy2.save!
 
-toy3 = Toy.new(name: "Hot Toys Superman", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_6.id, image_url:"https://images.unsplash.com/photo-1608889476501-ea8c0f0b8d3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
+toy3 = Toy.new(name: "Hot Toys Spiderman", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_6.id, image_url:"https://images.unsplash.com/photo-1608889476501-ea8c0f0b8d3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
 toy3.save!
 
 toy4 = Toy.new(name: "Prime1 Optimus Prime", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427329-9d72b824e144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
