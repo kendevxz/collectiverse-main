@@ -8,7 +8,7 @@
           <%= image_tag(toy.image_url, class: "card-img-calendar") %>
           </div>
           <div class="card-content m-3">
-            <h3 class="toy-name static__text xl__font"><%= toy.name.truncate(30) %></h3>
+            <h3 class="toy-name static__text xl__font"><%= toy.name.truncate(25) %></h3>
             <div class="d-flex justify-content-between">
               <p class="toy-release-date static__text l__font"><%= toy.release_date %></p>
               <%= link_to release_date_path(toy), class: "button__secondary" do %>
