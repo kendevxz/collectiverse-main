@@ -42,6 +42,22 @@
           </div>
         </div>
       <% end %>
+      <% if @posts.empty? %>
+      <div class="post__container">
+        <div class="post__desc">
+          <span class="xl__font static__text content__title"><strong>Can't find the post you are looking for?</strong></span>
+        </div>
+          <div class="content__fill">
+            <span class="m__font static__text"><strong>Create the post yourself!</strong></span>
+          </div>
+        <div class="content__item">
+          <div class="content__desc__left">
+              <span class="static__text"><strong><%= link_to "New post", new_post_path, class: "button__secondary" %></strong></span>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
     </div>
 
     <div class="site__content__right">
