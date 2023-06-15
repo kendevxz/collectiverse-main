@@ -24,6 +24,3 @@ application.register("toyimage", ToyimageController)
 
 import CharacterCounter from 'stimulus-character-counter'
 application.register('character-counter', CharacterCounter)
-
-import { Application } from "stimulus"
-import Carousel from "stimulus-carousel"
