@@ -31,8 +31,6 @@
         <span class="dropdown__label static__text">Your Profile</span>
         <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list static__text" %>
         <%= link_to "Release Toys", "/toys", class: "dropdown-item dropdown__list static__text" %>
-        <%= link_to "More about Kudos", "/karma", class: "dropdown-item dropdown__list static__text" %>
-        <%= link_to "About", "/about", class:"dropdown-item dropdown__list stactic__text" %>
         <div class="line__border"></div>
         <span class="dropdown__label static__text">Accessibility</span>
         <% if cookies[:theme] == "light" %>
