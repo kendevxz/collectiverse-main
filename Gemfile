@@ -79,7 +79,6 @@ end
 gem "devise"
 gem "cloudinary"
 gem 'faker'
-gem "simple_calendar", "~> 2.4"
 gem 'acts_as_votable'
 gem 'coffee-script-source', '1.8.0'
 gem "pg_search"

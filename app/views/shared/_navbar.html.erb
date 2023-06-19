@@ -30,7 +30,6 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <span class="dropdown__label static__text">Your Profile</span>
         <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list static__text" %>
-        <%= link_to "Release Toys", "/toys", class: "dropdown-item dropdown__list static__text" %>
         <div class="line__border"></div>
         <span class="dropdown__label static__text">Accessibility</span>
         <% if cookies[:theme] == "light" %>
