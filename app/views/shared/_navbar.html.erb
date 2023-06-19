@@ -10,7 +10,9 @@
   </div>
   <div class="navigation__bar__right">
     <% if user_signed_in? %>
-      <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, new_post_path,  class:"nav__item nav__icon" %>
+      <%= link_to "#", class: "nav__item nav__icon", data: { bs_toggle: "collapse" }, href:"#collapsePost", role:"button", 'aria-expanded':"false", 'aria-controls':"collapsePost" do %>
+        <i class="fa-solid fa-circle-plus"></i>
+      <% end %>
       <%= link_to "#", class: "nav__item nav__icon", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
         <i class="fa-solid fa-bell"></i>
       <% end %>
