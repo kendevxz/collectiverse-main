@@ -8,32 +8,7 @@
     <%= render "shared/bio" %>
     </div>
 
-  <div class="site__content__right">
-  <div class="board">
-  <div class="board__container">
-    <section style="background-color:$cv-light-blue;">
-      <div class="calendar__container d-flex flex-column" data-controller="calendar">
-          <div class="card__calender">
-            <div class="simple-calendar">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                  <%= month_calendar(events: @user.toys, attribute: :release_date) do |date, toys| %>
-                  <div class="calendar-day" data-full-date="<%= date %>" data-action="click->calendar#showToys">
-                    <div class="<%= "green-day" if toys.any? %>"><%= date.day %></div>
-                  </div>
-                  <% end %>
-                  </tr>
-                </thead>
-              </table>
-          </div>
-        <div class="row">
-          <div class="container align-self-end" data-calendar-target="toysbox"></div>
-        </div>
-      </div>
-    </section>
+    <div class="site__content__right">
     </div>
   </div>
-  </div>
-</div>
 </div>

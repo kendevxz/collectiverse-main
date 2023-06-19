@@ -109,56 +109,6 @@ body.dark .asdndzone {
   color: $cv-white;
 }
 
-
-body.dark .simple-calendar table {
-  background-color: #242834;
-  border: 1px solid $cv-white;
-}
-
-body.dark .simple-calendar th {
-  border-bottom: 1px solid $cv-white;
-  border-left: 1px solid $cv-white;
-  border-right: 1px solid $cv-white ;
-  border-top: 0px none #242834;
-  background-color: #242834;
-  color:  white !important;
-}
-
-body.dark .simple-calendar .calendar-day{
-  color: $cv-white;
-}
-
-body.dark .simple-calendar .prev-month .calendar-day {
-  color: transparent !important;
-}
-
-body.dark .simple-calendar .next-month .calendar-day {
-  color: transparent !important;
-}
-
-body.dark .table-striped > tbody > tr:nth-of-type(odd) > * {
-  background-color: #434859;
-}
-
-body.dark .table > :not(caption) > * > * {
-  background-color: #242834;
-}
-
-body.dark .simple-calendar .current-month {
-  color:  $cv-white;
-}
-
-body.dark .simple-calendar .fa-chevron-left::before, .simple-calendar .fa-chevron-right::before {
-  color:  $cv-white;
-}
-
-body.dark .simple-calendar .green-day {
-    background: #82ba08;
-    color: $cv-white;
-    padding: 5px 10px;
-    border-radius: 50%;
-}
-
 body.dark .card-release-toy {
   background-color: #434859;
 }

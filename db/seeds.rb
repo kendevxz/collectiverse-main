@@ -82,39 +82,6 @@ users = [user_kenny, user_jim, user_nick, user_mary]
 
 puts "Users are saved"
 
-puts "Creating 10 toys for you!"
-toy1 = Toy.new(name: "Funko POP! Chewbacca", where_to_buy: "www.paypal.com/donate", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_2.id, image_url:"https://images.unsplash.com/photo-1654574716963-45715e66e597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80")
-toy1.save!
-
-toy2 = Toy.new(name: "Studio Series Bumblebee", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427331-088df3be7ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
-toy2.save!
-
-toy3 = Toy.new(name: "Hot Toys Spiderman", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_6.id, image_url:"https://images.unsplash.com/photo-1608889476501-ea8c0f0b8d3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
-toy3.save!
-
-toy4 = Toy.new(name: "Prime1 Optimus Prime", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1658233427329-9d72b824e144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
-toy4.save!
-
-toy5 = Toy.new(name: "Studio Series Jetfire", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_1.id, image_url:"https://images.unsplash.com/photo-1616397752794-349147c0365e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
-toy5.save!
-
-toy6 = Toy.new(name: "Warhammer 40000 - Adeptus Sororitas Battle Sisters Squad", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1529981188441-8a2e6fe30103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
-toy6.save!
-
-toy7 = Toy.new(name: "Warhammer 40000 - Combat Patrol: Adepta Sororitas", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1679765811569-1e80ada5c43c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=654&q=80")
-toy7.save!
-
-toy8 = Toy.new(name: "Warhammer Age Of Sigmar Battleforce Daughters of Khaine", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1568223880170-bb6fcceab9ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
-toy8.save!
-
-toy9 = Toy.new(name: "Warhammer 40k Paint + tools Set", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1647531452166-3584eb58e6e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80")
-toy9.save!
-
-toy10 = Toy.new(name: "Warhammer 40K SMH 2023 Blood Angels Collection Two", release_date: Faker::Date.between(from: '2023-06-23', to: '2024-06-23'), category_id: user_category_3.id, image_url:"https://images.unsplash.com/photo-1568224014743-c17edeea85bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
-toy10.save!
-
-puts "Toy's created"
-
 puts 'Creating 12 realistic posts'
 post1 = Post.new(title: "Best Transformers for Collectors", content: "Hello fellow Transformers enthusiasts! I'm a passionate collector and I'm looking to expand my collection. I would love to hear your recommendations for the best Transformers figures to add to my display. What are your favorite Transformers for collectors? Any particular series or characters that stand out? Please share your thoughts and suggestions! Thank you in advance.", user_id: user_kenny.id, category_id: user_category_1.id)
 post1.save
@@ -303,30 +270,5 @@ comment12 = Comment.new(content: "I attended BotCon a few years ago, and it was 
 comment12.save
 
 puts 'Created 12 comments for the transformers post'
-
-# puts 'Creating 50 comments'
-# posts_total = Post.all
-
-# 50.times do
-#   comment = Comment.new(
-#     content:  Faker::Lorem.paragraph(sentence_count: 4, supplemental: true),
-#     post_id:  posts_total.sample.id,
-#     user_id:  users.sample.id
-#   )
-#   comment.save!
-# end
-# puts 'Created 50 comments!'
-# comment_total = Comment.all
-
-# puts 'Creating 50 subcomment'
-# 50.times do
-#   subcomment = Subcomment.new(
-#     content:      Faker::Lorem.paragraph(sentence_count: 4, supplemental: true),
-#     user_id:      users.sample.id,
-#     comment_id:   comment_total.sample.id
-#   )
-#   subcomment.save!
-# end
-# puts 'Created 50 subcomments'
 
 puts 'Finished with all seeds executions!'
