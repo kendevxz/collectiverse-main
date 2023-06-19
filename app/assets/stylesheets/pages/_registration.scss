@@ -1,3 +1,37 @@
+.registration__content__left{
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration__box{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40vw;
+  padding: 25px;
+}
+
+.registration__box__text{
+  display: flex;
+  justify-content: center;
+}
+
+.registration__content__right{
+  width: 50vw;
+}
+
+.session__image{
+  object-fit: cover;
+  width: 50vw;
+  height: calc(100vh - 50px);
+}
+
+.div-content{
+  margin-top: 25px;
+}
+
 .signup-card-background {
   background-color: white;
   display: flex;
@@ -19,3 +53,5 @@
   padding: 30px;
   margin: 120px;
 }
+
+// hello
