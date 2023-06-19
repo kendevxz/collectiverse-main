@@ -16,13 +16,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo, :bio])
   end
 
-
   def set_theme
     if params[:theme].present?
       theme = params[:theme].to_sym
-      # session[:theme] = theme
       cookies[:theme] = theme
       redirect_to(request.referrer || root_path)
+    else
+      cookies[:theme] = 'dark' #switch color mode doesnt work because of this code
     end
   end
 end
