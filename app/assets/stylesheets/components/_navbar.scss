@@ -4,17 +4,11 @@
   align-items: center;
   position: sticky;
   height: 50px;
-  min-width: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 1;
   border-bottom: 1px solid;
-}
-
-.forum__logo__image {
-  height: 46px;
-  object-fit: cover;
-  margin-left: 12px;
 }
 
 .forum__logo__text{
@@ -25,7 +19,7 @@
   height: 50px;
   letter-spacing: 1px;
   font-weight: 600;
-  margin-left: 6px;
+  margin-left: 12px;
 }
 
 .navigation__bar__left{

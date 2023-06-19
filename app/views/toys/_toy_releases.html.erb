@@ -7,12 +7,12 @@
           <%= image_tag(toy.image_url, class: "card-img-release-toy", data: { toyimage_target: "image" }) %>
         </div>
         <div class="card-header-release-toy">
-          <h5 class="card-title"><%= toy.name.truncate(30) %></h5>
+          <h5 class="card-title"><%= toy.name.truncate(25) %></h5>
         </div>
         <div class="card-body-release-toy">
           <p class="card-text">Coming in: <strong><%= (toy.release_date - start_date).to_i %></strong> Days</p>
-          <div class="card-button text-center">
-            <a href="#" class="btn-release-date">Where to buy</a>
+          <div class="card-button text-center justify-content-start d-flex">
+            <a href="#" class="button__secondary">Where to buy</a>
           </div>
         </div>
     </div>

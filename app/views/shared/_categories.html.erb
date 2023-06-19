@@ -1,11 +1,11 @@
 <div class="board">
 <div class="board__container">
-  <span class="board__main__text static__text xxl__font"><strong>Categories</strong></span>
+  <span class="board__main__text static__text xxl__font"><strong>CATEGORIES</strong></span>
   <div class="line__border"></div>
     <div class="board__content">
       <% Category.all.first(10).each do |category| %>
         <%= link_to category_path(category) do  %>
-        <span , class="board__content__text"><%= category.name.capitalize %></span>
+        <span , class="board__content__text"><%= category.name.titleize.truncate(25) %></span>
         <% end %>
       <% end %>
     </div>

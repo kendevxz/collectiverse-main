@@ -1,6 +1,6 @@
 <div class="navigation__bar navbar-expand-sm">
   <%= link_to "/", class:"navigation__bar__left" do %>
-    <%= image_tag "logo.png", class: "forum__logo__image" %><span class="forum__logo__text">COLLECTIVERSE</span>
+    <span class="forum__logo__text">COLLECTIVERSE</span>
   <% end %>
   <div class="search__bar__placeholder">
     <%= form_tag root_path, method: :get, class: "navbar-form" do %>
@@ -30,13 +30,16 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <span class="dropdown__label static__text">Your Profile</span>
         <%= link_to "Profile", user_path(current_user), class: "dropdown-item dropdown__list static__text" %>
-        <%= link_to "Setting", "/purchases", class: "dropdown-item dropdown__list static__text" %>
+        <%= link_to "Release Toys", "/toys", class: "dropdown-item dropdown__list static__text" %>
+        <%= link_to "More about Kudos", "/karma", class: "dropdown-item dropdown__list static__text" %>
+        <%= link_to "About", "/about", class:"dropdown-item dropdown__list stactic__text" %>
         <div class="line__border"></div>
         <span class="dropdown__label static__text">Accessibility</span>
-          <label class="switch", class: "dropdown-item">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
+        <% if cookies[:theme] == "light" %>
+          <%= link_to "Dark Mode", root_path(theme: "dark"), class:"dropdown-item dropdown__list static__text" %>
+        <% else %>
+          <%= link_to "Light Mode", root_path(theme: "light"), class:"dropdown-item dropdown__list static__text" %>
+        <% end %>
         <div class="line__border"></div>
         <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item static__text") %>
       </div>

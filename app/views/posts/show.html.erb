@@ -1,13 +1,20 @@
 <div class="full__site__content">
   <div class="post__site__content">
     <div class="site__content__left">
-      <div class="posts__container">
+      <div class="post__container">
         <div class="post__data">
-          <span class="post__item static__text xxl__font"><strong><%= @post.title %></strong></span>
+          <span class="post__item static__text xxl__font"><strong><%= @post.title.upcase %></strong></span>
           <span class="post__item l__font"><%= link_to @post.user.username, user_path(@post.user) %>
           &nbsp;<strong>·</strong>&nbsp;<%= link_to @post.category.name.capitalize, category_path(@post.category) %>
           &nbsp;<strong>·</strong>&nbsp;<span class="static__text"><%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span></span>
         </div>
+        <% if @post.images.attached? %>
+          <div class="post__image__container">
+            <% @post.images.each_with_index do |image| %>
+                <%= cl_image_tag image.key, class:"post__image" %>
+            <% end %>
+          </div>
+        <% end %>
         <span class="post__item static__text m__font"><%= @post.content %></span>
         <div class="comments__container" data-controller="insert-in-list">
           <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path, data: { "turbo-method": :put } %>
