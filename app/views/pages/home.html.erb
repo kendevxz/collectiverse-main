@@ -11,8 +11,11 @@
     </div>
 
     <div class="site__content__center">
-        <div class="form__container">
-          <span class="static__text xxl__font form__main__text"><strong>Create a post</strong></span>
+      <div class="form__container">
+        <%= link_to "#collapsePost", class: "static__text xxl__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls':"collapsePost" do %>
+          <strong>CREATE A POST</strong>
+        <% end %>
+        <div class="collapse" id="collapsePost">
           <div class="line__border"></div>
           <div data-controller="character-counter">
             <%= simple_form_for Post.new do |f| %>
@@ -32,6 +35,7 @@
             <% end %>
           </div>
         </div>
+      </div>
 
 
       <% @posts.each do |post| %>
@@ -86,7 +90,6 @@
     <div class="site__content__right">
       <%= render "shared/categories" %>
       <%= render "shared/users" %>
-      <%= render "shared/toys" %>
     </div>
   </div>
 </div>
