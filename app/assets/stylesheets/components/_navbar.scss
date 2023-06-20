@@ -153,3 +153,28 @@
   position: absolute;
   margin-top: 84px
 }
+
+.navbar__login{
+  padding: 5px 15px 15px 15px;
+}
+
+.navbar__login__item{
+  margin: 10px 0;
+}
+
+.navbar__login__session{
+  margin: 2.5px 0;
+}
+
+.navbar__login .navbar-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__login .form-control{
+  width: 200px;
+}
+
+.login__remember__me{
+  display: flex;
+}
