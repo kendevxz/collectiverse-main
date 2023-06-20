@@ -1,24 +1,29 @@
-<div class="site__content">
-  <div class="site__content__left">
-    <%= render "shared/current__profile" %>
-  </div>
-  <div class="site__content__center">
-    <div class="post__container">
-        <% Category.all.each do |category| %>
-        <%= link_to category_path(category) do  %>
-        <div class="post__container">
-          <div class="post__content">
-            <span class="category__title"><%= category.name %></span>
-          </div>
-          <div class="line__border"></div>
-          <% end %>
-        </div>
-      <% end %>
+<div class="full__site__content">
+  <div class="site__content">
+    <div class="site__content__left">
+      <%= render "shared/current__profile" %>
     </div>
-  </div>
-  <div class="site__content__right">
-    <%= render "shared/categories" %>
-    <%= render "shared/users" %>
-    <%= render "shared/traders" %>
+    <div class="site__content__center">
+      <div class="post__container">
+        <% current_letter = nil %>
+        <% Category.order('name ASC').all.each do |category| %>
+          <% name_letter = category.name[0].capitalize.match(/[A-Z]/) ? category.name[0].capitalize : "#" %>
+          <% if name_letter != current_letter %>
+            <% current_letter = name_letter %>
+          <span class="static__text xxl__font">
+            <strong><%= current_letter %></strong>
+          </span>
+          <% end %>
+        <%= link_to category_path(category) do  %>
+          <span class="category__list l__font"><%= category.name.titleize %></span>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="site__content__right">
+      <%= render "shared/categories" %>
+      <%= render "shared/users" %>
+      <%= render "shared/traders" %>
+    </div>
   </div>
 </div>
