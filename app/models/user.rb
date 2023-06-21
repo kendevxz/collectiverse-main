@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :user_toys
   has_many :toys, through: :user_toys
   acts_as_voter
+  has_many :notifications, as: :recipient, dependent: :destroy
 
   def increase_karma(count=1)
     update_attribute(:karma, karma + count)

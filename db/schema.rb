@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_062332) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_20_102004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_062332) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -89,6 +101,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_062332) do
     t.bigint "user_id", null: false
     t.index ["comment_id"], name: "index_subcomments_on_comment_id"
     t.index ["user_id"], name: "index_subcomments_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.string "key", null: false
+    t.boolean "subscribing", default: true, null: false
+    t.boolean "subscribing_to_email", default: true, null: false
+    t.datetime "subscribed_at"
+    t.datetime "unsubscribed_at"
+    t.datetime "subscribed_to_email_at"
+    t.datetime "unsubscribed_to_email_at"
+    t.text "optional_targets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_subscriptions_on_key"
+    t.index ["target_type", "target_id", "key"], name: "index_subscriptions_on_target_type_and_target_id_and_key", unique: true
+    t.index ["target_type", "target_id"], name: "index_subscriptions_on_target"
   end
 
   create_table "users", force: :cascade do |t|
