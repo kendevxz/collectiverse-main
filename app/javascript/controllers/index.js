@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import InsertInListController from "./insert_in_list_controller"
 application.register("insert-in-list", InsertInListController)
 
@@ -15,9 +12,6 @@ application.register("insert-subcomment-in-list", InsertSubcommentInListControll
 
 import ReplySubcommentController from "./reply_subcomment_controller"
 application.register("reply-subcomment", ReplySubcommentController)
-
-import ToyimageController from "./toyimage_controller"
-application.register("toyimage", ToyimageController)
 
 import CharacterCounter from 'stimulus-character-counter'
 application.register('character-counter', CharacterCounter)

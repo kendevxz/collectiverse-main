@@ -4,6 +4,12 @@
       <span class="banner__sub__text">A Universe for Collectors!</span>
     </div>
   </div>
+  <h2>Notifications</h2>
+  <div class="col-4">
+    <%= turbo_frame_tag "notifications" do %>
+      <%= render "notifications/notifications", user: current_user %>
+    <% end %>
+  </div>
 <div class="full__site__content">
   <div class="site__content">
     <div class="site__content__left">
