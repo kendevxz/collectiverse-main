@@ -3,8 +3,16 @@ class ApplicationController < ActionController::Base
   before_action :set_theme
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :authenticate_user!, only: %i[home]
+  before_action :notifications
 
   def home; end
+
+  def notifications
+    if current_user
+      current_user.notifications.mark_as_read!
+      @notifications = current_user.notifications.reverse
+    end
+  end
 
   protected
 
