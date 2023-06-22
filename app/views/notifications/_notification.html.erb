@@ -1,8 +1,4 @@
 <div>
-  <% if unread %>
-    <span>Unread</span>
-  <% end %>
-  <span><%= user.username %></span>
-  commented on
-  <span><%= link_to post.title, post %></span>
+  <span class="static__text"><%= link_to post.title.titleize, post_path(post)%></span>
+  <span class="static__text">| <%= user.username %> | <%= notification.created_at.to_date %> | <%= notification.read? ? "Read" : "Unread" %> </span>
 </div>
