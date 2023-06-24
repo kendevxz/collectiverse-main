@@ -1,4 +1,7 @@
 require "active_support/core_ext/integer/time"
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -67,4 +70,31 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+    #   address: 'mail.collectiverse.net',
+    #   port: 587,
+    #   domain: 'www.collectiverse.net',
+    #   user_name: 'info@collectiverse.net',
+    #   password: ENV["SMTP_PASSWORD"],
+    #   authentication: 'plain',
+    #   enable_starttls_auto: true
+    # }
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.action_mailer.delivery_method = :smtp
+    # config.action_mailer.perform_deliveries = true
+    # config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
+
+
+    ActionMailer::Base.smtp_settings = {
+      :address => "mail.collectiverse.net",
+    :port => 587,
+    :authentication => :plain,
+    :domain => ENV['SMTP_DOMAIN'],
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    enable_starttls_auto: true
+  }
 end
