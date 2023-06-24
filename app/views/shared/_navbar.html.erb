@@ -20,6 +20,12 @@
         <%= link_to "Notification", "/sales", class: "dropdown-item" %>
         <%= link_to "Message", "/purchases", class: "dropdown-item" %>
       </div>
+       <%= link_to "#", class: "nav__item nav__icon", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+        <i class="fa-solid fa-bell"></i>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= render "notifications/notifications", user: current_user %>
+      </div>
     <%= link_to "#", class: "profile__button", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "profile__avatar" %>
@@ -43,31 +49,7 @@
         <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item static__text") %>
       </div>
     <% else %>
-      <%= link_to "#", class: "btn button__login nav__item", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-      Login
-      <% end %>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <div class="navbar__login">
-          <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <div class="navbar__login__item static__text">
-                <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-              </div>
-              <div class="navbar__login__item static__text">
-                <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-              </div>
-              <div class="navbar__login__item login__remember__me static__text">
-                <%= f.check_box :remember_me %><%= f.label :remember_me %>
-              </div>
-            <%= f.submit 'Login', class: "navbar__login__item button__secondary" %>
-          <% end %>
-            <div class="navbar__login__session static__text">
-              <%= link_to "New User?", new_registration_path(:user) %>
-            </div>
-            <div class="navbar__login__session static__text">
-              <%= link_to "Forgot your password?", new_password_path(:user) %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %>
+    <% end %>
   </div>
 </div>
