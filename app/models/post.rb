@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   validates :title, length: { in: 3..64 }, presence: true
   validates :content, length: { in: 8..20_000 }, presence: true
   acts_as_votable
-
+  paginates_per 10
   include PgSearch::Model
   pg_search_scope :global_search,
     against: %i[title content],

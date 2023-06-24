@@ -84,3 +84,4 @@ gem 'coffee-script-source', '1.8.0'
 gem "pg_search"
 gem 'active_storage_drag_and_drop'
 gem 'noticed'
+gem 'kaminari'
