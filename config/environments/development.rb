@@ -82,14 +82,14 @@ Rails.application.configure do
     #   enable_starttls_auto: true
     # }
 
-    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      :user_name => ENV['SMTP_USERNAME'],
-      :password => ENV['SMTP_PASSWORD'],
-      :address => ENV['SMTP_ADDRESS'],
-      :host => ENV['SMTP_HOST'],
-      :port => ENV['SMTP_PORT'],
-      :authentication => :cram_md5
+      user_name: ENV['SMTP_USERNAME'],
+      password: ENV['SMTP_PASSWORD'],
+      address: ENV['SMTP_ADDRESS'],
+      host: ENV['SMTP_HOST'],
+      port: ENV['SMTP_PORT'],
+      authentication: :cram_md5
     }
 end
