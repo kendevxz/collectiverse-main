@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import InsertInListController from "./insert_in_list_controller"
 application.register("insert-in-list", InsertInListController)
 
@@ -12,6 +15,3 @@ application.register("insert-subcomment-in-list", InsertSubcommentInListControll
 
 import ReplySubcommentController from "./reply_subcomment_controller"
 application.register("reply-subcomment", ReplySubcommentController)
-
-import CharacterCounter from 'stimulus-character-counter'
-application.register('character-counter', CharacterCounter)

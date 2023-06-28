@@ -85,6 +85,11 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.5.tgz#bbc11203e0d3d5084002abfcf01d621fdf5f3a9d"
   integrity sha512-SOBA2heB9lTw0VYIx8M/ed7inSf4I9sR8OIlJprhgkfQ3WJtrxPJ6DDATR1Z3RYaIR7HlT2Olj08v1lfGIGuHA==
 
+"@rails/actioncable@^7.0.5-1":
+  version "7.0.5-1"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.5-1.tgz#900ef463774b94d81d1b5fca5cf4d0fa40aec6c2"
+  integrity sha512-Dj/VTnMTUfLSqXI1+t7nmDs1wODu08mF8Ct6H4WjRxDjmgCp/OPI5x8WWdm1IEdlQApfcuMX2/UVpttKdJUFpA==
+
 "@splidejs/splide@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.1.4.tgz#02d029360569e7d75d28357a9727fc48322015a3"
