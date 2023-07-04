@@ -28,15 +28,47 @@ a {
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+  // Main
   .site__content {
     width: 100%;
     grid-template-columns: 1fr;
+  }
+  .site__content__left{
+    min-height: auto;
+    overflow: auto;
+  }
+  // Navigation Bar
+  .navigation__bar{
+    grid-template-columns: 1fr 1fr;
   }
   .search__bar__placeholder {
     display: none;
   }
   .forum__logo__text {
     font-size: 20px;
+  }
+  .profile__text{
+    display: none;
+  }
+  .profile__online__status{
+    display: none;
+  }
+  .profile__avatar{
+    margin-left: 1px;
+  }
+  .profile__button{
+    width: 30px;
+    height: 30px;
+  }
+  .nav__item{
+    margin: 0 2px;
+  }
+  .nav__icon{
+    font-size: 20px;
+  }
+  // Board
+  .sticky__board{
+    top: 0;
   }
 }
 

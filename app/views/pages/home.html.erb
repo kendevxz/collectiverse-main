@@ -11,6 +11,7 @@
     </div>
 
     <div class="site__content__center">
+    <% if user_signed_in? %>
       <div class="form__container">
         <%= link_to "#collapsePost", class: "static__text xxl__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls':"collapsePost" do %>
           <strong>CREATE A POST</strong>
@@ -36,6 +37,7 @@
           </div>
         </div>
       </div>
+    <% end %>
 
 
       <% @posts.each do |post| %>
