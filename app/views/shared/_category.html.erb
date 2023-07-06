@@ -1,16 +1,16 @@
 <div class="board">
   <% if user_signed_in? %>
   <div class="board__container">
-    <span class="board__main__text xxl__font"><strong><%= link_to @category.name.upcase, category_path(@category) %></strong></span>
+    <span class="board__main__text header__font"><strong><%= link_to @category.name.upcase, category_path(@category) %></strong></span>
     <div class="line__border"></div>
     <div class="board__sub d-flex justify-content-between p-3"> <%# quick fix for pitch 14-06, maafkan saya for the ugly code %>
       <div class="board__sub__container">
-        <span class="static__text xxl__font"><%= @category.posts.count %> </span>
-        <span class="static__text xl__font"> Posts </span>
+        <span class="header__font"><%= @category.posts.count %> </span>
+        <span class="xl__font"> Posts </span>
       </div>
       <div class="board__sub__container">
-        <span class="static__text xxl__font"> <%= User.count %> </span>
-        <span class="static__text xl__font"> Users </span>
+        <span class="header__font"> <%= User.count %> </span>
+        <span class="xl__font"> Users </span>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
   </div>
   <% else %>
   <div class="board__container">
-    <span class="board__main__text static__text xxl__font"><strong>Home Page</strong></span>
+    <span class="board__main__text header__font"><strong>Home Page</strong></span>
     <span class="board__main__text"><%= link_to "Login", new_user_session_path, class: "btn button__login nav__item" %></span>
   </div>
   <% end %>

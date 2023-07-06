@@ -1,14 +1,11 @@
 // Light Mode
 body.light {
   background: $cv-light-blue;
+  color: black;
 }
 
 body.light .line__border {
   background-color: #CBCBCB;
-}
-
-body.light .static__text{
-  color: black;
 }
 
 body.light a{

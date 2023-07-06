@@ -13,7 +13,7 @@
     <div class="site__content__center">
     <% if user_signed_in? %>
       <div class="form__container">
-        <%= link_to "#collapsePost", class: "static__text xxl__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls':"collapsePost" do %>
+        <%= link_to "#collapsePost", class: "header__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls':"collapsePost" do %>
           <strong>CREATE A POST</strong>
         <% end %>
         <div class="collapse" id="collapsePost">
@@ -24,7 +24,7 @@
               <div class="left__input__container">
                 <%= f.input :title, placeholder: "Title", label: false %>
                 <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
-                <p class="static__text"><span data-character-counter-target="counter"></span>/20.000</p>
+                <span data-character-counter-target="counter"></span>/20.000
                 <%= f.association :category, selected: "transformers",   label: false  %>
               </div>
               <div class="right__input__container">
@@ -44,18 +44,18 @@
         <%= link_to post_path(post) do  %>
         <div class="post__container">
           <div class="post__desc">
-          <span class="xxl__font static__text content__title"><strong><%= post.title %></strong></span>
+          <span class="header__font content__title"><strong><%= post.title %></strong></span>
           <div style="margin-bottom: 12.5px">
             <span><%= link_to post.category.name.titleize, category_path(post.category), class:"post__category" %></span>
           </div>
             <div class="content__fill">
-              <span class="m__font static__text"><%= post.content.truncate(130) %></span>
+              <span class="m__font"><%= post.content.truncate(130) %></span>
             </div>
           </div>
         <% end %>
           <div class="content__item">
             <div class="content__desc__left">
-              <span class="static__text m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
+              <span class="m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
             </div>
             <div class="content__desc__right">
               <% if post.user.photo.attached? %>
@@ -64,8 +64,8 @@
                 <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "post__content__avatar" %>
               <% end %>
               <div class="post__content__user">
-                <span class="static__text"><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
-                <span class="static__text"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+                <span><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
+                <span><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
               </div>
             </div>
           </div>
@@ -77,14 +77,14 @@
       <% if @posts.empty? %>
       <div class="post__container">
         <div class="post__desc">
-          <span class="xl__font static__text content__title"><strong>Can't find the post you are looking for?</strong></span>
+          <span class="xl__font content__title"><strong>Can't find the post you are looking for?</strong></span>
         </div>
           <div class="content__fill">
-            <span class="m__font static__text"><strong>Create the post yourself!</strong></span>
+            <span class="m__font"><strong>Create the post yourself!</strong></span>
           </div>
         <div class="content__item">
           <div class="content__desc__left">
-              <span class="static__text"><strong><%= link_to "New post", new_post_path, class: "button__secondary" %></strong></span>
+              <span><strong><%= link_to "New post", new_post_path, class: "button__secondary" %></strong></span>
           </div>
         </div>
       </div>
@@ -94,6 +94,7 @@
 
     <div class="site__content__right">
       <%= render "shared/categories" %>
+      <div class="board__gap"></div>
       <%= render "shared/users" %>
     </div>
   </div>

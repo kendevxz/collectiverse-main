@@ -10,7 +10,7 @@
           <% name_letter = category.name[0].capitalize.match(/[A-Z]/) ? category.name[0].capitalize : "#" %>
           <% if name_letter != current_letter %>
             <% current_letter = name_letter %>
-          <span class="static__text xxl__font">
+          <span class="header__font">
             <strong><%= current_letter %></strong>
           </span>
           <% end %>
@@ -22,7 +22,9 @@
     </div>
     <div class="site__content__right">
       <%= render "shared/categories" %>
+      <div class="board__gap"></div>
       <%= render "shared/users" %>
+      <div class="board__gap"></div>
       <%= render "shared/traders" %>
     </div>
   </div>

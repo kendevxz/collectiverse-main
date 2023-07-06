@@ -1,13 +1,13 @@
 <div class="h-100 d-flex align-items-center justify-content-center">
   <div class="form__container mt-5 " style="width: 70%">
-    <h2 class="static__text">Create a new post</h2>
+    <h2>Create a new post</h2>
     <hr class="solid">
     <div data-controller="character-counter">
       <%= simple_form_for @post do |f| %>
         <div class="form__inputs">
           <%= f.input :title, placeholder: "Title", label: false%>
           <%= f.input :content, as: :text, label: false, placeholder: "Description", input_html: { data: { character_counter_target: "input" } } %>
-          <p class="static__text"><strong data-character-counter-target="counter"></strong>/20.000</p>
+          <strong data-character-counter-target="counter"></strong>/20.000
           <%= f.association :category, selected: "transformers",   label: false  %>
           <%= f.input :images, label: false, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, class: "btn button__secondary" %>

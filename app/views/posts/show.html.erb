@@ -3,10 +3,10 @@
     <div class="site__content__left">
       <div class="post__container">
         <div class="post__data">
-          <span class="post__item static__text xxl__font"><strong><%= @post.title.upcase %></strong></span>
+          <span class="post__item header__font"><strong><%= @post.title.upcase %></strong></span>
           <span class="post__item l__font"><%= link_to @post.user.username, user_path(@post.user) %>
           &nbsp;<strong>·</strong>&nbsp;<%= link_to @post.category.name.capitalize, category_path(@post.category) %>
-          &nbsp;<strong>·</strong>&nbsp;<span class="static__text"><%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span></span>
+          &nbsp;<strong>·</strong>&nbsp;<span><%= distance_of_time_in_words_to_now(@post.created_at) %> ago</span></span>
         </div>
         <% if @post.images.attached? %>
           <div class="post__image__container">
@@ -15,10 +15,10 @@
             <% end %>
           </div>
         <% end %>
-        <span class="post__item static__text m__font"><%= @post.content %></span>
+        <span class="post__item m__font"><%= @post.content %></span>
         <div class="comments__container" data-controller="insert-in-list">
           <%= link_to '<i class="fa-solid fa-up-long"></i>'.html_safe, like_post_path, data: { "turbo-method": :put } %>
-          <span class="static__text m__font"><%= @post.karma %></span>
+          <span class="m__font"><%= @post.karma %></span>
           <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path, data: { "turbo-method": :put } %>
           <div class="post__comment"  data-insert-in-list-position-value="beforeend">
             <div data-comments-counter-controller="comments">
@@ -27,13 +27,13 @@
           </div>
           <div class="line__border"></div>
           <% if @post.comments.blank? %>
-            <span class="static__text m__font">Be the first to leave a comment!</span>
+            <span class="m__font">Be the first to leave a comment!</span>
           <% else %>
             <div class="comments__box">
             <% if @post.comments.count == 1 %>
-              <span class="static__text m__font">1 comment</span>
+              <span class="m__font">1 comment</span>
             <% else %>
-              <span data-insert-in-list-target="count" class="static__text m__font"><%= pluralize @post.comments.size, "comments" %></span>
+              <span data-insert-in-list-target="count" class="m__font"><%= pluralize @post.comments.size, "comments" %></span>
             <% end %>
             </div>
           <div class="comments__big__box">
@@ -65,8 +65,11 @@
     </div>
     <div class="site__content__right">
       <%= render "shared/post__category" %>
+      <div class="board__gap"></div>
       <%= render "shared/categories" %>
+      <div class="board__gap"></div>
       <%= render "shared/users" %>
+      <div class="board__gap"></div>
       <%= render "shared/traders" %>
     </div>
   </div>

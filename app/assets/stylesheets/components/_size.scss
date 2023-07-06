@@ -74,6 +74,18 @@ a {
   .sticky__board{
     top: 0;
   }
+  // Registration
+  .registration__box{
+    width: 80%;
+  }
+  .edit__profile__box{
+    width: 80%;
+  }
+  // Post
+  .post__site__content {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
