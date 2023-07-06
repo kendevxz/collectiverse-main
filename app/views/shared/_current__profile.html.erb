@@ -1,20 +1,20 @@
 <div class="board">
   <% if user_signed_in? %>
   <div class="board__container">
-    <span class="board__main__text xxl__font"><strong><%= link_to current_user.username.upcase, user_path(current_user) %></strong></span>
+    <span class="board__main__text header__font"><strong><%= link_to current_user.username.upcase, user_path(current_user) %></strong></span>
     <div class="line__border"></div>
     <div class="board__sub">
       <div class="board__sub__container">
-        <span class="static__text xxl__font"><%= current_user.karma %></span>
-        <span class="static__text m__font"> Kudos </span>
+        <span class="header__font"><%= current_user.karma %></span>
+        <span class="m__font"> Kudos </span>
       </div>
       <div class="board__sub__container">
-        <span class="static__text xxl__font"><%= current_user.posts.count %></span>
-        <span class="static__text m__font"> Posts </span>
+        <span class="header__font"><%= current_user.posts.count %></span>
+        <span class="m__font"> Posts </span>
       </div>
       <div class="board__sub__container">
-        <span class="static__text xxl__font"><%= current_user.comments.count %></span>
-        <span class="static__text m__font"> Comments </span>
+        <span class="header__font"><%= current_user.comments.count %></span>
+        <span class="m__font"> Comments </span>
       </div>
     </div>
   </div>
@@ -25,30 +25,30 @@
   <% end %>
   <% else %>
   <div class="board__container">
-    <span class="board__main__text static__text xxl__font"><strong>HALT, COLLECTOR!</strong></span>
+    <span class="board__main__text header__font"><strong>HALT, COLLECTOR!</strong></span>
     <div class="line__border"></div>
-    <span class="board__main__text static__text xxl__font"><strong>Please
+    <span class="board__main__text header__font"><strong>Please
     <%= link_to "#collapseLogin", data: { bs_toggle: "collapse" }, 'aria-controls':"collapseLogin" do %>
     Login
     <% end %>
     to continue!</strong></span>
     <div class="collapse" id="collapseLogin">
     <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <div class="navbar__login__item static__text">
+              <div class="navbar__login__item">
                 <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
               </div>
-              <div class="navbar__login__item static__text">
+              <div class="navbar__login__item">
                 <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
               </div>
-              <div class="navbar__login__item login__remember__me static__text">
+              <div class="navbar__login__item login__remember__me">
                 <%= f.check_box :remember_me %><%= f.label :remember_me %>
               </div>
             <%= f.submit 'Login', class: "navbar__login__item button__secondary" %>
           <% end %>
-            <div class="navbar__login__session static__text">
+            <div class="navbar__login__session">
               <%= link_to "New User?", new_registration_path(:user) %>
             </div>
-            <div class="navbar__login__session static__text">
+            <div class="navbar__login__session">
               <%= link_to "Forgot your password?", new_password_path(:user) %>
             </div>
     </div>

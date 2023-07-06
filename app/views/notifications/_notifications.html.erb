@@ -1,6 +1,6 @@
 <% if current_user %>
   <% if @notifications.empty? %>
-    <span class="static__text">Not popular....</span>
+    <span>Not popular....</span>
     <% else %>
     <div class="container">
       <% @notifications.each do |notification| %>

@@ -1,17 +1,18 @@
 // Dark Mode
 body.dark {
   background: $cv-bg-black;
+  color: $cv-white;
 }
 
 body.dark .line__border {
   background-color: $cv-white;
 }
 
-body.dark .static__text{
+body.dark a{
   color: $cv-white;
 }
 
-body.dark a{
+body.dark span{
   color: $cv-white;
 }
 

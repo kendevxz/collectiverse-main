@@ -5,6 +5,7 @@
   <div class="user__site__content">
     <div class="site__content__left">
     <%= render "shared/profile" %>
+    <div class="board__gap"></div>
     <%= render "shared/bio" %>
     </div>
 
@@ -13,18 +14,18 @@
         <%= link_to post_path(post) do  %>
         <div class="post__container">
           <div class="post__desc">
-          <span class="xxl__font static__text content__title"><strong><%= post.title %></strong></span>
+          <span class="header__font content__title"><strong><%= post.title %></strong></span>
           <div style="margin-bottom: 12.5px">
             <span><%= link_to post.category.name.titleize, category_path(post.category), class:"post__category" %></span>
           </div>
             <div class="content__fill">
-              <span class="m__font static__text"><%= post.content.truncate(130) %></span>
+              <span class="m__font"><%= post.content.truncate(130) %></span>
             </div>
           </div>
         <% end %>
           <div class="content__item">
             <div class="content__desc__left">
-              <span class="static__text m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
+              <span class="m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
             </div>
             <div class="content__desc__right">
               <% if post.user.photo.attached? %>
@@ -33,8 +34,8 @@
                 <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "post__content__avatar" %>
               <% end %>
               <div class="post__content__user">
-                <span class="static__text"><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
-                <span class="static__text"><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+                <span><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
+                <span><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
               </div>
             </div>
           </div>
