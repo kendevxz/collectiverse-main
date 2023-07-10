@@ -5,16 +5,22 @@ class User < ApplicationRecord
   has_many :posts
   has_one_attached :photo
   has_many :comments, dependent: :destroy
-  has_many :user_toys
-  has_many :toys, through: :user_toys
   acts_as_voter
   has_many :notifications, as: :recipient, dependent: :destroy
 
-  def increase_karma(count=1)
+  scope :all_except, ->(user) {where.not(id: user)}
+  after_create_commit {broadcast_append_to 'users'}
+  has_many :messages
+
+  def message
+    @user = User.find(params[:id])
+  end
+
+  def increase_karma(count = 1)
     update_attribute(:karma, karma + count)
   end
 
-  def decrease_karma(count=1)
+  def decrease_karma(count = 1)
     update_attribute(:karma, karma - count)
   end
 

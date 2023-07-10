@@ -3,7 +3,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    if @user = User.find_by_email_address(params[:email])
+    if @user === User.find_by_email_address(params[:email])
       PasswordMailer.with(user: @user).reset.deliver_later
     end
     redirect_to '/login', notice: 'If an account with that email was found, we have sent a link to reset password'
