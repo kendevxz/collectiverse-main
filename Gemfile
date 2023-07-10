@@ -76,12 +76,20 @@ group :test do
   gem "webdrivers"
 end
 
-gem "devise"
+gem "devise", "~> 4.9.2"
+
 gem "cloudinary"
+
 gem 'faker'
+
 gem 'acts_as_votable'
+
 gem 'coffee-script-source', '1.8.0'
+
 gem "pg_search"
+
 gem 'active_storage_drag_and_drop'
+
 gem 'noticed'
+
 gem 'kaminari'

@@ -1,27 +1,34 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    message: 'users/message'
+  }
+# devise custom routes tomorrow
+
+  root 'pages#home'
+
+  get 'rooms/index'
   get 'password_resets/new'
   get 'password_resets/create'
   get 'password_resets/edit'
   get 'password_resets/update'
-  devise_for :users
-
-  root 'pages#home'
-  get '/profile', to: "pages#profile"
-  get '/karma', to: "pages#karma"
-  get '/about', to: "pages#about"
 
   get '/password/reset', to: 'password_resets#new'
   post '/password/reset', to: 'password_resets#create'
   get '/password/reset/edit', to: 'password_resets#edit'
   patch '/password/reset/edit', to: 'password_resets#update'
 
+  resources :rooms do
+    resources :messages
+  end
+
   resources :categories
-  resources :users, only: [:show, :edit, :update]
+
+  resources :users, only: [:show, :edit, :update, :message]
+
   resources :chatrooms, only: :show do # Maybe nest it under users after chatroom setup
     resources :messages, only: :create
   end
-  resources :toys, only: :index
-  get "toys/:id/release_date", to: "toys#release_date", as: :release_date
+
   resources :posts do
     resources :comments, only: :create, shallow: true do
       resources :subcomments, only: :create
