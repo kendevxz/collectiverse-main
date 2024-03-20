@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_params, only: %i[index show upvote downvote]
+  before_action :set_post, only: %i[index show upvote downvote]
 
   def upvote
     vote_and_redirect { @post.upvote_by current_user }
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   private
 
-  def set_params
+  def set_post
     @post = Post.find(params[:id])
   end
 

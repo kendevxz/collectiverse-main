@@ -4,11 +4,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params.merge(user: current_user))
 
-    if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
-    else
-      render 'posts/show', status: :unprocessable_entity
-    end
+    redirect_to @post if @comment.save
   end
 
   private
