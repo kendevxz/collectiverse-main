@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @post = Post.new  # To be able to create a new post on category show page
+    @post = Post.new
     @posts = Post.order('karma DESC').all
   end
 
@@ -26,10 +26,11 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to root_path, status: :see_other  # adjust later
+    redirect_to root_path, status: :see_other
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name, :photo)
   end
