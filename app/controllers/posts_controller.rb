@@ -31,7 +31,6 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new  # To be able to create comment on post show page
-    @subcomment = Subcomment.new
   end
 
   def create

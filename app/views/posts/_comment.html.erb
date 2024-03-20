@@ -4,10 +4,5 @@
     <span><%= link_to comment.user.username, '/profile', class:"l__font" %> · <span><%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span></span>
     <span class="m__font"><%= comment.content %></span>
     </div>
-    <span class="s__font comment__buttons"><a data-action= "click->reply-subcomment#revealContent"><i class="fa-solid fa-reply"></i>&nbsp;Reply</a></span>
-    <% if comment.subcomments.any? %>
-      <% comment.subcomments.each do |reply| %>
-      <% end %>
-   <% end %>
   </div>
 </div>
