@@ -9,9 +9,3 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import InsertInListController from "./insert_in_list_controller"
 application.register("insert-in-list", InsertInListController)
-
-import InsertSubcommentInListController from "./insert_subcomment_in_list_controller"
-application.register("insert-subcomment-in-list", InsertSubcommentInListController)
-
-import ReplySubcommentController from "./reply_subcomment_controller"
-application.register("reply-subcomment", ReplySubcommentController)

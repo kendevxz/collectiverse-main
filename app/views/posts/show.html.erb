@@ -38,25 +38,6 @@
             </div>
           <div class="comments__big__box">
             <div class="comments_box" data-insert-in-list-target="items">
-              <% @post.comments.each do |comment| %>
-                <div data-controller="reply-subcomment">
-                  <div data-controller="insert-subcomment-in-list" data-insert-subcomment-in-list-position-value="beforeend">
-                    <div>
-                      <%= render 'posts/comment', comment: comment %>
-                      <div class="comments__big__box">
-                        <div class="comments_box">
-                        <div data-insert-subcomment-in-list-target="subcomments">
-                          <% comment.subcomments.each do |subcomment| %>
-                            <%= render 'posts/subcomment', subcomment: subcomment %>
-                          <% end %>
-                          </div>
-                        </div>
-                      </div>
-                      <%= render "subcomments/form", comment: comment, subcomment: @subcomment %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
             </div>
           </div>
               <% end %>

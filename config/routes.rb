@@ -30,9 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments, only: :create, shallow: true do
-      resources :subcomments, only: :create
-    end
+    resources :comments, only: :create, shallow: true
     put "like", action: :upvote, via: [:put,:delete], on: :member
     put "dislike", action: :downvote, via: [:put,:delete], on: :member
   end
