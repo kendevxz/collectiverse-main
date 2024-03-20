@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[index show upvote downvote]
+  before_action :set_params, only: %i[index show upvote downvote]
 
   def upvote
     vote_and_redirect { @post.upvote_by current_user }
   end
 
   def downvote
-    vote_and_redirect { @post.downvote_by current_user }
+    vote_and_redirect { @post.upvote_by current_user }
   end
 
   def new
@@ -18,14 +18,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    @post.category_id = params[:post][:category_id].to_i
-    save_and_redirect
+    @category = Category.find(params[:post][:category_id])
+    @post = current_user.posts.build(post_params.merge(category_id: @category.id))
+
+    if @post.save
+      redirect_to post_path(@post), notice: 'Post was successfully created.'
+    else
+      render 'categories/show', status: :unprocessable_entity
+    end
   end
+
 
   private
 
-  def set_post
+  def set_params
     @post = Post.find(params[:id])
   end
 
@@ -40,14 +46,6 @@ class PostsController < ApplicationController
       yield
       @post.user.send(params[:action] == 'upvote' ? :increase_karma : :decrease_karma)
       redirect_to posts_path
-    end
-  end
-
-  def save_and_redirect
-    if @post.save
-      redirect_to post_path(@post)
-    else
-      render "categories/show", status: :unprocessable_entity
     end
   end
 end
