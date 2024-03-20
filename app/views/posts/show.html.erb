@@ -36,11 +36,14 @@
               <span data-insert-in-list-target="count" class="m__font"><%= pluralize @post.comments.size, "comments" %></span>
             <% end %>
             </div>
-          <div class="comments__big__box">
-            <div class="comments_box" data-insert-in-list-target="items">
+            <div class="comments__big__box">
+              <div class="comments_box" data-insert-in-list-target="items">
+                <% @post.comments.each do |comment| %>
+                  <%= render 'posts/comment', comment: comment %>
+                <% end %>
+              </div>
             </div>
-          </div>
-              <% end %>
+          <% end %>
         </div>
       </div>
     </div>
