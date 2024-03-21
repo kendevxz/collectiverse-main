@@ -1,8 +1,0 @@
-<div class="comment__card">
-  <div class="comment__card__body">
-    <div class="comment__data">
-    <span><%= link_to comment.user.username, '/profile', class:"l__font" %> · <span><%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span></span>
-    <span class="m__font"><%= comment.content %></span>
-    </div>
-  </div>
-</div>

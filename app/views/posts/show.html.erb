@@ -22,7 +22,7 @@
           <%= link_to '<i class="fa-solid fa-down-long"></i>'.html_safe, dislike_post_path, data: { "turbo-method": :put } %>
           <div class="post__comment"  data-insert-in-list-position-value="beforeend">
             <div data-comments-counter-controller="comments">
-              <%= render "comments/form", post: @post, comment: @comment %>
+              <%= render partial: 'comments/form', locals: { post: @comment.post, parent: @comment } %>
             </div>
           </div>
           <div class="line__border"></div>
@@ -39,7 +39,7 @@
             <div class="comments__big__box">
               <div class="comments_box" data-insert-in-list-target="items">
                 <% @post.comments.each do |comment| %>
-                  <%= render 'posts/comment', comment: comment %>
+                  <%= render 'comments/comment', comment: comment %>
                 <% end %>
               </div>
             </div>

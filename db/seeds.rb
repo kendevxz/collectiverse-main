@@ -14,53 +14,33 @@ puts "All users gone!"
 
 puts "Creating categories for you!"
 category_1 = Category.new(name: "Transformers Studio Series")
-file = URI.open("https://images.unsplash.com/photo-1618945524163-32451704cbb8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
-category_1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_1.save
 
 category_2 = Category.create(name: "Marvel Legends")
-file = URI.open("https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80")
-category_2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_2.save
 
 category_3 = Category.create(name: "Star Wars Black Series")
-file = URI.open("https://images.unsplash.com/photo-1581481615985-ba4775734a9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80")
-category_3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_3.save
 
 category_4 = Category.create(name: "Power Rangers")
-file = URI.open("https://images.unsplash.com/photo-1630453662510-9617e3cd6b3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
-category_4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_4.save
 
 category_5 = Category.create(name: "Hot Toys")
-file = URI.open("https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=868&q=80")
-category_5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_5.save
 
 category_6 = Category.create(name: "Mezco One:12")
-file = URI.open("https://www.mezcotoyz.com/mas_assets/cache/image/1/6/e/2/x800-5858.Jpg")
-category_6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_6.save
 
 category_7 = Category.create(name: "S.H. Figuarts")
-file = URI.open("https://filmfiguren24.de/media/image/product/36296/lg/naruto-shippuden-sh-figuarts-actionfigur-kakashi-hatake-the-famed-sharingan-hero-16-cm.jpg")
-category_7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_7.save
 
 category_8 = Category.create(name: "Hot Wheels")
-file = URI.open("https://i.etsystatic.com/21588727/r/il/c3eb51/2704726143/il_fullxfull.2704726143_9jdz.jpg")
-category_8.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_8.save
 
 category_9 = Category.create(name: "Gundam")
-file = URI.open("https://ae01.alicdn.com/kf/H4e38f132e8544bc783653904ff1c0f3dL/BANDAI-Gundam-Montierte-Modell-Spielzeug-HGBF-1-144-Kampf-Maker-VERSUCHEN-Gundam-028-Sany-Schaffen-Flamme.jpg")
-category_9.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_9.save
 
 category_10 = Category.create(name: "Mythic Legions")
-file = URI.open("https://www.toyark.com/wp-content/uploads/2018/05/Mythic-Legions-MOTU-016.jpg")
-category_10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 category_10.save
 
 categories_list = [category_1, category_2, category_3, category_4, category_5, category_6, category_7, category_8, category_9, category_10]

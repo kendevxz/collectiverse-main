@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params.merge(user: current_user))
+    @comment = current_user.comments.new(comment_params)
 
     redirect_to @post if @comment.save
   end
@@ -10,6 +10,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :parent_id).merge(post_id: params[:post_id])
   end
 end
