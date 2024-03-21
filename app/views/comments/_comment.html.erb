@@ -15,7 +15,8 @@
           <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment.id } %>
         </div>
       </div>
-
-      <%= render comment.comments %>
+      <div class="sub__comment">
+        <%= render comment.comments %>
+      </div>
   </div>
 </div>
