@@ -38,7 +38,7 @@
             </div>
             <div class="comments__big__box">
               <div class="comments_box" data-insert-in-list-target="items">
-                <% @post.comments.each do |comment| %>
+                <% @post.comments.where(parent: nil).each do |comment| %>
                   <%= render 'comments/comment', comment: comment %>
                 <% end %>
               </div>
@@ -49,8 +49,6 @@
     </div>
     <div class="site__content__right">
       <div>
-        <%= render "shared/post__category" %>
-        <div class="board__gap"></div>
         <%= render "shared/categories" %>
         <div class="board__gap"></div>
         <%= render "shared/users" %>
