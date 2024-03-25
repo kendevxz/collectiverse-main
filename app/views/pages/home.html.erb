@@ -37,7 +37,7 @@
           <div class="post__desc">
           <span class="header__font content__title"><strong><%= post.title %></strong></span>
           <div style="margin-bottom: 12.5px">
-            <span><%= link_to post.category.name.titleize, category_path(post.category), class:"post__category" %></span>
+            <span><%= link_to post.category.name.titleize, category_path(post.category) %></span>
           </div>
             <div class="content__fill">
               <span class="m__font"><%= post.content.truncate(130) %></span>
