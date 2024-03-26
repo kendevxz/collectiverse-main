@@ -1,7 +1,7 @@
 <div class="full__site__content">
   <div class="site__content">
     <div class="site__content__left">
-      <%= render "shared/category" %>
+      <div class="sticky__board"><%= render "shared/current__profile" %></div>
     </div>
     <div class="site__content__center">
       <div class="form__container">
@@ -12,36 +12,35 @@
           <div class="line__border"></div>
           <div data-controller="character-counter">
             <%= simple_form_for @post do |f| %>
-            <div class="form__input__container">
-              <div class="left__input__container">
-                <%= f.input :title, placeholder: "Title", label: false %>
-                <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
-                <span data-character-counter-target="counter"></span>/20.000
-                <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
+              <div class="form__input__container">
+                <div class="left__input__container">
+                  <%= f.input :title, placeholder: "Title", label: false %>
+                  <%= f.input :content, as: :text, placeholder: "Post something and get more Kudos!", label: false, input_html: { data: { character_counter_target: "input" } } %>
+                  <span data-character-counter-target="counter"></span>/20.000
+                  <%= f.input :category_id, as: :hidden, input_html: {value: @category.id} %>
+                </div>
+                <div class="right__input__container">
+                  <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
+                </div>
               </div>
-              <div class="right__input__container">
-                <%= f.drag_and_drop_file_field :images, 'Drag here to upload or click here to browse', size_limit: 8_000_000 %>
-              </div>
-            </div>
-            <div class="line__border"></div>
+              <div class="line__border"></div>
               <%= f.button :submit, class: "button__secondary", style:"margin-top: 12.5px"%>
             <% end %>
           </div>
         </div>
       </div>
-        <% @category.posts.each do |post| %>
-          <%= link_to post_path(post) do  %>
+      <% @category.posts.each do |post| %>
+        <%= link_to post_path(post) do  %>
           <div class="post__container">
             <div class="post__desc">
-            <span class="header__font content__title"><strong><%= post.title %></strong></span>
-            <div style="margin-bottom: 12.5px">
-              <span><%= link_to post.category.name.titleize, category_path(post.category) %></span>
-            </div>
+              <span class="header__font content__title"><strong><%= post.title %></strong></span>
+              <div style="margin-bottom: 12.5px">
+                <span><%= link_to post.category.name.titleize, category_path(post.category) %></span>
+              </div>
               <div class="content__fill">
                 <span class="m__font"><%= post.content.truncate(130) %></span>
               </div>
             </div>
-          <% end %>
             <div class="content__item">
               <div class="content__desc__left">
                 <span class="m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
@@ -60,12 +59,12 @@
             </div>
           </div>
         <% end %>
-      </div>
-      <div class="site__content__right">
-        <%= render "shared/categories" %>
-        <div class="board__gap"></div>
-        <%= render "shared/users" %>
-      </div>
+      <% end %>
+    </div>
+    <div class="site__content__right">
+      <%= render "shared/categories" %>
+      <div class="board__gap"></div>
+      <%= render "shared/users" %>
     </div>
   </div>
 </div>
