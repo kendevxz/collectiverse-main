@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many_attached :images
   has_many :comments, dependent: :destroy
   validates :title, length: { in: 3..64 }, presence: true
-  validates :content, length: { in: 8..20_000 }, presence: true
+  validates :content, length: { in: 0..20_000 }
   acts_as_votable
   paginates_per 10
   include PgSearch::Model

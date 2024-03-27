@@ -1,0 +1,29 @@
+<%= link_to post_path(post) do  %>
+  <div class="post__container">
+    <div class="post__desc">
+      <span class="header__font content__title"><strong><%= post.title %></strong></span>
+      <div style="margin-bottom: 12.5px">
+        <span><%= link_to post.category.name.titleize, category_path(post.category) %></span>
+      </div>
+      <div class="content__fill">
+        <span class="m__font"><%= post.content.truncate(130) %></span>
+      </div>
+    </div>
+  <% end %>
+  <div class="content__item">
+    <div class="content__desc__left">
+      <span class="m__font font-weight-bold"><%= post.karma %> kudos&nbsp;&nbsp;·&nbsp;&nbsp;<%= post.comments.size %> comments</span>
+    </div>
+    <div class="content__desc__right">
+      <% if post.user.photo.attached? %>
+        <%= cl_image_tag post.user.photo.key, class: "post__content__avatar" %>
+      <% else %>
+        <%= image_tag "https://mcdn.wallpapersafari.com/medium/92/63/wUq2AY.jpg", class: "post__content__avatar" %>
+      <% end %>
+      <div class="post__content__user">
+        <span><strong><%= link_to post.user.username, user_path(post.user) %></strong></span>
+        <span><%= distance_of_time_in_words_to_now(post.created_at) %> ago</span>
+      </div>
+    </div>
+  </div>
+</div>
