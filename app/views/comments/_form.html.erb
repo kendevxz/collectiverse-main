@@ -1,9 +1,7 @@
 <%= simple_form_for([@post, @comment]) do |f| %>
   <div class="form__inputs">
     <%= f.input :content, as: :text, input_html: { class: 'form-control', placeholder: 'Write your comment...' } %>
-    <% if !parent.nil? %>
-      <%= f.hidden_field :parent_id, value: parent %>
-    <% end %>
+    <%= f.hidden_field :parent_id, value: parent %>
     <%= f.button :submit, class: "btn button__secondary" %>
   </div>
 <% end %>

@@ -1,22 +1,22 @@
 <div class="comment__card">
   <div class="comment__card__body">
-
     <div class="comment__data">
       <span><%= link_to comment.user.username, user_path(comment.user), class: "l__font" %> · <span><%= distance_of_time_in_words_to_now(comment.created_at) %> ago</span></span>
       <span class="m__font"><%= comment.content %></span>
     </div>
-
-      <%= link_to "#collapsePost_#{comment.id}", class: "header__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls': "collapsePost_#{comment.id}" do %>
-        <span class="m__font">Reply</span>
-      <% end %>
-      <div class="collapse" id="collapsePost_<%= comment.id %>">
-        <div class="line__border"></div>
-        <div>
-          <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment.id } %>
-        </div>
+    <%= link_to "#collapsePost_#{comment.id}", class: "header__font form__main__text", data: { bs_toggle: "collapse" }, 'aria-controls': "collapsePost_#{comment.id}" do %>
+      <span class="m__font">Reply</span>
+    <% end %>
+    <div class="collapse" id="collapsePost_<%= comment.id %>">
+      <div class="line__border"></div>
+      <div>
+        <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment.id } %>
       </div>
-      <div class="sub__comment">
-        <%= render comment.comments %>
+    </div>
+      <div class="comments__big__box">
+        <div class="comments_box" data-insert-in-list-target="items">
+          <%= render comment.comments %>
+        </div>
       </div>
   </div>
 </div>

@@ -38,7 +38,7 @@
             </div>
             <div class="comments__big__box">
               <div class="comments_box" data-insert-in-list-target="items">
-                <% @post.comments.where(parent: nil).each do |comment| %>
+                <% @post.comments.where(parent_id: 0).each do |comment| %>
                   <%= render 'comments/comment', comment: comment %>
                 <% end %>
               </div>
