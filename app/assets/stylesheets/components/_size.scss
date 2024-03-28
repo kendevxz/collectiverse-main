@@ -2,23 +2,13 @@ a {
   text-decoration: none;
 }
 
-.site__content {
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-gap: 34px;
-  padding: 34px;
+.full__page{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.user__site__content {
-  width: 70%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 34px;
-  padding: 34px;
-}
-
-.post__site__content {
+.content {
   width: 70%;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -29,15 +19,15 @@ a {
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   // Main
-  .site__content {
+  .content {
     width: 100%;
     grid-template-columns: 1fr;
   }
-  .user__site__content {
+  .user__content {
     width: 100%;
     grid-template-columns: 1fr;
   }
-  .site__content__left{
+  .content__left{
     min-height: auto;
     overflow: auto;
   }
@@ -74,15 +64,9 @@ a {
   .sticky__board{
     top: 0;
   }
-  // Registration
-  .registration__box{
-    width: 80%;
-  }
-  .edit__profile__box{
-    width: 80%;
-  }
+
   // Post
-  .post__site__content {
+  .post__content {
     width: 100%;
     grid-template-columns: 1fr;
   }
@@ -90,7 +74,7 @@ a {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .site__content {
+  .content {
     width: 100%;
     grid-template-columns: 1fr;
   }
@@ -100,7 +84,7 @@ a {
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .site__content {
+  .content {
     width: 100%;
     grid-template-columns: 1fr 2fr;
   }
@@ -111,9 +95,9 @@ a {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .site__content {
-    width: 80%;
-    grid-template-columns: 1fr 3fr;
+  .content {
+    width: 70%;
+    grid-template-columns: 1fr 2fr;
   }
   .search__bar__placeholder {
     display: flex;
@@ -122,9 +106,9 @@ a {
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .site__content {
-    width: 80%;
-    grid-template-columns: 1fr 3fr 1fr;
+  .content {
+    width: 70%;
+    grid-template-columns: 2fr 1fr;
   }
   .search__bar__placeholder {
     display: flex;

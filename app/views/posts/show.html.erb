@@ -1,6 +1,6 @@
-<div class="full__site__content">
-  <div class="post__site__content">
-    <div class="site__content__left">
+<div class="full__page">
+  <div class="content">
+    <div class="content__left">
       <div class="post__container">
         <div class="post__data">
           <span class="post__item header__font"><strong><%= @post.title.upcase %></strong></span>
@@ -47,11 +47,11 @@
         </div>
       </div>
     </div>
-    <div class="site__content__right">
+    <div class="content__right">
       <div>
-        <%= render "shared/categories" %>
+        <%= render "shared/current__profile" %>
         <div class="board__gap"></div>
-        <%= render "shared/users" %>
+        <%= render "shared/categories" %>
       <div>
     </div>
   </div>

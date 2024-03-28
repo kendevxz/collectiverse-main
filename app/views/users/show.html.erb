@@ -1,18 +1,10 @@
 <% start_date = Date.today %>
 <% end_date = start_date + 6 %>
 
-<div class="full__site__content">
-  <div class="user__site__content">
-    <div class="site__content__left">
-    <%= render "shared/profile" %>
-    <div class="board__gap"></div>
-    <%= render "shared/bio" %>
-    <div class="board__gap"></div>
-    <%= link_to "Start Chatting", rooms_path %>
-    </div>
-
-    <div class="site__content__right">
-    <% @user.posts.order('karma DESC').first(3).each do |post| %>
+<div class="full__page">
+  <div class="content">
+    <div class="content__left">
+      <% @user.posts.order('karma DESC').first(3).each do |post| %>
         <%= link_to post_path(post) do  %>
         <div class="post__container">
           <div class="post__desc">
@@ -43,6 +35,13 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="content__right">
+      <%= render "shared/profile" %>
+      <div class="board__gap"></div>
+      <%= render "shared/bio" %>
+      <div class="board__gap"></div>
+      <%= link_to "Start Chatting", rooms_path %>
     </div>
   </div>
 </div>
