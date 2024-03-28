@@ -1,36 +1,30 @@
-<div class="d-flex" id="set-margin">
-  <div class="registration__content__left">
-    <div class="registration__box">
-      <div class="form__container p-5" style="width: 100%">
-        <h2>Registration</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-            <div class="form__inputs w-100">
-            <%= f.input :username,
-                        required: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        # placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-            </div>
-        <div class="form-actions login__buttons">
-          <%= f.button :submit, "Sign up", class: "button__secondary"%>
-          <%= link_to "Log in", new_session_path(resource_name), class: "button__primary"%>
-        </div>
-        <% end %>
+<div class="full__page">
+  <div class="registration__box">
+    <div class="form__container p-5" style="width: 100%">
+      <h2>Registration</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+          <div class="form__inputs w-100">
+          <%= f.input :username,
+                      required: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      # placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+          </div>
+      <div class="form-actions login__buttons">
+        <%= f.button :submit, "Sign up", class: "button__secondary"%>
+        <%= link_to "Log in", new_session_path(resource_name), class: "button__primary"%>
       </div>
+      <% end %>
     </div>
-  </div>
-  <div class="registration__content__right">
-    <img class="session__image" src="https://images.pexels.com/photos/16075337/pexels-photo-16075337/free-photo-of-poppen-speelgoed-handgemaakt-grijze-achtergrond.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="collection of toys">
-    <%# <%= image_tag "login_picture", class: "session__image" %>
   </div>
 </div>
